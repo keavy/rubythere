@@ -1,0 +1,141 @@
+.clearfix:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+/* End hide from IE-mac */
+
+body{
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+	margin: 20px;
+	color: #333;
+}
+
+#hd{font-size: 93%;}
+#bd{font-size: 93%;}
+
+.form_block{font-size: 93%;}
+
+/* blocks */
+#hd{border-bottom: 4px solid #333; padding: 0 0 10px 0; margin: 0 0 30px 0;}
+#content{ margin: 20px 0 0 0; width: 960px;}
+#user-bar-greeting{ text-align: right;}
+#user-bar-action{ text-align: right;}
+.main{ width: 500px;}
+.side{ width: 380px;}
+.left{float: left;}
+.right{float: right;}
+.half{width: 49%;}
+.third{width: 33%;}
+.form_block{}
+#select_date{ margin: 10px 0;}
+.page_links{margin: 0 0 10px 0;}
+
+
+
+/* text */
+h1{font-size: 182%;}
+h2{font-size: 167%;}
+h4{font-size: 123.1%;}
+h3{font-weight: bold;}
+strong{font-weight: bold;}
+form small{color: #ccc;}
+.optional{ color: #999;}
+.optional input{ color: #999;}
+
+
+/* links */
+a.primary{color: #FF0011;}
+a.secondary{color: #00A0F0;}
+a.help{color: #00A630;}
+a.active{color: #333;}
+#page_head a{color: #FF0011;}
+#hd a{color: #333;}
+a[rel]{color: #00A0F0; padding-right: 15px; background:url(../images/external.png) no-repeat;
+background-position: top right;
+}
+
+
+/* form */
+label.hori{ width: 100%; display: block;}
+label.inline{display: inline;}
+textarea.hori{ width: 100%;}
+.row{margin: 0 0 20px 0;}
+.primary_attributes{border: 1px solid #999; padding: 10px; margin: 0 0 40px 0;}
+.field_wrap{margin: 0 0 10px 0;}
+.line_text{background-color: #f6f6f6; padding: 2px 0;}
+.line_input{padding-top: 4px;}
+.line_text, .line_input{width: 340px; border: 1px solid #f6f6f6;}
+.line_input .wrap{width: 10%; float: left; text-align: center;}
+
+
+/* notices */
+#flash_notice, #flash_error {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.fieldWithErrors {
+  display: inline;
+}
+.fieldWithErrors input.inputText, .fieldWithErrors textarea{margin-left: 140px;}
+.fieldWithErrors textarea.hori{margin-left: 0;}
+.fieldWithErrors label{background-color: #df0000; color: #fff; padding: 0 2px;}
+#errorExplanation {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 8px;
+}
+
+#errorExplanation ul {
+  margin: 2px 24px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: disc;
+}
+
+span.error_message{
+  background-color: #df0000;
+  color: #fff;
+  padding: 2px;
+}
+.fieldWithErrors input{
+	margin-top: 2px;
+	border: 1px solid #df0000;
+}
