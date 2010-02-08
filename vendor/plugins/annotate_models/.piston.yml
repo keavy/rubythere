@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  piston:remote-revision: 26
+  piston:uuid: fc0f91e5-bf0d-0410-947d-bdda1c4c8ae8
+lock: false
+repository_class: Piston::Svn::Repository
+repository_url: http://repo.pragprog.com/svn/Public/plugins/annotate_models

@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: 640db423f587b81b18fa6ded8b44667bbd64a8da
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/gumayunov/custom-err-msg.git
