@@ -6,3 +6,9 @@ Factory.define :event do |f|
   f.currency      "&pound;"
   f.cost          "195"
 end
+
+Factory.define :location do |f|
+  f.venue         "A Big Hall"
+  f.city          "Glasgow"
+  f.country       "UK"
+end
