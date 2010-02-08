@@ -1,0 +1,10 @@
+tmp/*
+log/*
+*.sqlite3
+.DS_Store
+doc/**/*
+config/database.yml
+log/development.log
+log/test.log
+coverage.data
+metrics/*
