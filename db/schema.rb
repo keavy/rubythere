@@ -9,7 +9,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100208162203) do
+ActiveRecord::Schema.define(:version => 20100208165148) do
+
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.text     "description"
+    t.text     "description_formatted"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "cfp_date"
+    t.datetime "reg_open_date"
+    t.datetime "proposal_close_date"
+    t.decimal  "cost",                  :precision => 10, :scale => 2, :default => 0.0
+    t.string   "currency"
+    t.boolean  "sold_out",                                             :default => false
+    t.boolean  "childcare",                                            :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
