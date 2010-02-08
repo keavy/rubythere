@@ -1,8 +1,5 @@
 require 'test_helper'
 
 class EventTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
+  should_validate_presence_of :name, :message => '^Please add a name'
 end
