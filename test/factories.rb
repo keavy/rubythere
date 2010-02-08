@@ -5,10 +5,15 @@ Factory.define :event do |f|
   f.description   "About text..."
   f.currency      "&pound;"
   f.cost          "195"
+  f.association   :location
+  f.association   :venue
 end
 
 Factory.define :location do |f|
-  f.venue         "A Big Hall"
   f.city          "Glasgow"
   f.country       "UK"
+end
+
+Factory.define :venue do |f|
+  f.association  :location
 end

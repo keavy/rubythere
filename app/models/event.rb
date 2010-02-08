@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100208172043
+# Schema version: 20100208191504
 #
 # Table name: events
 #
@@ -20,9 +20,11 @@
 #  created_at            :datetime
 #  updated_at            :datetime
 #  location_id           :integer(4)
+#  venue_id              :integer(4)
 #
 
 class Event < ActiveRecord::Base
   belongs_to :location
+  belongs_to :venue
   validates_presence_of :name, :message => '^Please add a name'
 end
