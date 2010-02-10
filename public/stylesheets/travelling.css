@@ -62,6 +62,15 @@ background-position: top right;
 
 
 /* form */
+form{width: 460px;}
+form.small{width: 300px;}
+.field_wrap{padding: 2px;}
+.row{margin: 0 0 10px 0;}
+input,textarea{padding: 3px 8px;}
+input[type='text']{width: 250px;}
+textarea{width: 370px;}
+textarea.wide{width: 95%;}
+label{width: 25%; display: inline-block;}
 label.hori{ width: 100%; display: block;}
 label.inline{display: inline;}
 textarea.hori{ width: 100%;}
@@ -72,7 +81,9 @@ textarea.hori{ width: 100%;}
 .line_input{padding-top: 4px;}
 .line_text, .line_input{width: 340px; border: 1px solid #f6f6f6;}
 .line_input .wrap{width: 10%; float: left; text-align: center;}
-
+.primary_attributes{border: 1px solid #f6f6f6; padding: 10px; margin: 0 0 40px 0; background-color: #f6f6f6;}
+.secondary_attributes{padding: 10px; border: 1px solid #f6f6f6; background-color: #f6f6f6; margin: 0 0 40px 0;}
+div.submit{padding: 10px; margin: 18px 0 0 0;text-align: right;}
 
 /* notices */
 #flash_notice, #flash_error {

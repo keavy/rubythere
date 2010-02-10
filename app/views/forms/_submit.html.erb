@@ -1,0 +1,8 @@
+<div class="form_block">
+  <div class="submit">
+      <%= element %>
+      <% if options[:cancel_path] -%>
+        or <%= link_to "Cancel", options[:cancel_path], :title => "Cancel and go back", :class => 'help' %>
+      <% end -%>
+  </div>
+</div>

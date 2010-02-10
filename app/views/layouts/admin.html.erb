@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title><%= (yield(:title) || "Travelling Rubyist") %></title>
+  <title><%= (yield(:title) || "Admin &middot; Travelling Rubyist") %></title>
 	<%= stylesheet_link_tag 'fonts-min','reset-min', 'formtastic', 'formtastic_changes', 'travelling' %>
 	
 	<%= javascript_include_tag :all %>
@@ -13,7 +13,7 @@
 <body<%= @body_id %> class="<%= @body_class%>">
   <div id="doc">
    <div id="hd" class="clearfix">
-    <h1>The Travelling Rubyist</h1>
+    <h1>The Travelling Rubyist Admin Area</h1>
    </div>
    
    <div id="bd" class="clearfix">

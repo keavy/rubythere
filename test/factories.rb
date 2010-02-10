@@ -1,5 +1,6 @@
 Factory.define :event do |f|
-  f.title         "A Ruby Conference"
+  f.name          "A Ruby Conference"
+  f.url           "http://www.conf.com"
   f.start_date    "2009-08-01"
   f.end_date      "2009-08-05"
   f.description   "About text..."
@@ -15,5 +16,6 @@ Factory.define :location do |f|
 end
 
 Factory.define :venue do |f|
+  f.name         "A big hall"
   f.association  :location
 end

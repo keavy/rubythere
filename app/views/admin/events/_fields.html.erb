@@ -1,0 +1,9 @@
+<%= f.text_field :name, :required => true %>
+<%= f.text_field :url %>
+<%= f.text_area :description, :rows => 5 %>
+
+<%= f.date_select :start_date, :label => "Start Date", :use_short_month => true, :order => [:day, :month, :year], :include_blank => false %>
+<%= f.date_select :end_date, :label => "End Date", :use_short_month => true, :order => [:day, :month, :year], :include_blank => true, :default => nil %>
+<%= f.date_select :cfp_date, :label => "Call for Proposals", :class =>'hori', :use_short_month => true, :order => [:day, :month, :year], :include_blank => true, :default => nil %>
+<%= f.date_select :reg_open_date, :label => "Registration Opens", :use_short_month => true, :order => [:day, :month, :year], :include_blank => true, :default => nil %>
+<%= f.date_select :proposal_close_date, :label => "Proposals deadline", :use_short_month => true, :order => [:day, :month, :year], :include_blank => true, :default => nil %>
