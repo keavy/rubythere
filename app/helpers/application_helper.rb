@@ -14,4 +14,20 @@ module ApplicationHelper
     messages = objects.compact.map { |o| o.errors.full_messages }.flatten
     render :partial => 'shared/error_messages', :object => messages unless messages.empty?
   end
+  
+  def setup_event(event)
+    returning(event) do |e|
+      e.build_location if e.location.nil?
+    end
+  end
+  
+  def display_location(location)
+    output = ""
+    unless location.nil?
+      output += "#{location.city}"
+      output += ", #{location.state}" unless location.state.blank?
+      output += ", #{location.country}"
+    end
+    return output
+  end
 end

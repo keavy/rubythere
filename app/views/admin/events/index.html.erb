@@ -1,1 +1,17 @@
-<%= debug collection %>
+<% unless collection.blank? -%>
+  <h2>Events</h2>
+    <table id="summary">
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Location</th>
+      </tr>
+    <% collection.each do |event| -%>
+      <tr>
+        <td><%= link_to "Edit", edit_admin_event_path(event), :class => 'secondary' %></td>
+        <td><%= event.name %></td>
+        <td><%= display_location(event.location)%></td>
+      </tr>
+    <% end -%>
+    </table>
+<% end -%>

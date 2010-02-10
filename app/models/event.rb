@@ -26,5 +26,18 @@
 class Event < ActiveRecord::Base
   belongs_to :location
   belongs_to :venue
+  
   validates_presence_of :name, :message => '^Please add a name'
+  
+  before_save :set_formatted_fields
+  
+  accepts_nested_attributes_for :location, :venue
+  
+  protected
+  def set_formatted_fields
+    if value = read_attribute(:description) then
+      value = RedCloth.new(value).to_html
+      write_attribute :description_formatted, value
+    end
+  end
 end

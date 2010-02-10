@@ -150,3 +150,9 @@ span.error_message{
 	margin-top: 2px;
 	border: 1px solid #df0000;
 }
+
+
+/* table */
+table#summary{width: 680px; margin: 20px 0;}
+table#summary th{color: #999; padding: 3px 3px 10px 3px;}
+table#summary td{padding: 3px;}

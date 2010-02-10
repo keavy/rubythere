@@ -47,5 +47,32 @@ class Admin::EventsControllerTest < ActionController::TestCase
     should_respond_with :success
   end
   
+  context "on GET to :edit" do
+    setup { get :edit, :id => @event.id }
+
+    should_respond_with :success
+  end
+  
+  context "on PUT to :update" do
+    context "with valid details" do
+      setup do
+        put :update, :event => Factory.attributes_for(:event, :name => 'updated'), :id => @event.id
+      end
+
+      should_redirect_to("admin event path") {admin_event_path(assigns(:event))}
+      should "update the name" do
+        assert_equal 'updated', assigns(:event).name
+      end
+    end
+    
+    context "with invalid details" do
+      setup do
+        put :update, :event => Factory.attributes_for(:event, :name => ''), :id => @event.id
+      end
+      
+      should_render_template :edit
+    end
+  end
+  
   
 end

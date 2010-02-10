@@ -1,0 +1,15 @@
+<h2>Edit <%= @event.name %></h2>
+
+<div class="main left">
+  <%= error_messages_for :event %>
+  
+  <% labeled_form_for setup_event(@event), :url => admin_event_path(@event), :html => { :method => :put } do |f| %>
+    
+    <%= render :partial => 'fields', :locals => {:f => f} %>
+      
+    <%= f.submit "Save changes" %>
+  <% end %>
+</div>
+
+<div class="side right">
+</div>
