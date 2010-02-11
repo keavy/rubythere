@@ -15,8 +15,10 @@
 
     <%= location_form.text_field :city %>
     <%= location_form.text_field :state %>
-    <%= location_form.text_field :country %>
-
+    <div class="clearfix field_wrap">
+      <%= location_form.label "Country" %>
+      <%= location_form.country_select :country, ['United States','United Kingdom'] %>
+    </div>
     <% unless location_form.object.new_record? %>
       <%= location_form.check_box '_delete' %>
     <% end %>
