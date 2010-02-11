@@ -1,0 +1,8 @@
+<% css_class = been_and_gone?(event.start_date) %>
+
+<tr class="<%= css_class %>">
+  <td class="name"><%= link_to event.name, event_path(event) %></td>
+  <td class="city"><%= city_state(event.location)%></td>
+  <td class="country"><%= event.location.country %></td>
+  <td class="date"><%= event_date(event.start_date, event.end_date) %></td>
+</tr>

@@ -80,4 +80,9 @@ module ApplicationHelper
       end
     end
   end
+  
+  def twitter_link(name)
+    return "" if name.nil?
+    link_to "@#{name}", "http://twitter.com/#{name}"
+  end
 end

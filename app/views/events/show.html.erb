@@ -1,0 +1,28 @@
+<h2><%= @event.name %></h2>
+<p class="event_date"><%= event_date(@event.start_date,@event.end_date) %></p>
+<p class="event_links"><%= link_to @event.url, @event.url %>  <%= twitter_link(@event.twitter) %></p>
+
+
+
+<div class="clearfix">
+  <div class="main left">
+    <ul class="dates">
+      <li>
+        <h4>Call for Proposals <%= present_or_past(@event.cfp_date,'opens','opened') %>:</h4>
+        <%= format_date(@event.cfp_date) %>
+      </li>
+      <li>
+        <h4>Call for Proposals <%= present_or_past(@event.cfp_close_date,'closes','closed') %>:</h4>
+        <%= format_date(@event.cfp_close_date) %>
+      </li>
+      <li>
+        <h4>Registration <%= present_or_past(@event.reg_date,'opens','opened') %>:</h4>
+        <%= format_date(@event.reg_date) %>
+      </li>
+    </ul>
+  </div>
+  <div class="side right">
+    <%= @event.description_formatted %>
+  </div>
+</div>
+

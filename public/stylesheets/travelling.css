@@ -35,7 +35,7 @@ body{
 .form_block{}
 #select_date{ margin: 10px 0;}
 .page_links{margin: 0 0 10px 0;}
-div.primary{border: 1px solid #ccc; background-color: #f6f6f6; padding: 10px; margin: 10px 0 40px 0;}
+div.primary{border: 1px solid #ccc; background-color: #f6f6f6; padding: 10px; margin: 0px 0 40px 0;}
 
 
 /* text */
@@ -47,7 +47,8 @@ strong{font-weight: bold;}
 form small{color: #ccc;}
 .optional{ color: #999;}
 .optional input{ color: #999;}
-
+.event_date{margin-bottom: 20px; font-size: 123.1%;}
+.event_links{margin-bottom: 20px;}
 
 /* links */
 a{color: #000;}
@@ -60,6 +61,7 @@ a.active{color: #333;}
 a[rel]{color: #00A0F0; padding-right: 15px; background:url(../images/external.png) no-repeat;
 background-position: top right;
 }
+.event_links a{margin-right: 20px; color: #FF0011;}
 
 
 /* form */
@@ -166,5 +168,5 @@ tr.past td{text-decoration: line-through;}
 
 
 /* lists */
-ul.dates{border: 1px solid #ccc; background-color: #f6f6f6; padding: 10px; margin: 20px 0;}
+ul.dates{border: 1px solid #ccc; background-color: #f6f6f6; padding: 10px; margin: 0 0 20px 0;}
 ul.dates li{margin: 0 0 20px 0;}
