@@ -33,6 +33,12 @@ class Event < ActiveRecord::Base
   
   accepts_nested_attributes_for :location, :venue
   
+  default_scope :order => 'start_date', :include => :location
+  
+  named_scope :upcoming, :conditions => "start_date > '#{Time.now.to_s(:db)}'"
+  named_scope :past, :conditions => "start_date < '#{Time.now.to_s(:db)}'"
+  named_scope :unknown, :conditions => {:start_date => nil}
+  
   protected
   def set_formatted_fields
     if value = read_attribute(:description) then

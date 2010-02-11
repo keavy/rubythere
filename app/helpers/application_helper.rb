@@ -31,8 +31,53 @@ module ApplicationHelper
     return output
   end
   
+  def city_state(location)
+    output = ""
+    unless location.nil?
+      output += "#{location.city}" unless location.city.blank?
+      output += ", #{location.state}" unless location.state.blank?
+    end
+    return output
+  end
+  
   def format_date(date)
     date.strftime("%b %e %Y") if date
   end
-
+  
+  def event_date(start_date,end_date)
+    return "" if !start_date
+    output = ""
+    if end_date
+      if start_date.month == end_date.month
+        output += start_date.strftime("%b %e")
+        output += end_date.strftime("-%e %Y")
+      else
+        output += start_date.strftime("%b %e")
+        output += end_date.strftime(" - %e %b %Y")
+      end
+    else
+      output += start_date.strftime("%e %b % Y")
+    end
+    return output
+  end
+  
+  def been_and_gone?(date)
+    case true
+    when date.nil? then 'unknown'
+    when date < Time.now then "past"
+    else 'upcoming'
+    end
+  end
+  
+  def present_or_past(date,present,past)
+    if date.nil?
+      return present
+    else
+      if date < Time.now
+        return  past
+      else
+        return  present
+      end
+    end
+  end
 end

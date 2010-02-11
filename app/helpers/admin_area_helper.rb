@@ -1,4 +1,5 @@
 module AdminAreaHelper
+  
   def link_to_name(event)
     if event.url.blank?
       event.name

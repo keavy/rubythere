@@ -4,5 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   end
   map.admin 'admin', :controller => 'admin/events'
   
+  map.resources :events
+  
   map.root :controller => "home"
 end
