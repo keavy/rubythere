@@ -1,6 +1,11 @@
 <%= f.text_field :name, :required => true %>
 <%= f.text_field :url %>
+<%= f.text_field :twitter %>
+<%= f.check_box :sold_out %>
+<%= f.check_box :childcare %>
 <%= f.text_area :description, :rows => 5 %>
+
+
 
 <%= f.date_select :start_date, :label => "Start Date", :use_short_month => true, :order => [:day, :month, :year], :include_blank => true, :default => nil %>
 <%= f.date_select :end_date, :label => "End Date", :use_short_month => true, :order => [:day, :month, :year], :include_blank => true, :default => nil %>

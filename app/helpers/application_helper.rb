@@ -24,9 +24,9 @@ module ApplicationHelper
   def display_location(location)
     output = ""
     unless location.nil?
-      output += "#{location.city}"
-      output += ", #{location.state}" unless location.state.blank?
-      output += ", #{location.country}"
+      output += "#{location.city}, " unless location.city.blank?
+      output += "#{location.state}, " unless location.state.blank?
+      output += "#{location.country}"
     end
     return output
   end
@@ -34,4 +34,5 @@ module ApplicationHelper
   def format_date(date)
     date.strftime("%b %e %Y") if date
   end
+
 end
