@@ -30,4 +30,8 @@ module ApplicationHelper
     end
     return output
   end
+  
+  def format_date(date)
+    date.strftime("%b %e %Y") if date
+  end
 end

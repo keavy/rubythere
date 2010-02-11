@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100208191504
+# Schema version: 20100211191716
 #
 # Table name: events
 #
@@ -11,8 +11,8 @@
 #  start_date            :datetime
 #  end_date              :datetime
 #  cfp_date              :datetime
-#  reg_open_date         :datetime
-#  proposal_close_date   :datetime
+#  reg_date              :datetime
+#  cfp_close_date        :datetime
 #  cost                  :decimal(10, 2)  default(0.0)
 #  currency              :string(255)
 #  sold_out              :boolean(1)

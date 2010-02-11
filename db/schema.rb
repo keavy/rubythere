@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100208191504) do
+ActiveRecord::Schema.define(:version => 20100211191716) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(:version => 20100208191504) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.datetime "cfp_date"
-    t.datetime "reg_open_date"
-    t.datetime "proposal_close_date"
+    t.datetime "reg_date"
+    t.datetime "cfp_close_date"
     t.decimal  "cost",                  :precision => 10, :scale => 2, :default => 0.0
     t.string   "currency"
     t.boolean  "sold_out",                                             :default => false
