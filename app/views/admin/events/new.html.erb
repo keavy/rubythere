@@ -3,7 +3,7 @@
 <div class="main left">
   <%= error_messages_for :event %>
 
-  <% labeled_form_for @event, :url => admin_events_path do |f| %>
+  <% labeled_form_for setup_event(@event), :url => admin_events_path do |f| %>
     
     <%= render :partial => 'fields', :locals => {:f => f} %>
       
