@@ -1,7 +1,10 @@
 <%= f.text_field :name, :required => true %>
 <%= f.text_field :url %>
 <%= f.text_field :twitter %>
+<%= f.check_box :reg_open %>
 <%= f.check_box :sold_out %>
+<%= f.text_field :cost %>
+<%= f.text_field :currency %>
 <%= f.check_box :childcare %>
 <%= f.text_area :description, :rows => 5 %>
 
@@ -22,7 +25,7 @@
     <%= location_form.text_field :state %>
     <div class="clearfix field_wrap">
       <%= location_form.label "Country" %>
-      <%= location_form.country_select :country, ['United States','United Kingdom'] %>
+      <%= location_form.country_select :country, ['United States','United Kingdom','Anywhere'] %>
     </div>
     <% unless location_form.object.new_record? %>
       <%= location_form.check_box '_delete' %>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100211203228) do
+ActiveRecord::Schema.define(:version => 20100212211237) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20100211203228) do
     t.integer  "location_id"
     t.integer  "venue_id"
     t.string   "twitter"
+    t.boolean  "reg_open",                                             :default => false
   end
 
   create_table "locations", :force => true do |t|

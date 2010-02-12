@@ -160,6 +160,7 @@ table#summary{width: 680px; margin: 20px 0;}
 table#summary th{color: #999; padding: 3px 3px 10px 3px;}
 table#summary td, table.events td{padding: 3px;}
 table.events{width: 680px; margin-bottom: 0px;}
+td.status{width: 80px;}
 td.name{width: 200px;}
 td.city{width: 120px;}
 td.country{width: 120px;}

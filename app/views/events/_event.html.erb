@@ -1,6 +1,7 @@
 <% css_class = been_and_gone?(event.start_date) %>
 
 <tr class="<%= css_class %>">
+  <td class="status"><%= status_for_event(event) %></td>
   <td class="name"><%= link_to event.name, event_path(event) %></td>
   <td class="city"><%= city_state(event.location)%></td>
   <td class="country"><%= event.location.country %></td>
