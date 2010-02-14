@@ -2,9 +2,9 @@
 <p class="event_date"><%= event_date(@event.start_date,@event.end_date) %></p>
 <p class="event_links"><%= link_to @event.url, @event.url %>  <%= twitter_link(@event.twitter) %></p>
 
-<p><%= status_for_event(@event) %></p>
+<p>Currently: <%= status_for_event(@event) %></p>
 <% unless @event.cost.blank? || @event.cost == 0.0 %>
-  <p class="cost"><%= number_to_currency(@event.cost, :unit => @event.currency) %></p>
+  <p class="cost">Registration cost: <%= number_to_currency(@event.cost, :unit => @event.currency) %></p>
 <% end -%>
 
 <ul class="dates">
