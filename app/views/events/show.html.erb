@@ -2,7 +2,10 @@
 <p class="event_date"><%= event_date(@event.start_date,@event.end_date) %></p>
 <p class="event_links"><%= link_to @event.url, @event.url %>  <%= twitter_link(@event.twitter) %></p>
 
-
+<p><%= status_for_event(@event) %></p>
+<% unless @event.cost.blank? %>
+  <p class="cost"><%= number_to_currency(@event.cost, :unit => @event.currency) %></p>
+<% end -%>
 
 <div class="clearfix">
   <div class="main left">
@@ -20,6 +23,7 @@
         <%= format_date(@event.reg_date) %>
       </li>
     </ul>
+    <p class="note">Cost reflects a standard ticket price for the main event. There may be early bird offers, discounts or extras, such as training workshops, available also. Check with the event site for details.</p>
   </div>
   <div class="side right">
     <%= @event.description_formatted %>

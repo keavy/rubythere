@@ -36,7 +36,7 @@ body{
 #select_date{ margin: 10px 0;}
 .page_links{margin: 0 0 10px 0;}
 div.primary{border: 1px solid #ccc; background-color: #f6f6f6; padding: 10px; margin: 0px 0 40px 0;}
-
+#search{margin: 0 0 20px 0;}
 
 /* text */
 h1{font-size: 182%;}
@@ -49,6 +49,8 @@ form small{color: #ccc;}
 .optional input{ color: #999;}
 .event_date{margin-bottom: 20px; font-size: 123.1%;}
 .event_links{margin-bottom: 20px;}
+.note{margin-top: 100px; color: #999; font-size: 83%;}
+h2.aim{ margin-bottom: 20px;}
 
 /* links */
 a{color: #000;}
@@ -62,6 +64,7 @@ a[rel]{color: #00A0F0; padding-right: 15px; background:url(../images/external.pn
 background-position: top right;
 }
 .event_links a{margin-right: 20px; color: #FF0011;}
+.aim a{background-color: #00A0F0; color: #fff;}
 
 
 /* form */
@@ -159,9 +162,12 @@ span.error_message{
 table#summary{width: 680px; margin: 20px 0;}
 table#summary th{color: #999; padding: 3px 3px 10px 3px;}
 table#summary td, table.events td{padding: 3px;}
-table.events{width: 680px; margin-bottom: 0px;}
-td.status{width: 80px;}
-td.name{width: 200px;}
+table.events{margin-bottom: 0px;}
+table.events td{vertical-align: top;}
+th{padding-bottom: 10px; color: #999;}
+tbody tr{border-bottom: 1px solid #fff;}
+td.status{width: 60px; color: #999;}
+td.name{width: 160px;}
 td.city{width: 120px;}
 td.country{width: 120px;}
 tr.unknown{}
@@ -169,5 +175,5 @@ tr.past td{text-decoration: line-through;}
 
 
 /* lists */
-ul.dates{border: 1px solid #ccc; background-color: #f6f6f6; padding: 10px; margin: 0 0 20px 0;}
+ul.dates{border: 1px solid #ccc; background-color: #f6f6f6; padding: 10px; margin: 20px 0 20px 0;}
 ul.dates li{margin: 0 0 20px 0;}

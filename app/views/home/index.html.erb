@@ -1,7 +1,18 @@
-<h2>Upcoming events</h2>
+<h2 class="aim">I'd like to <%= link_to "attend", "#" %> / <%= link_to "speak", "#" %></h2>
+
+<h3>Upcoming events</h3>
 <div class="primary">
   <table class="events">
-    <%= render :partial => 'events/event', :collection => Event.upcoming %>
+    <thead>
+      <th></th>
+      <th></th>
+      <th>Event</th>
+      <th>Location</th>
+      <th>Event date</th>
+    </thead>
+    <tbody>
+      <%= render :partial => 'events/event', :collection => Event.upcoming %>
+    </tbody>
   </table>
 </div>
 
@@ -12,3 +23,10 @@
 <table class="events">
   <%= render :partial => 'events/event', :collection => Event.unknown %>
 </table>
+
+
+<% content_for :side do %>
+  <div id='search'>
+    <%= image_tag('search_example.png') %>
+  </div>
+<% end -%>
