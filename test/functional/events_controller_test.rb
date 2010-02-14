@@ -10,4 +10,10 @@ class EventsControllerTest < ActionController::TestCase
     should_respond_with :success
     should_assign_to :event
   end
+  
+  context "on GET to :archive" do
+    setup { get :archive}
+    should_respond_with :success
+    should_assign_to :events
+  end
 end

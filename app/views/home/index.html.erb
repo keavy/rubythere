@@ -16,13 +16,7 @@
   </table>
 </div>
 
-<table class="events">
-  <%= render :partial => 'events/event', :collection => Event.past %>
-</table>
-
-<table class="events">
-  <%= render :partial => 'events/event', :collection => Event.unknown %>
-</table>
+<p><%= link_to "Past events (or those with an unknown date)", archive_events_path %></p>
 
 
 <% content_for :side do %>
