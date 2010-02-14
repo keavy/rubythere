@@ -23,6 +23,8 @@ Rails::Initializer.run do |config|
   config.gem 'formtastic', :source => 'http://gemcutter.org/'
   config.gem 'resource_controller', :source => 'http://gemcutter.org/'
   config.gem 'RedCloth'
+  config.gem "friendly_id", :version => ">= 2.3.0"
+  
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

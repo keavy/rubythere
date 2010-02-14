@@ -3,30 +3,25 @@
 <p class="event_links"><%= link_to @event.url, @event.url %>  <%= twitter_link(@event.twitter) %></p>
 
 <p><%= status_for_event(@event) %></p>
-<% unless @event.cost.blank? %>
+<% unless @event.cost.blank? || @event.cost == 0.0 %>
   <p class="cost"><%= number_to_currency(@event.cost, :unit => @event.currency) %></p>
 <% end -%>
 
-<div class="clearfix">
-  <div class="main left">
-    <ul class="dates">
-      <li>
-        <h4>Call for Proposals <%= present_or_past(@event.cfp_date,'opens','opened') %>:</h4>
-        <%= format_date(@event.cfp_date) %>
-      </li>
-      <li>
-        <h4>Call for Proposals <%= present_or_past(@event.cfp_close_date,'closes','closed') %>:</h4>
-        <%= format_date(@event.cfp_close_date) %>
-      </li>
-      <li>
-        <h4>Registration <%= present_or_past(@event.reg_date,'opens','opened') %>:</h4>
-        <%= format_date(@event.reg_date) %>
-      </li>
-    </ul>
-    <p class="note">Cost reflects a standard ticket price for the main event. There may be early bird offers, discounts or extras, such as training workshops, available also. Check with the event site for details.</p>
-  </div>
-  <div class="side right">
-    <%= @event.description_formatted %>
-  </div>
-</div>
+<ul class="dates">
+  <li>
+    <h4>Call for Proposals <%= present_or_past(@event.cfp_date,'opens','opened') %>:</h4>
+    <%= format_date(@event.cfp_date) %>
+  </li>
+  <li>
+    <h4>Call for Proposals <%= present_or_past(@event.cfp_close_date,'closes','closed') %>:</h4>
+    <%= format_date(@event.cfp_close_date) %>
+  </li>
+  <li>
+    <h4>Registration <%= present_or_past(@event.reg_date,'opens','opened') %>:</h4>
+    <%= format_date(@event.reg_date) %>
+  </li>
+</ul>
 
+<%= @event.description_formatted %>
+
+<p class="note">Cost reflects a standard ticket price for the main event. There may be early bird offers, discounts or extras, such as training workshops, available also. Check with the event site for details.</p>

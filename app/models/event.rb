@@ -26,6 +26,8 @@
 #
 
 class Event < ActiveRecord::Base
+  has_friendly_id :name, :use_slug => true
+  
   belongs_to :location
   belongs_to :venue
   
@@ -41,6 +43,9 @@ class Event < ActiveRecord::Base
   named_scope :past, :conditions => "start_date < '#{Time.now.to_s(:db)}'"
   named_scope :unknown, :conditions => {:start_date => nil}
   named_scope :open_for_speakers, :conditions => "proposals_open = 1 OR cfp_close_date > '#{Time.now.to_s(:db)}'"
+  
+  
+  
   
   protected
   def set_formatted_fields
