@@ -1,14 +1,14 @@
-<h2 class="aim">I'd like to <%= link_to "attend", "#" %> / <%= link_to "speak", "#" %></h2>
+<h2 class="aim">I'd like to <%= link_to "attend", events_to_path('attend')  %> / <%= link_to "speak", events_to_path('speak') %></h2>
 
 <h3>Upcoming events</h3>
 <div class="primary">
   <table class="events">
     <thead>
       <th></th>
-      <th></th>
       <th>Event</th>
       <th>Location</th>
       <th>Event date</th>
+      <th></th>
     </thead>
     <tbody>
       <%= render :partial => 'events/event', :collection => Event.upcoming %>

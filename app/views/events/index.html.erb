@@ -1,0 +1,29 @@
+<h2 class="aim">Upcoming events <%= @content_title %></h2>
+
+<div class="primary">
+  <table class="events">
+    <thead>
+      <th></th>
+      <th>Event</th>
+      <th>Location</th>
+      <th>Event date</th>
+      <% if @focus == 'speak' -%>
+        <th>CFP opens</th>
+        <th>CFP closes</th>
+      <% else -%>
+        <th></th>
+      <% end -%>
+      
+    </thead>
+    <tbody>
+      <%= render :partial => @focus, :collection => @events %>
+    </tbody>
+  </table>
+</div>
+
+
+<% content_for :side do %>
+  <div id='search'>
+    <%= image_tag('search_example.png') %>
+  </div>
+<% end -%>

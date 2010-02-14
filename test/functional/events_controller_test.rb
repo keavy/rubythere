@@ -16,4 +16,9 @@ class EventsControllerTest < ActionController::TestCase
     should_respond_with :success
     should_assign_to :events
   end
+  
+  context "on GET to :index with 'focus' param of 'attend'" do
+    setup { get :index, :focus => 'attend'}
+    should_assign_to :focus
+  end
 end
