@@ -2,5 +2,5 @@
 # recipe file, so that the real stuff can exist locally without being
 # checked into the main repo.
  
-capfile = File.expand_path("~/rubyvous/library/deploy.rb")
+capfile = File.expand_path("~/Sites/rubyvous/library/deploy.rb")
 load(capfile) if File.exists?(capfile)
