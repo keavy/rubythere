@@ -1,10 +1,25 @@
-<% event = object %>
+<table class="events">
+  <thead>
+    <th></th>
+    <th>Event</th>
+    <th>Location</th>
+    <th>Event date</th>
+    <th>CFP opens</th>
+    <th>CFP closes</th>
+  </thead>
+  <tbody>
+    <% events.each do |event| -%>
+      <tr>
+        <td><%= image_tag "http://img.tweetimag.es/i/#{event.twitter}_n" unless event.twitter.blank? %></td>
+        <td class="name"><%= link_to event.name, event_path(event) %></td>
+        <td class="city"><%= city_state(event.location)%><br /><%= event.location.country %></td>
+        <td class="date"><%= event_date(event.start_date, event.end_date) %></td>
+        <td class="date"><%= format_date(event.cfp_date) %></td>
+        <td class="date"><%= format_date(event.cfp_close_date) %></td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>
 
-<tr>
-  <td><%= image_tag "http://img.tweetimag.es/i/#{event.twitter}_n" unless event.twitter.blank? %></td>
-  <td class="name"><%= link_to event.name, event_path(event) %></td>
-  <td class="city"><%= city_state(event.location)%><br /><%= event.location.country %></td>
-  <td class="date"><%= event_date(event.start_date, event.end_date) %></td>
-  <td class="date"><%= format_date(event.cfp_date) %></td>
-  <td class="date"><%= format_date(event.cfp_close_date) %></td>
-</tr>
+
+

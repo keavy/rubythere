@@ -21,19 +21,16 @@ class EventsControllerTest < ActionController::TestCase
     context "with 'focus' param of 'attend'" do
       setup { get :index, :focus => 'attend'}
       should_assign_to :focus
-      should_assign_to :partial
     end
     
     context "with 'focus' param of 'speak'" do
       setup { get :index, :focus => 'speak'}
       should_assign_to :focus
-      should_assign_to :partial
     end
     
     context "with no 'focus' param'" do
       setup { get :index}
-      should_not_assign_to :focus
-      should_assign_to :partial
+      should_assign_to :focus
     end
   end
 end

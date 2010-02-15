@@ -1,27 +1,10 @@
 <h2 class="aim">Upcoming events <%= @content_title %></h2>
 
 <div class="primary">
-  <table class="events">
-    <thead>
-      <th></th>
-      <th>Event</th>
-      <th>Location</th>
-      <th>Event date</th>
-      <% if @focus == 'speak' -%>
-        <th>CFP opens</th>
-        <th>CFP closes</th>
-      <% else -%>
-        <th></th>
-      <% end -%>
-    </thead>
-    <tbody>
-      <%= render :partial => @partial, :collection => @events %>
-    </tbody>
-  </table>
+  <%= render :partial => @focus, :locals => {:events => @events} %>
 </div>
 
-  <p id="footnotes">If you know of an event that belongs here, email us the details at <%= mail_to EMAIL_CONTACT, EMAIL_CONTACT, :encode => :hex %> and we'll gladly add it.</p>
-
+<p id="footnotes">If you know of an event that belongs here, email us the details at <%= mail_to EMAIL_CONTACT, EMAIL_CONTACT, :encode => :hex %> and we'll gladly add it.</p>
 
 <% content_for :side do %>
   <div id='search'>
