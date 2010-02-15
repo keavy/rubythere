@@ -41,7 +41,12 @@ module ApplicationHelper
   end
   
   def format_date(date)
-    date.strftime("%b %e %Y") if date
+    return '' if date.nil?
+    if Time.now.year == date.year
+      date.strftime("%b %e")
+    else
+      date.strftime("%b %e %Y")
+    end
   end
   
   def event_date(start_date,end_date)
@@ -50,13 +55,13 @@ module ApplicationHelper
     if end_date
       if start_date.month == end_date.month
         output += start_date.strftime("%b %e")
-        output += end_date.strftime("-%e %Y")
+        output += (Time.now.year == start_date.year) ? end_date.strftime("-%e") : end_date.strftime("-%e %Y")
       else
         output += start_date.strftime("%b %e")
-        output += end_date.strftime(" - %e %b %Y")
+        output += (Time.now.year == start_date.year) ? end_date.strftime(" - %e %b") : end_date.strftime(" - %e %b %Y")
       end
     else
-      output += start_date.strftime("%e %b % Y")
+      output += (Time.now.year == start_date.year) ? start_date.strftime("%e %b") : start_date.strftime("%e %b %Y")
     end
     return output
   end
