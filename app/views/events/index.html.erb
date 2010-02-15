@@ -15,10 +15,12 @@
       <% end -%>
     </thead>
     <tbody>
-      <%= render :partial => @focus, :collection => @events %>
+      <%= render :partial => @partial, :collection => @events %>
     </tbody>
   </table>
 </div>
+
+  <p id="footnotes">If you know of an event that belongs here, email us the details at <%= mail_to EMAIL_CONTACT, EMAIL_CONTACT, :encode => :hex %> and we'll gladly add it.</p>
 
 
 <% content_for :side do %>

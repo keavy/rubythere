@@ -9,6 +9,7 @@ class EventsController < ApplicationController
       @focus = params[:focus]
       @content_title = (@focus == 'speak') ? 'to speak at' : 'to attend'
     end
+    @partial = @focus || 'event'
     @events = (params[:focus] == 'speak') ? Event.upcoming.open_for_speakers : Event.upcoming
   end
   

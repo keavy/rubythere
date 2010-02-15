@@ -1,39 +1,61 @@
+<%= image_tag "http://img.tweetimag.es/i/#{@event.twitter}_b" unless @event.twitter.blank? %>
 <h2><%= @event.name %></h2>
+
 <p class="event_date"><%= event_date(@event.start_date,@event.end_date) %></p>
 <p class="event_links"><%= link_to @event.url, @event.url %>  <%= twitter_link(@event.twitter) %></p>
 
-<p>Currently: <%= status_for_event(@event) %></p>
-<% unless @event.cost.blank? || @event.cost == 0.0 %>
-  <p class="cost">Registration cost<sup class="footnote"><%= link_to "1", "#fn1" %></sup>: <%= number_to_currency(@event.cost, :unit => @event.currency) %></p>
+<div class="box description">
+  <%= @event.description_formatted %>
+</div>
+
+<h3>Speakers include</h3>
+<ul id="speakers">
+  <% 20.times do %>
+    <li><%= link_to "Speaker name", "#" %> / talk title talk title</li>
+  <% end -%>
+</ul>
+
+
+<% content_for :side do -%>
+  <div class="box availability">
+    <p>Currently: <%= status_for_event(@event) %></p>
+    <% unless @event.cost.blank? || @event.cost == 0.0 %>
+      <p class="cost">Registration cost<sup class="footnote"><%= link_to "1", "#fn1" %></sup>: <%= number_to_currency(@event.cost, :unit => @event.currency) %></p>
+    <% end -%>
+  </div>
+
+  <div class="box location">
+    <p>Venue name, address, country</p>
+    <p><%= link_to "Map", "#" %></p>
+  </div>
+
+  <ul class="dates">
+    <li>
+      <h4>Call for Proposals <%= present_or_past(@event.cfp_date,'opens','opened') %>:</h4>
+      <%= format_date(@event.cfp_date) %>
+    </li>
+    <li>
+      <h4>Call for Proposals <%= present_or_past(@event.cfp_close_date,'closes','closed') %>:</h4>
+      <%= format_date(@event.cfp_close_date) %>
+    </li>
+    <li>
+      <h4>Registration <%= present_or_past(@event.reg_date,'opens','opened') %>:</h4>
+      <%= format_date(@event.reg_date) %>
+    </li>
+  </ul>
+  
+  <div class="box">
+    <p>Flight options?</p>
+  </div>
+  <div class="box">
+    <p>Accommodation options?</p>
+  </div>
+  
+  <ul id="footnotes">
+    <li id="fn1">
+      <sup>1</sup>Cost reflects a standard ticket price for the main event. There may be early bird offers, discounts or extras, such as training workshops, available also. Check with the event site for details.
+    </li>
+  </ul>
 <% end -%>
 
-<ul class="dates">
-  <li>
-    <h4>Call for Proposals <%= present_or_past(@event.cfp_date,'opens','opened') %>:</h4>
-    <%= format_date(@event.cfp_date) %>
-  </li>
-  <li>
-    <h4>Call for Proposals <%= present_or_past(@event.cfp_close_date,'closes','closed') %>:</h4>
-    <%= format_date(@event.cfp_close_date) %>
-  </li>
-  <li>
-    <h4>Registration <%= present_or_past(@event.reg_date,'opens','opened') %>:</h4>
-    <%= format_date(@event.reg_date) %>
-  </li>
-</ul>
 
-<%= @event.description_formatted %>
-
-<ul id="footnotes">
-  <li id="fn1">
-    <sup>1</sup>Cost reflects a standard ticket price for the main event. There may be early bird offers, discounts or extras, such as training workshops, available also. Check with the event site for details.
-  </li>
-</ul>
-
-
-<div class="box">
-  <p>Flight options?</p>
-</div>
-<div class="box">
-  <p>Accommodation options?</p>
-</div>

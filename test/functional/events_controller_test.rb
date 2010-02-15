@@ -17,8 +17,23 @@ class EventsControllerTest < ActionController::TestCase
     should_assign_to :events
   end
   
-  context "on GET to :index with 'focus' param of 'attend'" do
-    setup { get :index, :focus => 'attend'}
-    should_assign_to :focus
+  context "on GET to :index" do
+    context "with 'focus' param of 'attend'" do
+      setup { get :index, :focus => 'attend'}
+      should_assign_to :focus
+      should_assign_to :partial
+    end
+    
+    context "with 'focus' param of 'speak'" do
+      setup { get :index, :focus => 'speak'}
+      should_assign_to :focus
+      should_assign_to :partial
+    end
+    
+    context "with no 'focus' param'" do
+      setup { get :index}
+      should_not_assign_to :focus
+      should_assign_to :partial
+    end
   end
 end
