@@ -26,7 +26,7 @@ class Admin::EventsControllerTest < ActionController::TestCase
       end
 
       should_change('Event count by 1', :by => 1) { Event.count }
-      should_redirect_to("admin event path") {admin_event_path(assigns(:event))}
+      should_redirect_to("admin events path") {admin_events_path}
       should "return no errors" do
         assert assigns(:event).errors.full_messages.to_sentence.blank?
       end
@@ -41,12 +41,7 @@ class Admin::EventsControllerTest < ActionController::TestCase
       should_render_template :new
     end
   end
-  
-  context "on GET to :show" do
-    setup { get :show, :id => @event}
-    should_respond_with :success
-  end
-  
+
   context "on GET to :edit" do
     setup { get :edit, :id => @event.id }
 
@@ -59,7 +54,7 @@ class Admin::EventsControllerTest < ActionController::TestCase
         put :update, :event => Factory.attributes_for(:event, :name => 'updated'), :id => @event.id
       end
 
-      should_redirect_to("admin event path") {admin_event_path(assigns(:event))}
+      should_redirect_to("admin events path") {admin_events_path}
       should "update the name" do
         assert_equal 'updated', assigns(:event).name
       end
