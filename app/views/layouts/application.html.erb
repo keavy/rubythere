@@ -15,6 +15,7 @@
    <div id="hd" class="clearfix">
     <h1><%= link_to 'RubyVous', root_path %></h1>
     <p>Events of interest to Rubyists around the world</p>
+    <%= render :partial => 'shared/menu' %>
    </div>
    
    <div id="bd" class="clearfix">
@@ -39,5 +40,6 @@
    <div id="ft">
    </div>
   </div>
+  <%= render :partial => 'shared/analytics' %>
 </body>
 </html>

@@ -37,6 +37,7 @@ body{
 .page_links{margin: 0 0 10px 0;}
 div.primary{border: 1px solid #ccc; background-color: #f6f6f6; padding: 10px; margin: 0px 0 40px 0;}
 #search{margin: 0 0 20px 0;}
+div.box{margin: 20px 0;}
 
 /* text */
 h1{font-size: 182%;}
@@ -49,8 +50,10 @@ form small{color: #ccc;}
 .optional input{ color: #999;}
 .event_date{margin-bottom: 20px; font-size: 123.1%;}
 .event_links{margin-bottom: 20px;}
-.note{margin-top: 100px; color: #999; font-size: 83%;}
+#footnotes{margin-top: 100px; color: #999; font-size: 83%;}
 h2.aim{ margin-bottom: 20px;}
+sup{line-height:0; vertical-align:super; font-size: 83%; padding-left: 2px;}
+#footnotes sup{padding: 0 2px 0 0;}
 
 /* links */
 a{color: #000;}
@@ -60,12 +63,18 @@ a.help{color: #00A630;}
 a.active{color: #333;}
 #page_head a{color: #FF0011;}
 #hd a{color: #333;}
+#hd #menu a{color: #00A0F0;}
 a[rel]{color: #00A0F0; padding-right: 15px; background:url(../images/external.png) no-repeat;
 background-position: top right;
 }
-.event_links a{margin-right: 20px; color: #FF0011;}
+.event_links a{margin-right: 20px; color: #00A630;}
 .aim a{background-color: #00A0F0; color: #fff;}
+sup a{color: #999;}
 
+
+/* menu */
+ul#menu{margin: 10px 0;}
+ul#menu li{display: inline-block; margin-right: 10px;}
 
 /* form */
 form{width: 460px;}

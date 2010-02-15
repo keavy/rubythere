@@ -4,7 +4,7 @@
 
 <p>Currently: <%= status_for_event(@event) %></p>
 <% unless @event.cost.blank? || @event.cost == 0.0 %>
-  <p class="cost">Registration cost: <%= number_to_currency(@event.cost, :unit => @event.currency) %></p>
+  <p class="cost">Registration cost<sup class="footnote"><%= link_to "1", "#fn1" %></sup>: <%= number_to_currency(@event.cost, :unit => @event.currency) %></p>
 <% end -%>
 
 <ul class="dates">
@@ -24,4 +24,16 @@
 
 <%= @event.description_formatted %>
 
-<p class="note">Cost reflects a standard ticket price for the main event. There may be early bird offers, discounts or extras, such as training workshops, available also. Check with the event site for details.</p>
+<ul id="footnotes">
+  <li id="fn1">
+    <sup>1</sup>Cost reflects a standard ticket price for the main event. There may be early bird offers, discounts or extras, such as training workshops, available also. Check with the event site for details.
+  </li>
+</ul>
+
+
+<div class="box">
+  <p>Flight options?</p>
+</div>
+<div class="box">
+  <p>Accommodation options?</p>
+</div>
