@@ -54,6 +54,7 @@ form small{color: #ccc;}
 h2.aim{ margin-bottom: 20px;}
 sup{line-height:0; vertical-align:super; font-size: 83%; padding-left: 2px;}
 #footnotes sup{padding: 0 2px 0 0;}
+.deadline{font-style: italic; color: #999;}
 
 /* links */
 a{color: #000;}
@@ -184,5 +185,4 @@ tr.past td{text-decoration: line-through;}
 
 
 /* lists */
-ul.dates{border: 1px solid #ccc; background-color: #f6f6f6; padding: 10px; margin: 20px 0 20px 0;}
-ul.dates li{margin: 0 0 20px 0;}
+

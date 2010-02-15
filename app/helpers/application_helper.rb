@@ -69,26 +69,8 @@ module ApplicationHelper
     end
   end
   
-  def present_or_past(date,present,past)
-    if date.nil?
-      return present
-    else
-      if date < Time.now
-        return  past
-      else
-        return  present
-      end
-    end
-  end
-  
   def twitter_link(name)
     return "" if name.nil?
     link_to "@#{name}", "http://twitter.com/#{name}"
-  end
-  
-  def status_for_event(event)
-    if event.reg_open then status = 'open for reg' end
-    if event.sold_out then status = 'sold out' end
-    return status
   end
 end

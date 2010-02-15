@@ -5,5 +5,5 @@
   <td class="name"><%= link_to event.name, event_path(event) %></td>
   <td class="city"><%= city_state(event.location)%><br /><%= event.location.country %></td>
   <td class="date"><%= event_date(event.start_date, event.end_date) %></td>
-   <td class="status"><%= status_for_event(event) %></td>
+  <td class="status"><%= event.status %></td>
 </tr>

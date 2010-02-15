@@ -1,7 +1,6 @@
 <% event = object %>
-<% css_class = been_and_gone?(event.start_date) %>
 
-<tr class="<%= css_class %>">
+<tr>
   <td><%= image_tag "http://img.tweetimag.es/i/#{event.twitter}_n" unless event.twitter.blank? %></td>
   <td class="name"><%= link_to event.name, event_path(event) %></td>
   <td class="city"><%= city_state(event.location)%><br /><%= event.location.country %></td>

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100212211237
+# Schema version: 20100215093935
 #
 # Table name: events
 #
@@ -23,6 +23,8 @@
 #  venue_id              :integer(4)
 #  twitter               :string(255)
 #  reg_open              :boolean(1)
+#  proposals_open        :boolean(1)
+#  cached_slug           :string(255)
 #
 
 class Event < ActiveRecord::Base
@@ -42,10 +44,17 @@ class Event < ActiveRecord::Base
   named_scope :upcoming, :conditions => "start_date > '#{Time.now.to_s(:db)}'"
   named_scope :past, :conditions => "start_date < '#{Time.now.to_s(:db)}'"
   named_scope :unknown, :conditions => {:start_date => nil}
-  named_scope :open_for_speakers, :conditions => "proposals_open = 1 OR cfp_close_date > '#{Time.now.to_s(:db)}'"
+  named_scope :open_for_speakers, :conditions => "proposals_open = 1"
   
-  
-  
+  def status
+    if sold_out
+      'sold_out'
+    elsif reg_open
+      'open_for_reg'
+    else
+      'unknown'
+    end
+  end
   
   protected
   def set_formatted_fields

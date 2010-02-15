@@ -17,10 +17,12 @@
 
 
 <% content_for :side do -%>
-  <div class="box availability">
-    <p>Currently: <%= status_for_event(@event) %></p>
+  <div class="box availability <%= @event.status %>">
+    <% if @event.reg_open -%>
+      <p>Registration is open</p>
+    <% end -%>
     <% unless @event.cost.blank? || @event.cost == 0.0 %>
-      <p class="cost">Registration cost<sup class="footnote"><%= link_to "1", "#fn1" %></sup>: <%= number_to_currency(@event.cost, :unit => @event.currency) %></p>
+      <p class="cost">Registration cost <sup class="footnote"><%= link_to "1", "#fn1" %></sup>: <%= number_to_currency(@event.cost, :unit => @event.currency) %></p>
     <% end -%>
   </div>
 
@@ -28,22 +30,20 @@
     <p>Venue name, address, country</p>
     <p><%= link_to "Map", "#" %></p>
   </div>
-
-  <ul class="dates">
-    <li>
-      <h4>Call for Proposals <%= present_or_past(@event.cfp_date,'opens','opened') %>:</h4>
-      <%= format_date(@event.cfp_date) %>
-    </li>
-    <li>
-      <h4>Call for Proposals <%= present_or_past(@event.cfp_close_date,'closes','closed') %>:</h4>
-      <%= format_date(@event.cfp_close_date) %>
-    </li>
-    <li>
-      <h4>Registration <%= present_or_past(@event.reg_date,'opens','opened') %>:</h4>
-      <%= format_date(@event.reg_date) %>
-    </li>
-  </ul>
   
+  <div class="box cfp">
+    <% if @event.proposals_open -%>
+      <p>Call for proposals is open 
+        <% unless @event.cfp_close_date.blank? -%> 
+          <br />
+          <span class="deadline">Closes: <%= format_date(@event.cfp_close_date) %></span>
+        <% end -%>
+      </p>
+    <% else -%>
+      <p>Call for proposals is closed</p>
+    <% end -%>
+  </div>
+
   <div class="box">
     <p>Flight options?</p>
   </div>
@@ -51,11 +51,15 @@
     <p>Accommodation options?</p>
   </div>
   
+
   <ul id="footnotes">
-    <li id="fn1">
-      <sup>1</sup>Cost reflects a standard ticket price for the main event. There may be early bird offers, discounts or extras, such as training workshops, available also. Check with the event site for details.
-    </li>
+    <% unless @event.cost.blank? || @event.cost == 0.0 %>
+      <li id="fn1">
+        <sup>1</sup>Cost reflects a standard ticket price for the main event. There may be early bird offers, discounts or extras, such as training workshops, available also. Check with the event site for details.
+      </li>
+    <% end -%>
   </ul>
+  
 <% end -%>
 
 

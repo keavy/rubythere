@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100212211237
+# Schema version: 20100215093935
 #
 # Table name: venues
 #
