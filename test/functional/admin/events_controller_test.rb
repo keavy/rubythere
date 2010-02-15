@@ -25,7 +25,7 @@ class Admin::EventsControllerTest < ActionController::TestCase
         post :create, :event => Factory.attributes_for(:event)
       end
 
-      should_change "Event.count", :by => 1
+      should_change('Event count by 1', :by => 1) { Event.count }
       should_redirect_to("admin event path") {admin_event_path(assigns(:event))}
       should "return no errors" do
         assert assigns(:event).errors.full_messages.to_sentence.blank?
@@ -36,8 +36,8 @@ class Admin::EventsControllerTest < ActionController::TestCase
       setup do
         post :create, :event => Factory.attributes_for(:event, :name => '')
       end
-
-      should_not_change "Event.count"
+      
+      should_not_change('Event count') { Event.count }
       should_render_template :new
     end
   end

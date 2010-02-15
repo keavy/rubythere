@@ -29,7 +29,7 @@
       <%= location_form.country_select :country, ['United States','United Kingdom','Anywhere'] %>
     </div>
     <% unless location_form.object.new_record? %>
-      <%= location_form.check_box '_delete' %>
+      <%= location_form.check_box '_destroy' %>
     <% end %>
 
   <% end %>
