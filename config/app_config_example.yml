@@ -1,6 +1,6 @@
 development:
-
+  hoptoad_key: 12345
 test:
-  
+  hoptoad_key: 12345 
 production:
   hoptoad_key: 12345
