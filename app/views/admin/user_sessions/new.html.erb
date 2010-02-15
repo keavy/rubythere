@@ -1,0 +1,17 @@
+<h2>Login</h2>
+
+<div class="main left">
+  <%= error_messages_for :user_session %>
+
+  <% labeled_form_for @user_session, :url => admin_user_session_path do |f| %>
+    
+    <%= f.text_field :email %>
+    <%= f.password_field :password %>
+    <%= f.check_box :remember_me %>
+      
+    <%= f.submit "Login" %>
+  <% end %>
+</div>
+
+<div class="side right">
+</div>

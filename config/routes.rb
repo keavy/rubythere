@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
     admin.resources :events
+    admin.resource :user_session
   end
   map.admin 'admin', :controller => 'admin/events'
   

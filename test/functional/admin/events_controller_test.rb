@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class Admin::EventsControllerTest < ActionController::TestCase
+  setup :activate_authlogic
+  
   def setup
+    @user = Factory(:user)
+    login_as @user
     @event = Factory(:event)
   end
   
