@@ -4,6 +4,7 @@ log/*
 .DS_Store
 doc/**/*
 config/database.yml
+config/app_config.yml
 log/development.log
 log/test.log
 coverage.data
