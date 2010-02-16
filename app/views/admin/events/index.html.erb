@@ -5,22 +5,12 @@
         <th></th>
         <th>Twitter</th>
         <th>Name</th>
-        <th>Location</th>
-        <th>Starts</th>
-        <th>CFP</th>
-        <th>Registration</th>
-        <th>CFP closes</th>
       </tr>
     <% collection.each do |event| -%>
       <tr>
         <td><%= link_to "Edit", edit_admin_event_path(event), :class => 'secondary' %></td>
         <td><%= event.twitter %></td>
         <td><%= link_to_name(event) %></td>
-        <td><%= display_location(event.location)%></td>
-        <td><%= format_date(event.start_date) %></td>
-        <td><%= format_date(event.cfp_date) %></td>
-        <td><%= format_date(event.reg_date) %></td>
-        <td><%= format_date(event.cfp_close_date) %></td>
       </tr>
     <% end -%>
     </table>

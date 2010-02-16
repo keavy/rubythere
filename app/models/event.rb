@@ -19,10 +19,13 @@ class Event < ActiveRecord::Base
   
   validates_presence_of :name, :message => '^Please add a name'
   
-  before_save :set_formatted_fields
-  has_friendly_id :name, :use_slug => true
-  
   accepts_nested_attributes_for :happenings
+  
+  before_save :set_formatted_fields
+  
+  default_scope :order => 'name'
+  
+  has_friendly_id :name, :use_slug => true
   
   protected
   def set_formatted_fields
