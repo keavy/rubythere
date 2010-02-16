@@ -42,8 +42,10 @@ div.box{margin: 20px 0;}
 /* text */
 h1{font-size: 182%;}
 h2{font-size: 167%;}
-h4{font-size: 123.1%;}
+
 h3{font-weight: bold;}
+h4{font-size: 123.1%;}
+h5{font-size: 123.1%; color: #999;}
 strong{font-weight: bold;}
 form small{color: #ccc;}
 .optional{ color: #999;}
@@ -55,6 +57,8 @@ h2.aim{ margin-bottom: 20px;}
 sup{line-height:0; vertical-align:super; font-size: 83%; padding-left: 2px;}
 #footnotes sup{padding: 0 2px 0 0;}
 .deadline{font-style: italic; color: #999;}
+.temp{background-color: lightyellow;}
+cite{color: #999;}
 
 /* links */
 a{color: #000;}
@@ -68,7 +72,7 @@ a.active{color: #333;}
 a[rel]{color: #00A0F0; padding-right: 15px; background:url(../images/external.png) no-repeat;
 background-position: top right;
 }
-.event_links a{margin-right: 20px; color: #00A630;}
+.event_links a{color: #00A630;}
 .aim a{background-color: #00A0F0; color: #fff;}
 sup a{color: #999;}
 
@@ -185,4 +189,5 @@ tr.past td{text-decoration: line-through;}
 
 
 /* lists */
-
+ul#tweets, ul.speakers{margin: 5px 0 10px 0;}
+ul#tweets li, ul.speakers li{margin: 0 0 2px 0;}

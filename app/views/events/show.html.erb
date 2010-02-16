@@ -1,23 +1,47 @@
 <%= image_tag "http://img.tweetimag.es/i/#{@event.twitter}_b" unless @event.twitter.blank? %>
 <h2><%= @event.name %></h2>
 
-<p class="event_date">[temp]Show date here</p>
-<p class="event_links"><%= link_to @event.url, @event.url %>  <%= twitter_link(@event.twitter) %></p>
+<p class="event_date temp">[temp] Show date here</p>
+<p class="event_links"><%= link_to @event.url, @event.url %></p>
 
 <div class="box description">
   <%= @event.description_formatted %>
 </div>
 
-<h3>Speakers include</h3>
-<ul id="speakers">
+<h5>Keynotes by</h5>
+<ul class="speakers">
+  <% 2.times do %>
+    <li><%= link_to "Speaker name", "#" %> / talk title talk title</li>
+  <% end -%>
+</ul>
+
+
+<h5>Speakers include</h5>
+<ul class="speakers">
   <% 20.times do %>
     <li><%= link_to "Speaker name", "#" %> / talk title talk title</li>
   <% end -%>
 </ul>
 
 
+<p id="footnotes">Organizers of <%= @event.name %> are welcome to <%= link_to "register", "#" %> and update this info.</p>
+
+
 <% content_for :side do -%>
   <%= render :partial => 'happenings/upcoming', :collection => @upcoming -%>
+  
+  
+  <div class="box">
+    <h5>Tweets about <%= @event.name %></h5>
+    <%= twitter_link(@event.twitter) %>
+    <ul id="tweets">
+      <li><blockquote>Stuff said about <%= @event.twitter %></blockquote> <cite>@twitter_user</cite></li>
+      <li><blockquote>Stuff and even more things said about <%= @event.twitter %><blockquote> <cite>@twitter_user</cite></li>
+      <li><blockquote>Stuff and things said about <%= @event.twitter %><blockquote> <cite>@twitter_user</cite></li>
+      <li><blockquote>Stuff and even more and even more things said about <%= @event.twitter %><blockquote> <cite>@twitter_user</cite></li>
+      <li><blockquote>Stuff and things said about <%= @event.twitter %><blockquote> <cite>@twitter_user</cite></li>
+    </ul>
+  </div>
 <% end -%>
 
 

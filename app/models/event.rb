@@ -23,7 +23,7 @@ class Event < ActiveRecord::Base
   
   before_save :set_formatted_fields
   
-  default_scope :order => 'name'
+  default_scope :order => 'name', :include => :happenings
   
   has_friendly_id :name, :use_slug => true
   
