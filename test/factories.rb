@@ -1,13 +1,20 @@
 Factory.define :event do |f|
   f.name          "A Ruby Conference"
   f.url           "http://www.conf.com"
-  f.start_date    "2009-08-01"
-  f.end_date      "2009-08-05"
+  f.twitter       "arubyconf"
   f.description   "About text..."
-  f.currency      "&pound;"
-  f.cost          "195"
-  f.association   :location
-  f.association   :venue
+end
+
+Factory.define :happening do |f|
+  f.association  :event
+  f.url          "http://www.conf.com/2009/"
+  f.start_at     "2009-08-01"
+  f.end_at       "2009-08-05"
+  f.description  "About text..."
+  f.currency     "&pound;"
+  f.cost         "195"
+  f.association  :location
+  f.association  :venue
 end
 
 Factory.define :location do |f|

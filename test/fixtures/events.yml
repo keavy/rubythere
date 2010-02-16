@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100215093935
+# Schema version: 20100216103653
 #
 # Table name: events
 #
@@ -8,22 +8,9 @@
 #  url                   :string(255)
 #  description           :text
 #  description_formatted :text
-#  start_date            :datetime
-#  end_date              :datetime
-#  cfp_date              :datetime
-#  reg_date              :datetime
-#  cfp_close_date        :datetime
-#  cost                  :decimal(10, 2)  default(0.0)
-#  currency              :string(255)
-#  sold_out              :boolean(1)
-#  childcare             :boolean(1)
 #  created_at            :datetime
 #  updated_at            :datetime
-#  location_id           :integer(4)
-#  venue_id              :integer(4)
 #  twitter               :string(255)
-#  reg_open              :boolean(1)
-#  proposals_open        :boolean(1)
 #  cached_slug           :string(255)
 #
 

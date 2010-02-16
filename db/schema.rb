@@ -9,30 +9,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100215093935) do
+ActiveRecord::Schema.define(:version => 20100216103653) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
     t.string   "url"
     t.text     "description"
     t.text     "description_formatted"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.datetime "cfp_date"
-    t.datetime "reg_date"
-    t.datetime "cfp_close_date"
-    t.decimal  "cost",                  :precision => 10, :scale => 2, :default => 0.0
-    t.string   "currency"
-    t.boolean  "sold_out",                                             :default => false
-    t.boolean  "childcare",                                            :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "twitter"
+    t.string   "cached_slug"
+  end
+
+  create_table "happenings", :force => true do |t|
+    t.integer  "event_id"
+    t.string   "url"
+    t.string   "cached_slug"
+    t.text     "description"
+    t.text     "description_f"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "cfp_closes_at"
+    t.boolean  "cfp_open",                                     :default => false
+    t.boolean  "open_for_reg",                                 :default => false
+    t.decimal  "cost",          :precision => 10, :scale => 2
+    t.string   "currency"
+    t.boolean  "sold_out",                                     :default => false
+    t.boolean  "childcare",                                    :default => false
     t.integer  "location_id"
     t.integer  "venue_id"
-    t.string   "twitter"
-    t.boolean  "reg_open",                                             :default => false
-    t.boolean  "proposals_open",                                       :default => false
-    t.string   "cached_slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "locations", :force => true do |t|

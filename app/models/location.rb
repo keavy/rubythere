@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100215093935
+# Schema version: 20100216103653
 #
 # Table name: locations
 #
@@ -12,7 +12,7 @@
 #
 
 class Location < ActiveRecord::Base
-  has_many :events
+  has_many :happenings
   has_many :venues
   validates_presence_of :country, :message => '^Please add a country'
 end
