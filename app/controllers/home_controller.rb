@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @events = Event.upcoming
+    @happenings = Happening.upcoming
   end
 end
