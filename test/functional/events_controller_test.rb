@@ -1,36 +1,22 @@
 require 'test_helper'
 
 class EventsControllerTest < ActionController::TestCase
-  def setup
-    @event = Factory(:event)
-  end
-  
   context "on GET to :show" do
-    setup { get :show, :id => @event}
+    setup do
+      @event = Factory(:event)
+      get :show, :id => @event
+    end
     should_respond_with :success
     should_assign_to :event
-  end
-  
-  context "on GET to :archive" do
-    setup { get :archive}
-    should_respond_with :success
-    should_assign_to :events
-  end
-  
-  context "on GET to :index" do
-    context "with 'focus' param of 'attend'" do
-      setup { get :index, :focus => 'attend'}
-      should_assign_to :focus
-    end
     
-    context "with 'focus' param of 'speak'" do
-      setup { get :index, :focus => 'speak'}
-      should_assign_to :focus
-    end
-    
-    context "with no 'focus' param'" do
-      setup { get :index}
-      should_assign_to :focus
+    context "with an upcoming happening" do
+      setup do
+        @happening = Factory(:happening, :event => @event, :start_at => 2.months.from_now)
+        get :show, :id => @event
+      end
+
+      should_respond_with :success
+      should_assign_to :upcoming
     end
   end
 end

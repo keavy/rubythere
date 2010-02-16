@@ -1,7 +1,7 @@
 <h2 class="aim">Upcoming events <%= @content_title %></h2>
 
 <div class="primary">
-  <%= render :partial => @focus, :locals => {:events => @events} %>
+  <%= render :partial => @focus, :locals => {:happenings => @happenings} %>
 </div>
 
 <p id="footnotes">If you know of an event that belongs here, email us the details at <%= mail_to EMAIL_CONTACT, EMAIL_CONTACT, :encode => :hex %> and we'll gladly add it.</p>

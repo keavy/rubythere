@@ -1,0 +1,9 @@
+<% css_class = been_and_gone?(happening.start_at) %>
+
+<tr class="<%= css_class %>">
+  <td><%= image_tag "http://img.tweetimag.es/i/#{happening.event.twitter}_n" unless happening.event.twitter.blank? %></td>
+  <td class="name"><%= link_to happening.event.name, event_path(happening.event) %></td>
+  <td class="city"><%= city_state(happening.location)%><br /><%= happening.location.country %></td>
+  <td class="date"><%= event_date(happening.start_at, happening.end_at) %></td>
+  <td class="status"><%= happening.status %></td>
+</tr>

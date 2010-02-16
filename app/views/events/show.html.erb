@@ -1,7 +1,7 @@
 <%= image_tag "http://img.tweetimag.es/i/#{@event.twitter}_b" unless @event.twitter.blank? %>
 <h2><%= @event.name %></h2>
 
-<p class="event_date"><%= event_date(@event.start_date,@event.end_date) %></p>
+<p class="event_date">[temp]Show date here</p>
 <p class="event_links"><%= link_to @event.url, @event.url %>  <%= twitter_link(@event.twitter) %></p>
 
 <div class="box description">
@@ -17,49 +17,7 @@
 
 
 <% content_for :side do -%>
-  <div class="box availability <%= @event.status %>">
-    <% if @event.reg_open -%>
-      <p>Registration is open</p>
-    <% end -%>
-    <% unless @event.cost.blank? || @event.cost == 0.0 %>
-      <p class="cost">Registration cost <sup class="footnote"><%= link_to "1", "#fn1" %></sup>: <%= number_to_currency(@event.cost, :unit => @event.currency) %></p>
-    <% end -%>
-  </div>
-
-  <div class="box location">
-    <p>Venue name, address, country</p>
-    <p><%= link_to "Map", "#" %></p>
-  </div>
-  
-  <div class="box cfp">
-    <% if @event.proposals_open -%>
-      <p>Call for proposals is open 
-        <% unless @event.cfp_close_date.blank? -%> 
-          <br />
-          <span class="deadline">Closes: <%= format_date(@event.cfp_close_date) %></span>
-        <% end -%>
-      </p>
-    <% else -%>
-      <p>Call for proposals is closed</p>
-    <% end -%>
-  </div>
-
-  <div class="box">
-    <p>Flight options?</p>
-  </div>
-  <div class="box">
-    <p>Accommodation options?</p>
-  </div>
-  
-
-  <ul id="footnotes">
-    <% unless @event.cost.blank? || @event.cost == 0.0 %>
-      <li id="fn1">
-        <sup>1</sup>Cost reflects a standard ticket price for the main event. There may be early bird offers, discounts or extras, such as training workshops, available also. Check with the event site for details.
-      </li>
-    <% end -%>
-  </ul>
-  
+  <%= render :partial => 'happenings/upcoming', :collection => @upcoming -%>
 <% end -%>
 
 
