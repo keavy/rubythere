@@ -9,9 +9,9 @@
  </div>
 
 <div class="box location">
-<h5>Location</h5>
- <p class="temp">[temp] Venue name, address, country</p>
- <p><%= link_to "Map", "#" %></p>
+  <h5>Location</h5>
+  <p class="temp">[temp] Venue name, address, country</p>
+  <p><%= link_to "Map", "#" %></p>
 </div>
 
 <div class="box cfp">
@@ -26,6 +26,11 @@
     <% else -%>
      <p>Call for proposals is closed</p>
     <% end -%>
+</div>
+
+<div class="box location">
+  <h5>Facilities</h5>
+  <p>Childcare available: <%= upcoming.childcare? ? 'yes' : 'no' %></p>
 </div>
 
 
