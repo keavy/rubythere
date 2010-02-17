@@ -14,4 +14,6 @@
   <div class="box">
     Something missing? <%= link_to "Submit an event", "#" %>
   </div>
+  
+  <p>Feed for events <%= @content_title %> <%= link_to (image_tag "feed.gif"), events_to_path(:focus => @focus, :format => 'rss') %></p>
 <% end -%>

@@ -24,4 +24,6 @@
   <div class="box">
     Something missing? <%= link_to "Submit an event", "#" %>
   </div>
+  
+  <p>Feed for all events <%= link_to (image_tag "feed.gif"), events_path(:format => 'rss') %></p>
 <% end -%>

@@ -10,6 +10,12 @@ class HappeningsController < ApplicationController
     end
     
     @happenings = (params[:focus] == 'speak') ? Happening.upcoming.open_for_speakers : Happening.upcoming
+    
+    respond_to do |format|
+      format.html
+      format.rss { render :layout => false}
+      format.xml  { render :xml => @happenings.to_xml }
+    end
   end
   
   def archive
