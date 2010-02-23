@@ -19,4 +19,10 @@ class EventsControllerTest < ActionController::TestCase
       should_assign_to :upcoming
     end
   end
+  
+  context "on GET to :new" do
+    setup { get :new}
+    should_respond_with :success
+    should_assign_to :event
+  end
 end

@@ -1,22 +1,18 @@
 class LabeledFormBuilder < ActionView::Helpers::FormBuilder
-  %w[text_field collection_select password_field text_area select date_select].each do |method_name|
+  %w[text_field collection_select password_field text_area select].each do |method_name|
     define_method(method_name) do |field_name, *args|
       #options = args.extract_options!
       options = args.detect {|argument| argument.is_a?(Hash)} || {}
       hint = (options[:hint]) ? @template.content_tag(:small, options[:hint]) : ''
-      label_value = (options[:no_label]) ? false : field_label(field_name, *args)
       
       locals = {
         :element => super,
+        :label   => field_label(field_name, *args),
         :options => options,
-        :label   => label_value,
-        :error   => field_error(field_name)
+        :error   => field_error(field_name,options[:class])
       }
-
         
       @template.render :partial => 'forms/field', :locals  => locals
-                    
-      #@template.content_tag(:div, @template.content_tag(:p, field_label(field_name, *args)  + super + hint ), :class => "clearfix")
     end
   end
 
@@ -37,7 +33,6 @@ class LabeledFormBuilder < ActionView::Helpers::FormBuilder
       :options => options
     }
     @template.render :partial => 'forms/submit', :locals  => locals
-    #@template.content_tag(:div, super, :class => 'submit')
   end
   
   def many_check_boxes(name, subobjects, id_method, name_method, options = {})
@@ -56,22 +51,21 @@ class LabeledFormBuilder < ActionView::Helpers::FormBuilder
   private
   def field_label(field_name, *args)
     options = args.extract_options!
-    #options.reverse_merge!(:required => field_required?(field_name))
-    #options[:label_class] = "required" if options[:required]
+    options.reverse_merge!(:required => field_required?(field_name))
     label_class = options[:label_class].blank? ? "" : options[:label_class]
-    options[:label_class] =  label_class + " required" if options[:required]
     options.reverse_merge!(:label_class => options[:class]) if options[:class] == 'inline'
-    label(field_name, options[:label], :class => options[:label_class])
+    label(field_name, options[:label], {:required => options[:required], :class => options[:label_class]})
   end
   
   def field_required?(field_name)
     object.class.reflect_on_validations_for(field_name).map(&:macro).include?(:validates_presence_of)
   end
 
-  def field_error(field_name)
+  def field_error(field_name,css=nil)
     return if object.nil?
     if object.errors.invalid? field_name
-      @template.content_tag(:span, [object.errors.on(field_name)].flatten.first.sub(/^\^/,''), :class => 'error_message')
+      css_class = (css.nil?) ? 'error_message' : ('error_message ' + css)
+      @template.content_tag(:span, [object.errors.on(field_name)].flatten.first.sub(/^\^/,''), :class => css_class )
     else
       ''
     end

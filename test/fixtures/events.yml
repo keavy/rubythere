@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100216103653
+# Schema version: 20100218155129
 #
 # Table name: events
 #
@@ -12,6 +12,7 @@
 #  updated_at            :datetime
 #  twitter               :string(255)
 #  cached_slug           :string(255)
+#  approved              :boolean(1)
 #
 
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html

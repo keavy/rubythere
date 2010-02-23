@@ -6,4 +6,8 @@ class EventsController < ApplicationController
       @past     = @event.happenings.past
     end
   end
+  
+  def new
+    @event = Event.new
+  end
 end

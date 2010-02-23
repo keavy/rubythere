@@ -3,5 +3,5 @@
   <li><%= link_to "Events to speak at", events_to_path('speak') %></li>
   <li><%= link_to "Past events", archive_happenings_path %></li>
   <li><%= mail_to EMAIL_CONTACT, "Contact", :encode => 'hex' %></li>
-  <li><%= link_to "Submit an event", "#" %></li>
+  <li><%= link_to "Submit an event", new_event_path %></li>
 </ul>

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100216103653
+# Schema version: 20100218155129
 #
 # Table name: events
 #
@@ -12,6 +12,7 @@
 #  updated_at            :datetime
 #  twitter               :string(255)
 #  cached_slug           :string(255)
+#  approved              :boolean(1)
 #
 
 class Event < ActiveRecord::Base
@@ -24,6 +25,7 @@ class Event < ActiveRecord::Base
   before_save :set_formatted_fields
   
   default_scope :order => 'name', :include => :happenings
+  attr_accessible :name, :url, :description, :twitter
   
   has_friendly_id :name, :use_slug => true
   

@@ -1,0 +1,27 @@
+<h2>Submit an event</h2>
+
+<div class="main left">
+  <%= error_messages_for :event %>
+
+  <% labeled_form_for setup_event(@event), :url => events_path do |f| %>
+    
+    <fieldset>
+      <label>About the event</label>
+      <%= f.text_field :name, :required => true, :hint => "My Ruby Conf" %>
+      <%= f.text_field :url, :label => "URL", :hint => "http://www.myrubyconf.com" %>
+      <%= f.text_field :twitter, :label => "Twitter name", :hint => "myrubyconf" %>
+      <%= f.text_area :description, :rows => 5 %>
+    </fieldset>
+    
+    <fieldset>
+      <label>Your details</label>
+      <p>These won't be displayed on the site.</p>
+      <p>Name, email, twitter here</p>
+    </fieldset>
+      
+    <%= f.submit "Submit this event" %>
+  <% end %>
+</div>
+
+<div class="side right">
+</div>
