@@ -3,11 +3,22 @@
 <div class="main left">
   <%= error_messages_for :user_session %>
 
-  <% labeled_form_for @user_session, :url => admin_user_session_path do |f| %>
+  <% form_for @user_session, :url => admin_user_session_path do |f| %>
+    <div class="clearfix field_wrap">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
     
-    <%= f.text_field :email %>
-    <%= f.password_field :password %>
-    <%= f.check_box :remember_me %>
+    <div class="clearfix field_wrap">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    
+    <div class="clearfix field_wrap">
+      <%= f.label :remember_me %>
+      <%= f.check_box :remember_me %>
+    </div>
+    
       
     <%= f.submit "Login" %>
   <% end %>
