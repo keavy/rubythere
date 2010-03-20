@@ -1,0 +1,15 @@
+!!!
+%html
+  = render :partial => 'layouts/head'
+  %body
+    #doc
+      #hd.clearfix
+    
+      #bd
+       
+        #content.clearfix
+          = render :partial => 'layouts/flash', :locals => {:flash => flash}
+          = yield
+
+      #ft
+      = render :partial => 'shared/analytics'
