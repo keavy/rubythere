@@ -12,22 +12,24 @@
 
 body{
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-	margin: 20px;
 	color: #333;
 }
 
 #hd{font-size: 93%;}
 #bd{font-size: 93%;}
+#ft{font-size: 85%; }
 
 .form_block{font-size: 93%;}
 
 /* blocks */
-#hd{border-bottom: 4px solid #333; padding: 0 0 10px 0; margin: 0 0 30px 0;}
-#content{ margin: 20px 0 0 0; width: 960px;}
+#hd{margin: 30px 50px;}
+#bd{background-color: #f3f3f3; padding: 32px 50px 42px 50px}
+#ft{background-color: #8c0406; color: #fff; padding: 26px 50px 40px;}
+#content, #ft .wrapper{width: 860px;}
 #user-bar-greeting{ text-align: right;}
 #user-bar-action{ text-align: right;}
-.main{ width: 500px;}
-.side{ width: 380px;}
+.main{ width: 653px;}
+.side{ width: 191px;}
 .left{float: left;}
 .right{float: right;}
 .half{width: 49%;}
@@ -38,6 +40,7 @@ body{
 div.primary{border: 1px solid #ccc; background-color: #f6f6f6; padding: 10px; margin: 0px 0 40px 0;}
 #search{margin: 0 0 20px 0;}
 div.box{margin: 20px 0;}
+#ft .side{text-align: right;}
 
 /* text */
 h1{font-size: 182%;}
@@ -74,7 +77,7 @@ background-position: top right;
 .event_links a{color: #00A630;}
 .aim a{background-color: #00A0F0; color: #fff;}
 sup a{color: #999;}
-
+#ft a{color: #fff; text-decoration: none;}
 
 /* menu */
 ul#menu{margin: 10px 0;}
@@ -177,10 +180,14 @@ span.error_message{
 table#summary{width: 680px; margin: 20px 0;}
 table#summary th{color: #999; padding: 3px 3px 10px 3px;}
 table#summary td, table.events td{padding: 3px;}
-table.events{margin-bottom: 0px;}
-table.events td{vertical-align: top;}
-th{padding-bottom: 10px; color: #999;}
-tbody tr{border-bottom: 1px solid #fff;}
+table.events{margin-bottom: 0px; background-color: #fff;}
+table.events td{vertical-align: top; padding: 15px;}
+th{padding: 10px 16px; color: #fff; text-align: left;}
+th.a{background-color: #8c0406; border-right: 1px solid #c76c6d;}
+th.b{background-color: #a00507; border-right: 1px solid #bb6b6d;}
+th.c{background-color: #ae0508; border-right: 1px solid #bb6b6d;}
+th.d{background-color: #bd0609;}
+tbody tr{border-bottom: 1px solid #ededed;}
 td.status{width: 60px; color: #999;}
 td.name{width: 160px;}
 td.city{width: 120px;}
@@ -192,3 +199,12 @@ tr.past td{text-decoration: line-through;}
 /* lists */
 ul#tweets, ul.speakers{margin: 5px 0 10px 0;}
 ul#tweets li, ul.speakers li{margin: 0 0 2px 0;}
+#ft ul li{display: inline-block; margin-right:15px;}
+
+/* images */
+#hd img{display: block;}
+
+/* menu */
+ul#tabs li{display: inline-block; margin-right: 1px; background-color: #c7c7c7; padding: 13px 20px;}
+ul#tabs li.active{background-color: #8c0406;}
+ul#tabs a{color: #fff; font-size: 131%; text-decoration: none;}

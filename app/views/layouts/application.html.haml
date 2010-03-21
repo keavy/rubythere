@@ -4,12 +4,19 @@
   %body
     #doc
       #hd.clearfix
+        = image_tag 'header_title.gif'
+        = image_tag 'header_subtitle.gif'
     
       #bd
+        = render :partial => 'shared/menu'
        
         #content.clearfix
           = render :partial => 'layouts/flash', :locals => {:flash => flash}
-          = yield
+          .main.left
+            = yield
+          .side.right
+            = yield :side
 
       #ft
+        = render :partial => 'shared/footer'
       = render :partial => 'shared/analytics'

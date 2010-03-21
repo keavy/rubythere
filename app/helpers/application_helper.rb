@@ -78,4 +78,11 @@ module ApplicationHelper
     return "" if name.nil?
     link_to "@#{name}", "http://twitter.com/#{name}"
   end
+  
+  def link_to_showing_current(text,path,default=false)
+    if (request.path == path) || default
+      cl = 'active'
+    end
+    "<li class='#{cl}'>#{link_to text, path}</li>"
+  end
 end

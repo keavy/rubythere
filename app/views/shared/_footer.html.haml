@@ -1,0 +1,11 @@
+.wrapper.clearfix
+  .main.left
+    %ul
+      %li
+        = link_to "home", root_url
+      %li
+        = link_to "archive", archive_happenings_path
+      %li
+        = mail_to EMAIL_CONTACT, "contact", :encode => 'hex'
+  .side.right
+    = "a #{link_to 'minimetre', 'http://www.minimetre.com'} site"

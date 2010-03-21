@@ -1,0 +1,12 @@
+%table.events
+  %thead
+    %th.a{ :colspan => "2" } Event
+    %th.b Location
+    %th.c Date
+    %th.d Info
+  %tbody
+    = render :partial => 'happenings/happening', :collection => @happenings
+
+
+= content_for :side do
+  = render :partial => 'shared/box_submit'
