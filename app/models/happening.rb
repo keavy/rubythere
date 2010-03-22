@@ -41,8 +41,8 @@ class Happening < ActiveRecord::Base
   def status
     if sold_out
       'Sold out'
-    elsif open_for_reg
-      'Open for registration' unless start_at < Time.now
+    elsif open_for_reg && start_at > Time.now
+        'Open for registration'
     else
       ''
     end

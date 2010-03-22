@@ -12,10 +12,18 @@ class HappeningTest < ActiveSupport::TestCase
   context "calling #status on a happening" do
     
     context "which is open for registration" do
-      setup { @happening = Factory.build(:happening, :event => @event, :open_for_reg => 1) }
+      setup { @happening = Factory.build(:happening, :event => @event, :open_for_reg => 1, :start_at => 1.month.from_now) }
       
       should "return 'Open for registrationg'" do
         assert_equal 'Open for registration', @happening.status
+      end
+      
+      context "but in the past" do
+        setup { @happening = Factory.build(:happening, :event => @event, :open_for_reg => 1, :start_at => 1.month.ago) }
+
+        should "return blank" do
+          assert_equal '', @happening.status
+        end
       end
     end
     
