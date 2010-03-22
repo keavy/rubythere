@@ -27,11 +27,24 @@ class EventsControllerTest < ActionController::TestCase
   end
   
   context "on POST to :create" do
-    setup do
-      post :create, :event => Factory.attributes_for(:event, :happenings_attributes => {})
+    context "with valid data" do
+      setup do
+        post :create, :event => Factory.attributes_for(:event, :happenings_attributes => {})
+      end
+      should_change "Event.count", :by => 1
+      should_set_the_flash_to /Thanks/
+      should_redirect_to("root path") {root_path}
+      should "return false when calling #approved on the event" do
+        assert_equal assigns(:event).approved, false
+      end
     end
-    should_change "Event.count", :by => 1
-    should_set_the_flash_to /Thanks/
-    should_redirect_to("root path") {root_path}
+    
+    context "with invalid data" do
+      setup do
+        post :create, :event => Factory.attributes_for(:event, :name => '', :happenings_attributes => {})
+      end
+      should_not_change "Event.count"
+      should_render_template :new
+    end
   end
 end

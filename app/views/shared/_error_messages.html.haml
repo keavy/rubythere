@@ -1,0 +1,6 @@
+.errorExplanation#errorExplanation
+  %h2= "Unable to save due to #{pluralize(error_messages.size,'error')}"
+  %p There were problems with the following fields:
+  %ul
+    - for error_message in error_messages
+      %li= h error_message

@@ -2,9 +2,10 @@
 
   %h1 Submit an event
   
-  = error_messages_for :event
-  
   - labeled_form_for setup_event(@event), :url => events_path do |f|
+  
+    = f.error_messages
+    
     %div
       %h4 About the event:
       = f.text_field :name, :required => true, :hint => "My Ruby Conf"
@@ -25,8 +26,8 @@
         %h5 Registering
         = h_f.check_box :cfp_open, :label => 'Call for proposals open'
         = h_f.check_box :open_for_reg, :label => 'Registration open'
-        = h_f.text_field :cost, :size => 7, :limit => 7, :label => 'Registration cost', :class => 'short'
-        = h_f.text_field :currency, :size => 3, :limit => 3, :class => 'short'
+        = h_f.text_field :cost, :size => 7, :limit => 7, :label => 'Registration cost', :class => 'short', :hint => '195'
+        = h_f.text_field :currency, :size => 3, :limit => 3, :class => 'short', :hint => '£'
         
         %h5 Facilities
         = h_f.check_box :childcare, :label => 'Offers childcare'
@@ -37,5 +38,5 @@
       %h4 About you:
       %p This information will not be displayed on the site
       
-      
-    =f.submit
+    .submit
+      =image_submit_tag('btn_submit.gif')

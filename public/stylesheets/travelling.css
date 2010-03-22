@@ -89,11 +89,12 @@ ul#menu{margin: 10px 0;}
 ul#menu li{display: inline-block; margin-right: 10px;}
 
 /* form */
-form{width: 460px;}
+form{width: 380px;}
 form.small{width: 300px;}
 .field_wrap{padding: 2px;}
 .row{margin: 0 0 10px 0;}
 input,textarea{padding: 3px 8px; background-color: #f7f7f7; border: 1px solid #c7c7c7;}
+input[type='image']{padding: 0; background-color: #fff; border: none;}
 input[type='text']{width: 250px;}
 input.short{width: 40px;}
 textarea{width: 250px;}
@@ -113,8 +114,8 @@ textarea.hori{ width: 100%;}
 .line_input .wrap{width: 10%; float: left; text-align: center;}
 .primary_attributes{border: 1px solid #f6f6f6; padding: 10px; margin: 0 0 40px 0; background-color: #f6f6f6;}
 .secondary_attributes{padding: 10px; border: 1px solid #f6f6f6; background-color: #f6f6f6; margin: 0 0 40px 0;}
-div.submit{padding: 10px; margin: 18px 0 0 0;text-align: right;}
-form span.info{margin-left: 102px; color: #ccc; font-size: 85%;}
+div.submit{margin: 17px 0 0 0;text-align: right;}
+form span.info{margin-left: 102px; color: #ccc; font-size: 85%; display: block;}
 label em {margin-left: 2px; color: #df0000;}
 
 /* notices */
@@ -138,10 +139,10 @@ label em {margin-left: 2px; color: #df0000;}
 }
 .fieldWithErrors input.inputText, .fieldWithErrors textarea{margin-left: 140px;}
 .fieldWithErrors textarea.hori{margin-left: 0;}
-.fieldWithErrors label{background-color: #df0000; color: #fff; padding: 0 2px;}
+.fieldWithErrors label{color: #df0000;}
 #errorExplanation {
   width: 400px;
-  border: 2px solid #CF0000;
+  border: 2px solid #df0000;
   padding: 0px;
   padding-bottom: 12px;
   margin-bottom: 20px;
@@ -154,7 +155,7 @@ label em {margin-left: 2px; color: #df0000;}
   padding: 5px 5px 5px 15px;
   font-size: 12px;
   margin: 0;
-  background-color: #c00;
+  background-color: #df0000;
   color: #fff;
 }
 
@@ -177,6 +178,8 @@ span.error_message{
   background-color: #df0000;
   color: #fff;
   padding: 2px;
+  display: inline-block;
+  margin-left: 103px;
 }
 .fieldWithErrors input{
 	margin-top: 2px;

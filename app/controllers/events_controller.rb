@@ -18,6 +18,7 @@ class EventsController < ApplicationController
       flash[:notice] = "Thanks! Your event has been submitted for review"
       redirect_to root_path
     else
+      render :action => :new
     end
   end
 end
