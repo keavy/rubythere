@@ -24,6 +24,20 @@
       .last
         %h4 Organiser's registration:
         %p= "Event organisers #{link_to 'register here', '#', :class => 'primary'} to update/amend details"
+        
+  - content_for :side do
+    #tweets
+      %h3= "Tweets about #{@event.name}"
+      .follow 
+        %p Follow us:
+        = link_to "@#{@event.twitter}", "http://twitter.com/#{@event.twitter}"
+      %ul
+      - @tweets.each do |tweet|
+        %li
+          = link_to "@#{tweet[:from_user]}", "http://twitter.com/#{tweet[:from_user]}/status/#{tweet[:id]}"
+          %p= tweet[:text]
+      
+      
     
    
 

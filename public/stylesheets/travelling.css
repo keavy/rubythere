@@ -49,10 +49,11 @@ div.last{padding: 25px 0; border-bottom: none;}
 
 .submit_box{background-color: #737373; color: #fff; padding: 15px 10px 8px 20px;}
 div.secondary{margin-top: 27px; padding-top: 27px; border-top: 1px solid #ededed;}
+#tweets{background-color: #8c0406; padding: 20px 18px; color: #fff;}
 
 /* text */
 h1{font-size: 167%; color: #8c0406; font-weight: normal; margin-bottom: 5px;}
-
+h3{color: #fff; font-size: 153.9%;}
 h4{font-weight: bold; color: #686868; margin-bottom: 8px;}
 h5{margin: 20px 0 2px 0;font-weight: bold; }
 div.secondary h5{margin-top: 0;}
@@ -72,6 +73,7 @@ sup{line-height:0; vertical-align:super; font-size: 83%; padding-left: 2px;}
 .deadline{font-style: italic; color: #999;}
 .temp{background-color: lightyellow;}
 cite{color: #999;}
+.follow{padding: 9px 0; border-top: 1px solid #a33638; border-bottom: 1px solid #a33638; margin: 8px 0 13px;}
 
 /* links */
 a{color: #000;}
@@ -84,6 +86,7 @@ background-position: top right;
 
 sup a{color: #999;}
 #ft a{color: #fff; text-decoration: none;}
+#tweets a{color: #edb815; text-decoration: none;}
 
 /* menu */
 ul#menu{margin: 10px 0;}
@@ -210,6 +213,7 @@ td.date{width: 15%;}
 ul#tweets, ul.speakers{margin: 5px 0 10px 0;}
 ul#tweets li, ul.speakers li{margin: 0 0 2px 0;}
 #ft ul li{display: inline-block; margin-right:15px;}
+#tweets li{margin-bottom: 15px;}
 
 /* images */
 #hd img{display: block;}

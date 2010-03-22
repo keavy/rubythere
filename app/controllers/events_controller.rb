@@ -1,3 +1,4 @@
+include Twitter
 class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
@@ -5,6 +6,11 @@ class EventsController < ApplicationController
       @upcoming = @event.happenings.upcoming.last
       @past     = @event.happenings.past
     end
+    @tweets = []
+    Twitter::Search.new("#{@event.twitter}").each do |r|
+      @tweets << r
+    end
+    @tweets = @tweets[0..4]
   end
   
   def new
