@@ -47,10 +47,14 @@ div.last{padding: 25px 0; border-bottom: none;}
 .primary_info{font-size: 108%; }
 .secondary_info{width: 368px;}
 
+.submit_box{background-color: #737373; color: #fff; padding: 15px 10px 8px 20px;}
+div.secondary{margin-top: 27px; padding-top: 27px; border-top: 1px solid #ededed;}
+
 /* text */
 h1{font-size: 167%; color: #8c0406; font-weight: normal; margin-bottom: 5px;}
 
 h4{font-weight: bold; color: #686868; margin-bottom: 8px;}
+form h5{margin: 20px 0 2px 0;font-weight: bold; }
 
 strong{font-weight: bold;}
 .optional{ color: #999;}
@@ -89,16 +93,19 @@ form{width: 460px;}
 form.small{width: 300px;}
 .field_wrap{padding: 2px;}
 .row{margin: 0 0 10px 0;}
-input,textarea{padding: 3px 8px;}
+input,textarea{padding: 3px 8px; background-color: #f7f7f7; border: 1px solid #c7c7c7;}
 input[type='text']{width: 250px;}
-textarea{width: 370px;}
+input.short{width: 40px;}
+textarea{width: 250px;}
 textarea.wide{width: 95%;}
-label{width: 100px; display: inline-block;}
+label{width: 100px; display: inline-block; color: #686868;}
 label.hori{ width: 100%; display: block;}
 label.inline{display: inline;}
+.checkbox_wrap label{width: 200px;}
 textarea.hori{ width: 100%;}
 .row{margin: 0 0 20px 0;}
 .primary_attributes{border: 1px solid #999; padding: 10px; margin: 0 0 40px 0;}
+.checkbox_wrap{margin: 0 0 5px 0;}
 .field_wrap{margin: 0 0 10px 0;}
 .line_text{background-color: #f6f6f6; padding: 2px 0;}
 .line_input{padding-top: 4px;}
@@ -107,7 +114,7 @@ textarea.hori{ width: 100%;}
 .primary_attributes{border: 1px solid #f6f6f6; padding: 10px; margin: 0 0 40px 0; background-color: #f6f6f6;}
 .secondary_attributes{padding: 10px; border: 1px solid #f6f6f6; background-color: #f6f6f6; margin: 0 0 40px 0;}
 div.submit{padding: 10px; margin: 18px 0 0 0;text-align: right;}
-form span.info{margin-left: 100px; color: #ccc;}
+form span.info{margin-left: 102px; color: #ccc; font-size: 85%;}
 label em {margin-left: 2px; color: #df0000;}
 
 /* notices */
@@ -203,6 +210,8 @@ ul#tweets li, ul.speakers li{margin: 0 0 2px 0;}
 /* images */
 #hd img{display: block;}
 img.logo{float: right;}
+.submit_box img{margin-bottom: 16px;}
+img.submit{float: right; margin-top: 9px; margin-bottom: 0;}
 
 /* menu */
 ul#tabs li{display: inline-block; margin-right: 1px; background-color: #c7c7c7; padding: 8px 17px;}

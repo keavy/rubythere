@@ -17,6 +17,7 @@ module ApplicationHelper
   
   def setup_event(event)
     returning(event) do |e|
+      e.happenings.build if e.happenings.blank?
       #e.build_location if e.location.nil?
     end
   end

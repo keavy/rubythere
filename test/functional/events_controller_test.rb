@@ -25,4 +25,13 @@ class EventsControllerTest < ActionController::TestCase
     should_respond_with :success
     should_assign_to :event
   end
+  
+  context "on POST to :create" do
+    setup do
+      post :create, :event => Factory.attributes_for(:event, :happenings_attributes => {})
+    end
+    should_change "Event.count", :by => 1
+    should_set_the_flash_to /Thanks/
+    should_redirect_to("root path") {root_path}
+  end
 end
