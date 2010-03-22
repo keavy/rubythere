@@ -42,7 +42,7 @@ class Happening < ActiveRecord::Base
     if sold_out
       'Sold out'
     elsif open_for_reg
-      'Open for registration'
+      'Open for registration' unless start_at < Time.now
     else
       ''
     end
