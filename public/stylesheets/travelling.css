@@ -54,7 +54,8 @@ div.secondary{margin-top: 27px; padding-top: 27px; border-top: 1px solid #ededed
 h1{font-size: 167%; color: #8c0406; font-weight: normal; margin-bottom: 5px;}
 
 h4{font-weight: bold; color: #686868; margin-bottom: 8px;}
-form h5{margin: 20px 0 2px 0;font-weight: bold; }
+h5{margin: 20px 0 2px 0;font-weight: bold; }
+div.secondary h5{margin-top: 0;}
 
 strong{font-weight: bold;}
 .optional{ color: #999;}

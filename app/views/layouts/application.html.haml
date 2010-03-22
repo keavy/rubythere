@@ -6,12 +6,12 @@
       #hd.clearfix
         = image_tag 'header_title2.gif'
         = image_tag 'header_subtitle.gif'
-    
+      
       #bd
+        = render :partial => 'layouts/flash', :locals => {:flash => flash}
         = render :partial => 'shared/menu'
        
         #content.clearfix
-          = render :partial => 'layouts/flash', :locals => {:flash => flash}
           .main.left
             = yield
           .side.right

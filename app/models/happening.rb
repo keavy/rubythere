@@ -29,6 +29,9 @@ class Happening < ActiveRecord::Base
   belongs_to :location
   belongs_to :venue
   
+  validates_presence_of :start_at
+  validates_presence_of :url, :message => '^Please add a URL'
+  
   accepts_nested_attributes_for :location, :venue
   
   default_scope :order => 'start_at', :include => :location

@@ -17,20 +17,26 @@
         
         %div.field_wrap.clearfix
           =label :start_at, "Start date"
-          = h_f.date_select :start_at, :order => [:day, :month, :year ]
+          = h_f.date_select :start_at, :order => [:day, :month, :year ], :start_year => Time.now.year
           
         %div.field_wrap.clearfix
           =label :end_at, "End date"
-          = h_f.date_select :end_at, :order => [:day, :month, :year ], :include_blank => true
+          = h_f.date_select :end_at, :order => [:day, :month, :year ], :start_year => Time.now.year, :include_blank => true
         
-        %h5 Registering
-        = h_f.check_box :cfp_open, :label => 'Call for proposals open'
-        = h_f.check_box :open_for_reg, :label => 'Registration open'
-        = h_f.text_field :cost, :size => 7, :limit => 7, :label => 'Registration cost', :class => 'short', :hint => '195'
-        = h_f.text_field :currency, :size => 3, :limit => 3, :class => 'short', :hint => '£'
+        %div.secondary
+          %h5 Proposals
+          = h_f.check_box :cfp_open, :label => 'Call for proposals open'
+          %div.field_wrap.clearfix
+            =label :cfp_closes_at, "CFP closes"
+            = h_f.date_select :cfp_closes_at, :order => [:day, :month, :year ], :start_year => Time.now.year, :include_blank => true
         
-        %h5 Facilities
-        = h_f.check_box :childcare, :label => 'Offers childcare'
+          %h5 Registering
+          = h_f.check_box :open_for_reg, :label => 'Registration open'
+          = h_f.text_field :cost, :size => 7, :limit => 7, :label => 'Registration cost', :class => 'short', :hint => '195'
+          = h_f.text_field :currency, :size => 3, :limit => 3, :class => 'short', :hint => '£'
+        
+          %h5 Facilities
+          = h_f.check_box :childcare, :label => 'Offers childcare'
       
       
       
