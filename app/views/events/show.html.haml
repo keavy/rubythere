@@ -1,0 +1,30 @@
+.wrapper.clearfix
+  = image_tag "http://img.tweetimag.es/i/#{@event.twitter}_o", :class => 'logo' unless @event.twitter.blank?
+  %h1= @event.name
+  
+  - if @upcoming
+    .primary_info
+      %p.date 
+        %span.date= event_date(@upcoming.start_at,@upcoming.start_at)
+        %span.location= " / #{@upcoming.location.city_state_country}" if @upcoming.location
+      %p.cost= "Registration cost: #{number_to_currency(@upcoming.cost, :unit => @upcoming.currency)}"
+      =link_to @upcoming.www, @upcoming.url, :class => 'primary'
+  
+    .secondary_info
+      .box
+        %h4 Event Facilities:
+        = "#{cross_or_tick(@upcoming.childcare)} Offers childcare"
+    
+      .box
+        %h4 Keynotes by:
+    
+      .box 
+        %h4 Speakers include:
+    
+      .last
+        %h4 Organiser's registration:
+        %p= "Event organisers #{link_to 'register here', '#', :class => 'primary'} to update/amend details"
+    
+   
+
+

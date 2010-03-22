@@ -76,4 +76,12 @@ module ApplicationHelper
     end
     "<li class='#{cl}'>#{link_to text, path}</li>"
   end
+  
+  def cross_or_tick(value)
+    if value
+      image_tag 'tick.gif'
+    else
+      image_tag 'cross.gif'
+    end
+  end
 end

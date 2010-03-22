@@ -47,4 +47,8 @@ class Happening < ActiveRecord::Base
       ''
     end
   end
+  
+  def www
+    url.sub(/http:\/\//, '') unless url.blank?
+  end
 end

@@ -12,7 +12,7 @@
 
 body{
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-	color: #333;
+	color: #736f6f;
 }
 
 #hd{font-size: 93%;}
@@ -39,21 +39,27 @@ body{
 .page_links{margin: 0 0 10px 0;}
 div.primary{border: 1px solid #ccc; background-color: #f6f6f6; padding: 10px; margin: 0px 0 40px 0;}
 #search{margin: 0 0 20px 0;}
-div.box{margin: 20px 0;}
+div.box{padding: 25px 0; border-bottom: 1px solid #ededed;}
+div.last{padding: 25px 0; border-bottom: none;}
+
 #ft .side{text-align: right;}
+#content .main .wrapper{background-color: #fff; padding: 32px 34px;}
+.primary_info{font-size: 108%; }
+.secondary_info{width: 368px;}
 
 /* text */
-h1{font-size: 182%;}
-h2{font-size: 167%;}
+h1{font-size: 167%; color: #8c0406; font-weight: normal; margin-bottom: 5px;}
 
-h3{font-weight: bold;}
-h4{font-size: 123.1%;}
-h5{font-size: 123.1%; color: #999;}
+h4{font-weight: bold; color: #686868; margin-bottom: 8px;}
+
 strong{font-weight: bold;}
 .optional{ color: #999;}
 .optional input{ color: #999;}
-.event_date{margin-bottom: 20px; font-size: 123.1%;}
-.event_links{margin-bottom: 20px;}
+p.date{ margin-bottom: 7px;}
+span.date{color: #686868; font-weight: bold;}
+.cost{margin-bottom: 8px;}
+.location{color: #686868;}
+.links{margin-bottom: 20px;}
 #footnotes{margin-top: 100px; color: #999; font-size: 83%;}
 h2.aim{ margin-bottom: 20px;}
 sup{line-height:0; vertical-align:super; font-size: 83%; padding-left: 2px;}
@@ -196,6 +202,7 @@ ul#tweets li, ul.speakers li{margin: 0 0 2px 0;}
 
 /* images */
 #hd img{display: block;}
+img.logo{float: right;}
 
 /* menu */
 ul#tabs li{display: inline-block; margin-right: 1px; background-color: #c7c7c7; padding: 8px 17px;}

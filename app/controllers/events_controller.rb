@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     unless @event.happenings.blank?
-      @upcoming = @event.happenings.upcoming
+      @upcoming = @event.happenings.upcoming.last
       @past     = @event.happenings.past
     end
   end
