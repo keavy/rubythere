@@ -1,0 +1,22 @@
+%table.events
+  %thead
+    %th.a{ :colspan => "2" } Event
+    %th.b Location
+    %th.c Date
+    %th.d CFP closes
+  %tbody
+
+    - happenings.each do |happening|
+      %tr
+        %td
+          = image_tag "http://img.tweetimag.es/i/#{happening.event.twitter}_n" unless happening.event.twitter.blank?
+        %td.name
+          = link_to happening.event.name, event_path(happening.event)
+        %td.city
+          = happening.location.city_state_country
+        %td.date
+          = event_date(happening.start_at, happening.end_at)
+        %td.status
+          = format_date(happening.cfp_closes_at)
+
+

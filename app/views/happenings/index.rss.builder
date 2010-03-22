@@ -27,7 +27,7 @@ xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do 
         
         xml.event_description happening.description
         xml.logo_url "http://img.tweetimag.es/i/#{happening.event.twitter}_n" unless happening.event.twitter.blank?
-        xml.location "#{city_state(happening.location)} #{happening.location.country}"
+        xml.location happening.location.city_state_country
         xml.event_dates event_date(happening.start_at, happening.end_at)
         xml.start_at happening.start_at.to_s(:rfc822)
         xml.end_at happening.start_at.to_s(:rfc822)

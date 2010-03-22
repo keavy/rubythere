@@ -71,7 +71,7 @@ module ApplicationHelper
   end
   
   def link_to_showing_current(text,path,default=false)
-    if (request.path == path) || default
+    if (request.path == path) || (request.path == '/' && default)
       cl = 'active'
     end
     "<li class='#{cl}'>#{link_to text, path}</li>"
