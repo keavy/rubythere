@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :events
   map.resources :happenings, :collection => {:archive => :get}
+  map.register '/register', :controller => 'users', :action => 'new'
   
   map.root :controller => "home"
 end

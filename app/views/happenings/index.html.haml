@@ -1,9 +1,4 @@
 = render :partial => @focus, :locals => {:happenings => @happenings}
 
-%p#footnotes 
-  If you know of an event that belongs here, email us the details at 
-  = mail_to EMAIL_CONTACT, EMAIL_CONTACT, :encode => :hex
-  and we'll gladly add it.
-
 = content_for :side do
   = render :partial => 'shared/box_submit'

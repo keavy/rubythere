@@ -56,6 +56,7 @@ h1{font-size: 167%; color: #8c0406; font-weight: normal; margin-bottom: 5px;}
 h3{color: #fff; font-size: 153.9%;}
 h4{font-weight: bold; color: #686868; margin-bottom: 8px;}
 h5{margin: 20px 0 2px 0;font-weight: bold; }
+p{line-height: 108%; padding-bottom: 4px;}
 div.secondary h5{margin-top: 0;}
 
 strong{font-weight: bold;}
