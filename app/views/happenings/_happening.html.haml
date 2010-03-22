@@ -1,0 +1,12 @@
+%tr
+  %td
+    = image_tag "http://img.tweetimag.es/i/#{happening.event.twitter}_n" unless happening.event.twitter.blank?
+  %td.name
+    = link_to happening.event.name, event_path(happening.event), :class => 'primary'
+  %td.city
+    = happening.location.city_state_country
+  %td.date
+    = event_date(happening.start_at, happening.end_at)
+  %td.status
+    = happening.status
+</tr>

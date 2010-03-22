@@ -30,16 +30,7 @@ module ApplicationHelper
     end
     return output
   end
-  
-  def city_state(location)
-    output = ""
-    unless location.nil?
-      output += "#{location.city}" unless location.city.blank?
-      output += ", #{location.state}" unless location.state.blank?
-    end
-    return output
-  end
-  
+
   def format_date(date)
     return '' if date.nil?
     if Time.now.year == date.year

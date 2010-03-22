@@ -14,8 +14,8 @@ class HappeningTest < ActiveSupport::TestCase
     context "which is open for registration" do
       setup { @happening = Factory.build(:happening, :event => @event, :open_for_reg => 1) }
       
-      should "return 'open_for_reg'" do
-        assert_equal 'open_for_reg', @happening.status
+      should "return 'Open for registrationg'" do
+        assert_equal 'Open for registration', @happening.status
       end
     end
     
@@ -23,15 +23,15 @@ class HappeningTest < ActiveSupport::TestCase
       setup { @happening = Factory.build(:happening, :event => @event, :sold_out => 1) }
       
       should "return 'sold_out'" do
-        assert_equal 'sold_out', @happening.status
+        assert_equal 'Sold out', @happening.status
       end
     end
     
     context "which is not sold out or open for reg" do
       setup { @happening = Factory.build(:happening, :event => @event, :open_for_reg => 0, :sold_out => 0) }
       
-      should "return 'unknown'" do
-        assert_equal 'unknown', @happening.status
+      should "return blank" do
+        assert_equal '', @happening.status
       end
     end
     

@@ -40,11 +40,11 @@ class Happening < ActiveRecord::Base
   
   def status
     if sold_out
-      'sold_out'
+      'Sold out'
     elsif open_for_reg
-      'open_for_reg'
+      'Open for registration'
     else
-      'unknown'
+      ''
     end
   end
 end

@@ -64,18 +64,13 @@ cite{color: #999;}
 
 /* links */
 a{color: #000;}
-a.primary{color: #FF0011;}
-a.secondary{color: #00A0F0;}
-a.help{color: #00A630;}
+a.primary{color: #8c0406;}
 a.active{color: #333;}
-#page_head a{color: #FF0011;}
 #hd a{color: #333;}
-#hd #menu a{color: #00A0F0;}
 a[rel]{color: #00A0F0; padding-right: 15px; background:url(../images/external.png) no-repeat;
 background-position: top right;
 }
-.event_links a{color: #00A630;}
-.aim a{background-color: #00A0F0; color: #fff;}
+
 sup a{color: #999;}
 #ft a{color: #fff; text-decoration: none;}
 
@@ -180,20 +175,18 @@ span.error_message{
 table#summary{width: 680px; margin: 20px 0;}
 table#summary th{color: #999; padding: 3px 3px 10px 3px;}
 table#summary td, table.events td{padding: 3px;}
-table.events{margin-bottom: 0px; background-color: #fff;}
-table.events td{vertical-align: top; padding: 15px;}
-th{padding: 10px 16px; color: #fff; text-align: left;}
-th.a{background-color: #8c0406; border-right: 1px solid #c76c6d;}
+table.events{margin-bottom: 0px; background-color: #fff; color: #686868;}
+table.events td{vertical-align: top; padding: 12px 15px 14px 15px;}
+table.events td.name, table.events td.status, table.events td.city, table.events td.date{padding-top: 28px;}
+th{padding: 7px 12px; color: #fff; text-align: left;}
+th.a{background-color: #8c0406; border-right: 1px solid #c76c6d; padding-left: 17px;}
 th.b{background-color: #a00507; border-right: 1px solid #bb6b6d;}
 th.c{background-color: #ae0508; border-right: 1px solid #bb6b6d;}
 th.d{background-color: #bd0609;}
 tbody tr{border-bottom: 1px solid #ededed;}
-td.status{width: 60px; color: #999;}
-td.name{width: 160px;}
-td.city{width: 120px;}
-td.country{width: 120px;}
-tr.unknown{}
-tr.past td{text-decoration: line-through;}
+td.status{width: 22%; color: #686868; font-weight: bold;}
+td.city{width: 26%;}
+td.date{width: 15%;}
 
 
 /* lists */
@@ -205,6 +198,6 @@ ul#tweets li, ul.speakers li{margin: 0 0 2px 0;}
 #hd img{display: block;}
 
 /* menu */
-ul#tabs li{display: inline-block; margin-right: 1px; background-color: #c7c7c7; padding: 13px 20px;}
+ul#tabs li{display: inline-block; margin-right: 1px; background-color: #c7c7c7; padding: 8px 17px;}
 ul#tabs li.active{background-color: #8c0406;}
 ul#tabs a{color: #fff; font-size: 131%; text-decoration: none;}
