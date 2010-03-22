@@ -1,0 +1,8 @@
+%h2= "Edit #{@event.name}"
+.main.left
+  - labeled_form_for setup_event(@event), :url => admin_event_path(@event), :html => { :method => :put } do |f|
+    = f.error_messages
+
+    = render :partial => 'events/fields', :locals => {:f => f}
+    
+    = f.submit "Save changes"
