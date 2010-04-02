@@ -36,3 +36,13 @@
         = l_f.text_field :city
         = l_f.text_field :state
         = l_f.text_field :country
+        
+  %div.secondary
+    %h4 About you:
+    %p This information will not be displayed on the site    
+  - f.fields_for :submitter do |s_f|
+    = s_f.text_field :first_name
+    = s_f.text_field :last_name
+    = s_f.text_field :email
+    = s_f.text_field :twitter
+    

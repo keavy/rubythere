@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class SubmitterTest < ActiveSupport::TestCase
+  should_have_many :events
+  
   should_validate_presence_of :first_name, :message => "^Please enter your first name"
   should_validate_presence_of :last_name, :message => "^Please enter your first name"
   should_validate_presence_of :email, :message => "^Please enter your first name"

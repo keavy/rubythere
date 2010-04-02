@@ -17,10 +17,11 @@
 
 class Event < ActiveRecord::Base
   has_many :happenings
+  belongs_to :submitter
   
   validates_presence_of :name, :message => '^Please add a name'
-  
-  accepts_nested_attributes_for :happenings
+ 
+  accepts_nested_attributes_for :happenings, :submitter
   
   before_save :set_formatted_fields
   

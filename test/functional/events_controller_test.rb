@@ -30,10 +30,14 @@ class EventsControllerTest < ActionController::TestCase
     context "with valid data" do
       setup do
         happening_attributes = {:url => 'http://myconf.com', :start_at => '2010-08-01'}
-        post :create, :event => Factory.attributes_for(:event, :happenings_attributes => [happening_attributes])
+        submitter_attributes = Factory.attributes_for(:submitter)
+        post :create, :event => Factory.attributes_for(:event, 
+                      :happenings_attributes => [happening_attributes]),
+                      :submitter_attributes  => [submitter_attributes]
       end
       should_change "Event.count", :by => 1
       should_change "Happening.count", :by => 1
+      should_change "Submitter.count", :by => 1
       should_set_the_flash_to /Thanks/
       should_redirect_to("root path") {root_path}
       should "return false when calling #approved on the event" do
