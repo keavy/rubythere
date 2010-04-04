@@ -26,7 +26,7 @@ class Event < ActiveRecord::Base
   before_save :set_formatted_fields
   
   default_scope :order => 'name', :include => :happenings
-  attr_accessible :name, :url, :description, :twitter, :happenings_attributes
+  attr_accessible :name, :url, :description, :twitter, :happenings_attributes, :submitter_attributes
   
   has_friendly_id :name, :use_slug => true
   

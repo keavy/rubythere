@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100328074356) do
+ActiveRecord::Schema.define(:version => 20100402120418) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20100328074356) do
     t.string   "twitter"
     t.string   "cached_slug"
     t.boolean  "approved",              :default => false
+    t.integer  "submitter_id"
   end
 
   create_table "happenings", :force => true do |t|

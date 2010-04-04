@@ -17,6 +17,7 @@ module ApplicationHelper
   
   def setup_event(event)
     returning(event) do |e|
+      e.build_submitter if e.submitter.nil?
       e.happenings.build if e.happenings.blank?
       e.happenings.each do |h|
         h.build_location if h.location.nil?
@@ -33,7 +34,16 @@ module ApplicationHelper
     end
     return output
   end
-
+  
+  def city_state(location)
+    output = ""
+    unless location.nil?
+      output += "#{location.city}" unless location.city.blank?
+      output += ", #{location.state}" unless location.state.blank?
+    end
+    return output
+  end
+  
   def format_date(date)
     return '' if date.nil?
     if Time.now.year == date.year
@@ -79,7 +89,7 @@ module ApplicationHelper
     end
     "<li class='#{cl}'>#{link_to text, path}</li>"
   end
-  
+
   def cross_or_tick(value)
     if value
       image_tag 'tick.gif'

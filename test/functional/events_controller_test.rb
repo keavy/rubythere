@@ -29,11 +29,11 @@ class EventsControllerTest < ActionController::TestCase
   context "on POST to :create" do
     context "with valid data" do
       setup do
-        happening_attributes = {:url => 'http://myconf.com', :start_at => '2010-08-01'}
+        happening_attributes = Factory.attributes_for(:happening)
         submitter_attributes = Factory.attributes_for(:submitter)
-        post :create, :event => Factory.attributes_for(:event, 
-                      :happenings_attributes => [happening_attributes]),
-                      :submitter_attributes  => [submitter_attributes]
+        post :create, :event => { :name                  => 'test event', 
+                                  :happenings_attributes => { 0 => happening_attributes},
+                                  :submitter_attributes  => submitter_attributes }
       end
       should_change "Event.count", :by => 1
       should_change "Happening.count", :by => 1
