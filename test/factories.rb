@@ -3,6 +3,7 @@ Factory.define :event do |f|
   f.url           "http://www.conf.com"
   f.twitter       "arubyconf"
   f.description   "About text..."
+  f.association   :submitter
 end
 
 Factory.define :happening do |f|
