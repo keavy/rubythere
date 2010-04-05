@@ -1,3 +1,5 @@
+- @page_title = @event.name
+
 .wrapper.clearfix
   = image_tag "http://img.tweetimag.es/i/#{@event.twitter}_o", :class => 'logo' unless @event.twitter.blank?
   %h1= @event.name

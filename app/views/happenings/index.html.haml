@@ -1,3 +1,6 @@
+- @page_title = "Ruby events to #{@focus}"
+- @page_title += " at" if @focus == 'speak'
+
 = render :partial => @focus, :locals => {:happenings => @happenings}
 
 = content_for :side do
