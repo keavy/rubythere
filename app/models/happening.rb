@@ -54,4 +54,12 @@ class Happening < ActiveRecord::Base
   def www
     url.sub(/http:\/\//, '') unless url.blank?
   end
+
+  def past?
+    if end_at
+      end_at.past?
+    else
+      start_at.past?
+    end
+  end
 end
