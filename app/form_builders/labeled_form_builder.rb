@@ -1,5 +1,5 @@
 class LabeledFormBuilder < ActionView::Helpers::FormBuilder
-  %w[text_field collection_select password_field text_area select].each do |method_name|
+  %w[text_field collection_select password_field text_area select country_select].each do |method_name|
     define_method(method_name) do |field_name, *args|
       #options = args.extract_options!
       options = args.detect {|argument| argument.is_a?(Hash)} || {}

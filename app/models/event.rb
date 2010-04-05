@@ -27,6 +27,7 @@ class Event < ActiveRecord::Base
   
   default_scope :order => 'name', :include => :happenings
   attr_accessible :name, :url, :description, :twitter, :happenings_attributes, :submitter_attributes
+  attr_accessor :admin_submitted
   
   has_friendly_id :name, :use_slug => true
   

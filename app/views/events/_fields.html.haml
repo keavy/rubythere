@@ -22,6 +22,7 @@
         =label :cfp_closes_at, "CFP closes"
         = h_f.date_select :cfp_closes_at, :order => [:day, :month, :year ], :start_year => Time.now.year, :include_blank => true
     
+    %div.secondary
       %h5 Registering
       = h_f.check_box :open_for_reg, :label => 'Registration open'
       = h_f.text_field :cost, :size => 7, :limit => 7, :label => 'Registration cost', :class => 'short', :hint => '195'
@@ -36,16 +37,15 @@
       - h_f.fields_for :location do |l_f|
         = l_f.text_field :city
         = l_f.text_field :state
-        .clearfix.field_wrap
-          = l_f.label :country
-          = l_f.country_select :country, nil, {:prompt => 'Please select', :include_blank => true}, {:class => 'country'}
-        
-  %div.secondary
-    %h4 About you:
-    %p This information will not be displayed on the site    
-  - f.fields_for :submitter do |s_f|
-    = s_f.text_field :first_name
-    = s_f.text_field :last_name
-    = s_f.text_field :email
-    = s_f.text_field :twitter
+        = l_f.country_select :country, nil, {:prompt => 'Please select', :include_blank => true}, {:class => 'country'}
+  
+  - unless @event.admin_submitted    
+    %div.secondary
+      %h4 About you:
+      %p This information will not be displayed on the site    
+    - f.fields_for :submitter do |s_f|
+      = s_f.text_field :first_name
+      = s_f.text_field :last_name
+      = s_f.text_field :email
+      = s_f.text_field :twitter
     
