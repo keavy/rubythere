@@ -27,6 +27,7 @@
       = h_f.text_field :cost, :size => 7, :limit => 7, :label => 'Registration cost', :class => 'short', :hint => '195'
       = h_f.text_field :currency, :size => 3, :limit => 3, :class => 'short', :hint => '£'
     
+    %div.secondary
       %h5 Facilities
       = h_f.check_box :childcare, :label => 'Offers childcare'
       
@@ -35,7 +36,9 @@
       - h_f.fields_for :location do |l_f|
         = l_f.text_field :city
         = l_f.text_field :state
-        = l_f.text_field :country
+        .clearfix.field_wrap
+          = l_f.label :country
+          = l_f.country_select :country, nil, {:prompt => 'Please select', :include_blank => true}, {:class => 'country'}
         
   %div.secondary
     %h4 About you:

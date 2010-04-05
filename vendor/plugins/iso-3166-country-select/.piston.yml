@@ -1,0 +1,8 @@
+--- 
+format: 1
+handler: 
+  commit: d3b5d8656df3defc1653aafe1a9bb5f0164c1741
+  branch: master
+lock: false
+repository_class: Piston::Git::Repository
+repository_url: git://github.com/rails/iso-3166-country-select.git

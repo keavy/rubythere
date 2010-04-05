@@ -5,7 +5,7 @@
     clear: both; 
     visibility: hidden;
 }
-
+.clearfix{zoom: 1;}
 /* Hides from IE-mac \*/
 * html .clearfix {height: 1%;}
 /* End hide from IE-mac */
@@ -104,6 +104,7 @@ input[type='text']{width: 250px;}
 input.short{width: 40px;}
 textarea{width: 250px;}
 textarea.wide{width: 95%;}
+select.country{width: 250px;}
 label{width: 100px; display: inline-block; color: #686868;}
 label.hori{ width: 100%; display: block;}
 label.inline{display: inline;}
