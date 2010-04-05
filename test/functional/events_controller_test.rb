@@ -16,7 +16,7 @@ class EventsControllerTest < ActionController::TestCase
       end
 
       should_respond_with :success
-      should_assign_to :upcoming
+      should_assign_to :latest
     end
   end
   
@@ -47,9 +47,11 @@ class EventsControllerTest < ActionController::TestCase
     
     context "with invalid data" do
       setup do
-        post :create, :event => Factory.attributes_for(:event, :name => '', :happenings_attributes => {})
+        post :create, :event => Factory.attributes_for(:event, :name => '', :happenings_attributes => {}, :submitter_attributes => {})
       end
       should_not_change "Event.count"
+      should_not_change "Happening.count"
+      should_not_change "Submitter.count"
       should_render_template :new
     end
   end

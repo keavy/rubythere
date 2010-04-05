@@ -2,18 +2,20 @@
   = image_tag "http://img.tweetimag.es/i/#{@event.twitter}_o", :class => 'logo' unless @event.twitter.blank?
   %h1= @event.name
   
-  - if @upcoming
+  - if @latest
     .primary_info
       %p.date 
-        %span.date= event_date(@upcoming.start_at,@upcoming.start_at)
-        %span.location= " / #{@upcoming.location.city_state_country}" if @upcoming.location
-      %p.cost= "Registration cost: #{number_to_currency(@upcoming.cost, :unit => @upcoming.currency)}"
-      =link_to @upcoming.www, @upcoming.url, :class => 'primary'
+        - if @latest.end_at.past?
+          %p.past Last held:
+        %span.date= event_date(@latest.start_at,@latest.end_at)
+        %span.location= " / #{@latest.location.city_state_country}" if @latest.location
+      %p.cost= "Registration cost: #{number_to_currency(@latest.cost, :unit => @latest.currency)}"
+      =link_to @latest.www, @latest.url, :class => 'primary'
   
     .secondary_info
       .box
         %h4 Event Facilities:
-        = "#{cross_or_tick(@upcoming.childcare)} Offers childcare"
+        = "#{cross_or_tick(@latest.childcare)} Offers childcare"
     
       .box
         %h4 Keynotes by:
