@@ -1,4 +1,3 @@
-include Twitter
 class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
@@ -7,12 +6,6 @@ class EventsController < ApplicationController
       @latest = @event.happenings[0]
       @other  = @event.happenings[1..@event.happenings.size]
     end
-    
-    @tweets = []
-    Twitter::Search.new("#{@event.twitter}").each do |r|
-      @tweets << r
-    end
-    @tweets = @tweets[0..4]
   end
   
   def new

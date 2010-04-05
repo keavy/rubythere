@@ -50,3 +50,5 @@ Rails::Initializer.run do |config|
 end
 
 EMAIL_CONTACT = 'rubyvous@keavy.co.uk'
+
+ActionController::Base.cache_store = :file_store, "#{RAILS_ROOT}/tmp/cache"
