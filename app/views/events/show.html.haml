@@ -34,7 +34,7 @@
         %p Follow us:
         = link_to "@#{@event.twitter}", "http://twitter.com/#{@event.twitter}"
       %ul
-      - cache "tweets_event_#{@event.id}" do
+      - cache "tweets/event_#{@event.id}" do
         - tweets = Tweet.messages_for(@event.twitter,4)
         - tweets.each do |tweet|
           %li
