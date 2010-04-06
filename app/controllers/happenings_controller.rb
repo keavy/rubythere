@@ -14,7 +14,7 @@ class HappeningsController < ApplicationController
     respond_to do |format|
       format.html
       format.rss { render :layout => false}
-      format.xml  { render :xml => @happenings.to_xml }
+      format.xml  { render :layout => false } #render :xml => @happenings.to_xml }
     end
   end
   

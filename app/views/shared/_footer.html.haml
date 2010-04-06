@@ -7,5 +7,7 @@
         = link_to "archive", archive_happenings_path
       %li
         = mail_to EMAIL_CONTACT, "contact", :encode => 'hex'
+      %li
+        = link_to 'RSS', happenings_path(:format => 'rss')
   .side.right
     = "a #{link_to 'minimetre', 'http://www.minimetre.com'} site"
