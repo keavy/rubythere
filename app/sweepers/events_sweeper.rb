@@ -15,7 +15,6 @@ class EventsSweeper < ActionController::Caching::Sweeper
   
   private
   def expire_cache(record)
-    expire_page "index"
     expire_fragment 'happenings/attend'
     expire_fragment 'happenings/speak'
   end
