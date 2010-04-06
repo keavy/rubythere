@@ -13,7 +13,7 @@ Rails::Initializer.run do |config|
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
-  config.load_paths += %W( #{RAILS_ROOT}/app/form_builders )
+  config.load_paths += %W( #{RAILS_ROOT}/app/form_builders #{RAILS_ROOT}/app/sweepers)
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   # config.gem "bj"
@@ -53,3 +53,4 @@ end
 EMAIL_CONTACT = 'rubythere@keavy.co.uk'
 
 ActionController::Base.cache_store = :file_store, "#{RAILS_ROOT}/tmp/cache"
+ActionController::Base.page_cache_directory = "#{RAILS_ROOT}/tmp/cache"

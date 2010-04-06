@@ -34,7 +34,7 @@ class Happening < ActiveRecord::Base
   
   accepts_nested_attributes_for :location, :venue
   
-  default_scope :order => 'start_at', :include => :location
+  default_scope :order => 'start_at', :include => [:location, :event]
   
   named_scope :upcoming, :conditions => "start_at > '#{Time.now.to_s(:db)}'"
   named_scope :past, :conditions => "start_at < '#{Time.now.to_s(:db)}'"

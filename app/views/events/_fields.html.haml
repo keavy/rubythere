@@ -38,7 +38,7 @@
         = l_f.text_field :city
         = l_f.text_field :state
         = l_f.country_select :country, nil, {:prompt => 'Please select', :include_blank => true}, {:class => 'country'}
-  
+
   - unless @event.admin_submitted    
     %div.secondary
       %h4 About you:
