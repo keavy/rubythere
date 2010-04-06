@@ -20,5 +20,6 @@
 # Learn more: http://github.com/javan/whenever
 
 every :hour do
-  command "rm -rf #{RAILS_ROOT}/tmp/cache/tweets"
+  #command "rm -rf #{RAILS_ROOT}/tmp/cache/tweets"
+  rake "twitter:fetch_tweets"
 end

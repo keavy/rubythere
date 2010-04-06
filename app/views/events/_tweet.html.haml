@@ -1,0 +1,3 @@
+%li
+  = link_to "@#{tweet[:from_user]}", "http://twitter.com/#{tweet[:from_user]}/status/#{tweet[:id]}"
+  %p= tweet[:text]

@@ -37,14 +37,5 @@
         = link_to "@#{@event.twitter}", "http://twitter.com/#{@event.twitter}"
       %ul
       - cache "tweets/event_#{@event.id}" do
-        - tweets = Tweet.messages_for(@event.twitter,4)
-        - tweets.each do |tweet|
-          %li
-            = link_to "@#{tweet[:from_user]}", "http://twitter.com/#{tweet[:from_user]}/status/#{tweet[:id]}"
-            %p= tweet[:text]
-      
-      
-    
-   
-
-
+        = render :partial => 'tweet', :collection => Tweet.messages_for(@event.twitter,4)
+          
