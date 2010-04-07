@@ -1,3 +1,4 @@
+
 %div
   %h4 About the event:
   = f.text_field :name, :required => true, :hint => "My Ruby Conf"
@@ -34,10 +35,14 @@
       
     %div.secondary
       %h5 Location
+      = h_f.select :location_id, Location.all.collect {|l| [l.city_state_country, l.id]}, { :prompt => 'Select an existing location', :hide_label => true}, {:class => 'country', :onchange => "javascript:toggle_new_location_fields(this.value)"}
+
+      %div{:id => "new_location"}
+        %p Or create a new location
       - h_f.fields_for :location do |l_f|
         = l_f.text_field :city
         = l_f.text_field :state
-        = l_f.country_select :country, ['United States','Anywhere'], {:prompt => 'Please select', :include_blank => true}, {:class => 'country'}
+        = l_f.country_select :country, ['Anywhere'], {:prompt => 'Please select', :include_blank => true}, {:class => 'country'}
 
   - unless @event.admin_submitted    
     %div.secondary

@@ -32,7 +32,8 @@ class Happening < ActiveRecord::Base
   validates_presence_of :start_at
   validates_presence_of :url, :message => '^Please add a URL'
   
-  accepts_nested_attributes_for :location, :venue
+  accepts_nested_attributes_for :location #, :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } } 
+  #:venue
   
   default_scope :order => 'start_at', :include => [:location, :event]
   
@@ -41,6 +42,8 @@ class Happening < ActiveRecord::Base
   named_scope :past, :conditions => "start_at < '#{Time.now.to_s(:db)}'"
   named_scope :unknown, :conditions => {:start_at => nil}
   named_scope :open_for_speakers, :conditions => "(cfp_open = 1 AND cfp_closes_at is NULL) OR (cfp_open = 1 AND cfp_closes_at > '#{Time.now.to_s(:db)}')"
+  
+  before_validation :check_new_or_existing_location
   
   def status
     if sold_out
@@ -63,5 +66,15 @@ class Happening < ActiveRecord::Base
     else
       start_at.past?
     end
+  end
+  
+  private
+  def check_new_or_existing_location
+    #unless location_id.blank?
+      #write_attribute(:location_attributes=, [])
+      #value = location_id
+      #location = nil
+      #location_id = value
+    #end
   end
 end

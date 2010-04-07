@@ -4,9 +4,10 @@ class Admin::EventsControllerTest < ActionController::TestCase
   setup :activate_authlogic
   
   def setup
-    @user = Factory(:user)
+    @user     = Factory(:user)
     login_as @user
-    @event = Factory(:event)
+    @event    = Factory(:event)
+    @location = Factory(:location)
   end
   
   context "on GET to :index" do
@@ -43,6 +44,60 @@ class Admin::EventsControllerTest < ActionController::TestCase
       
       should_not_change('Event count') { Event.count }
       should_render_template :new
+    end
+    
+    context "including happening and existing location details" do
+      setup do
+        @count    = Event.count
+        post :create, :event => { :name => 'test',
+                                  :happenings_attributes =>{
+                                     "0"=>{
+                                       :start_at => '2010-03-02',
+                                       :url      => 'http://www.test.com',
+                                       :location_attributes => {
+                                         :city    => "",
+                                         :country => "",
+                                         :state   => ""
+                                        },
+                                       :location_id => @location.id }
+                                    }
+                                  }
+      end
+
+      should_change('Event count by 1', :by => 1) { Event.count }
+      should_change('Happening count by 1', :by => 1) { Happening.count }
+      should_not_change('Location count') { Location.count }
+      
+      should "set the event happening location to the existing location" do
+        assert_equal assigns(:event).happenings.first.location_id, @location.id
+      end
+    end
+    
+    context "including happening and new location details" do
+      setup do
+        @count    = Event.count
+        post :create, :event => { :name => 'test',
+                                  :happenings_attributes =>{
+                                     "0"=>{
+                                       :start_at => '2010-03-02',
+                                       :url      => 'http://www.test.com',
+                                       :location_attributes => {
+                                         :city    => "Sydney",
+                                         :country => "Australia",
+                                         :state   => ""
+                                        },
+                                       :location_id => "" }
+                                    }
+                                  }
+      end
+
+      should_change('Event count by 1', :by => 1) { Event.count }
+      should_change('Happening count by 1', :by => 1) { Happening.count }
+      should_change('Location count by 1', :by => 1) { Location.count }
+
+      should "set the event happening location to the new location" do
+        assert_equal assigns(:event).happenings.first.location.country, "Australia"
+      end
     end
   end
 
