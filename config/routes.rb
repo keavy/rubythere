@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.events_to 'events/to/:focus.:format', :controller => 'happenings', :action => 'index'
   
-  map.resources :events
+  map.resources :events, :feeds
   map.resources :happenings, :collection => {:archive => :get}
   map.register '/register', :controller => 'users', :action => 'new'
   

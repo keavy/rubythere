@@ -9,12 +9,8 @@ class HappeningsController < ApplicationController
       @content_title = (@focus == 'speak') ? 'to speak at' : 'to attend'
     end
     
-    @happenings = (params[:focus] == 'speak') ? Happening.upcoming.open_for_speakers : Happening.upcoming
-    
-    respond_to do |format|
-      format.html
-      format.rss { render :layout => false}
-      format.xml  { render :layout => false }
+    unless fragment_exist?("happenings/#{@focus}")
+      @happenings = (params[:focus] == 'speak') ? Happening.upcoming.open_for_speakers : Happening.upcoming
     end
   end
   
