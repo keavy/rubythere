@@ -46,13 +46,9 @@ class EventsControllerTest < ActionController::TestCase
                                   :happenings_attributes => { 0 => happening_attributes},
                                   :submitter_attributes  => submitter_attributes }
       end
-      # should_change tests currently failing with no method error?!
-      #should_change "Event.count", :by => 1 
-      #should_change "Happening.count", :by => 1
-      #should_change "Submitter.count", :by => 1
-      should "increase Event.count by 1" do
-        assert_equal @event_count + 1, Event.count
-      end
+      should_change('Event count by 1', :by => 1) { Event.count }
+      should_change('Happening count by 1', :by => 1) { Happening.count }
+      should_change('Submitter count by 1', :by => 1) {Submitter.count }
       should_set_the_flash_to /Thanks/
       should_redirect_to("root path") {root_path}
       should "return false when calling #approved on the event" do
