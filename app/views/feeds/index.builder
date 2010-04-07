@@ -6,7 +6,7 @@ image = ""
 xml.instruct!
 xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do  xml.channel do 
     xml.title title
-    xml.link 'http://events.keavy.co.uk'
+    xml.link 'http://www.rubythere.com'
     xml.description description
     xml.language 'en'
     
