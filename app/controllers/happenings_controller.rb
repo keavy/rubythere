@@ -13,8 +13,4 @@ class HappeningsController < ApplicationController
       @happenings = (params[:focus] == 'speak') ? Happening.upcoming.open_for_speakers : Happening.upcoming
     end
   end
-  
-  def archive
-    @happenings = Happening.past + Happening.unknown
-  end
 end
