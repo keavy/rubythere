@@ -30,12 +30,13 @@
         %p= "Event organisers #{link_to 'register here', register_path, :class => 'primary'} to update/amend details"
         
   - content_for :side do
-    #tweets
-      %h3= "Tweets about #{@event.name}"
-      .follow 
-        %p Follow us:
-        = link_to "@#{@event.twitter}", "http://twitter.com/#{@event.twitter}"
-      %ul
-      - cache "tweets/event_#{@event.id}" do
-        = render :partial => 'tweet', :collection => Tweet.messages_for(@event.twitter,4)
+    - unless @event.twitter.blank?
+      #tweets
+        %h3= "Tweets about #{@event.name}"
+        .follow 
+          %p Follow us:
+          = link_to "@#{@event.twitter}", "http://twitter.com/#{@event.twitter}"
+        %ul
+        - cache "tweets/event_#{@event.id}" do
+          = render :partial => 'tweet', :collection => Tweet.messages_for(@event.twitter,4)
           

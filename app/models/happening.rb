@@ -56,6 +56,7 @@ class Happening < ActiveRecord::Base
   end
 
   def past?
+    return false if start_at.blank?
     if end_at
       end_at.past?
     else

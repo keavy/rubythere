@@ -9,11 +9,11 @@
     
     %div.field_wrap.clearfix
       =label :start_at, "Start date"
-      = h_f.date_select :start_at, :order => [:day, :month, :year ], :start_year => Time.now.year
+      = h_f.date_select :start_at, :order => [:day, :month, :year ], :start_year => 1.year.ago.year
       
     %div.field_wrap.clearfix
       =label :end_at, "End date"
-      = h_f.date_select :end_at, :order => [:day, :month, :year ], :start_year => Time.now.year, :include_blank => true
+      = h_f.date_select :end_at, :order => [:day, :month, :year ], :start_year => 1.year.ago.year, :include_blank => true
     
     %div.secondary
       %h5 Proposals
@@ -37,7 +37,7 @@
       - h_f.fields_for :location do |l_f|
         = l_f.text_field :city
         = l_f.text_field :state
-        = l_f.country_select :country, nil, {:prompt => 'Please select', :include_blank => true}, {:class => 'country'}
+        = l_f.country_select :country, ['United States','Anywhere'], {:prompt => 'Please select', :include_blank => true}, {:class => 'country'}
 
   - unless @event.admin_submitted    
     %div.secondary
