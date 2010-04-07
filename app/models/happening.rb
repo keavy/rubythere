@@ -37,6 +37,7 @@ class Happening < ActiveRecord::Base
   default_scope :order => 'start_at', :include => [:location, :event]
   
   named_scope :upcoming, :conditions => "start_at > '#{Time.now.to_s(:db)}'"
+  named_scope :approved, :conditions => ['events.approved = ?', true]
   named_scope :past, :conditions => "start_at < '#{Time.now.to_s(:db)}'"
   named_scope :unknown, :conditions => {:start_at => nil}
   named_scope :open_for_speakers, :conditions => "(cfp_open = 1 AND cfp_closes_at is NULL) OR (cfp_open = 1 AND cfp_closes_at > '#{Time.now.to_s(:db)}')"

@@ -1,11 +1,14 @@
 class EventsController < ApplicationController
   def show
-    @event = Event.find(params[:id])
+    @event = Event.approved.find(params[:id])
     
     unless @event.happenings.blank?
       @latest = @event.happenings[0]
       @other  = @event.happenings[1..@event.happenings.size]
     end
+    
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_url
   end
   
   def new

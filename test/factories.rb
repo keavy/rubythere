@@ -4,6 +4,7 @@ Factory.define :event do |f|
   f.twitter       "arubyconf"
   f.description   "About text..."
   f.association   :submitter
+  f.approved      true
 end
 
 Factory.define :happening do |f|

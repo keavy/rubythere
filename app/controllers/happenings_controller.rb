@@ -10,7 +10,7 @@ class HappeningsController < ApplicationController
     end
     
     unless fragment_exist?("happenings/#{@focus}")
-      @happenings = (params[:focus] == 'speak') ? Happening.upcoming.open_for_speakers : Happening.upcoming
+      @happenings = (params[:focus] == 'speak') ? Happening.approved.upcoming.open_for_speakers : Happening.approved.upcoming
     end
   end
 end

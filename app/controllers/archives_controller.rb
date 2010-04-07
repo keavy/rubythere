@@ -1,5 +1,5 @@
 class ArchivesController < ApplicationController
   def show
-    @happenings = Happening.past + Happening.unknown unless fragment_exist?('happenings/archive')
+    @happenings = Happening.approved.past + Happening.approved.unknown unless fragment_exist?('happenings/archive')
   end
 end

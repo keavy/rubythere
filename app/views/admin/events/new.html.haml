@@ -2,7 +2,10 @@
 .main.left
   - labeled_form_for setup_event(@event), :url => admin_events_path do |f|
     = f.error_messages
-
+    
+    %div.secondary
+      = f.check_box :approved
+      
     = render :partial => 'events/fields', :locals => {:f => f}
     
     = f.submit "Create event"
