@@ -16,6 +16,8 @@ class Location < ActiveRecord::Base
   has_many :venues
   validates_presence_of :country, :message => '^Please add a country'
   
+  default_scope :order => 'city, state, country'
+  
   def city_state_country
     output = ""
     output += "#{city}" unless city.blank?
