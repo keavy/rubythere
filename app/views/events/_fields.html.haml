@@ -35,7 +35,7 @@
       
     %div.secondary
       %h5 Location
-      = h_f.select :location_id, Location.all.collect {|l| [l.city_state_country, l.id]}, { :prompt => 'Select an existing location', :hide_label => true}, {:class => 'country', :onchange => "javascript:toggle_new_location_fields(this.value)"}
+      = h_f.select :location_id, Location.all.collect {|l| [l.city_state_country, l.id]}, { :prompt => 'Select an existing location', :hide_label => true}, {:class => 'country'}
 
       %div{:id => "new_location"}
         %p Or create a new location
