@@ -47,4 +47,15 @@ class HappeningTest < ActiveSupport::TestCase
     end
     
   end
+  
+  context "calling #summary on a happening" do
+    setup do
+      @happening = Factory.build(:happening, :event => @event)
+    end
+
+    should "return a summary" do
+      assert_not_nil @happening.summary
+    end
+  end
+  
 end

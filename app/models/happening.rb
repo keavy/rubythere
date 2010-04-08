@@ -64,4 +64,8 @@ class Happening < ActiveRecord::Base
       start_at.past?
     end
   end
+  
+  def summary
+    event.name + ', ' + start_at.strftime("%Y")
+  end
 end
