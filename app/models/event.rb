@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100218155129
+# Schema version: 20100408082915
 #
 # Table name: events
 #
@@ -13,6 +13,7 @@
 #  twitter               :string(255)
 #  cached_slug           :string(255)
 #  approved              :boolean(1)
+#  submitter_id          :integer(4)
 #
 
 class Event < ActiveRecord::Base

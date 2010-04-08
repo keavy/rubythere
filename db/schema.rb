@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20100408082915) do
     t.integer  "speaker_id"
     t.integer  "talk_id"
     t.integer  "happening_id"
+    t.boolean  "keynote",      :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

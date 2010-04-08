@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100218155129
+# Schema version: 20100408082915
 #
 # Table name: happenings
 #
@@ -28,6 +28,7 @@ class Happening < ActiveRecord::Base
   belongs_to :event
   belongs_to :location
   belongs_to :venue
+  has_many :presentations
   
   validates_presence_of :start_at
   validates_presence_of :url, :message => '^Please add a URL'
