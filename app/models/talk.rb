@@ -14,4 +14,6 @@ class Talk < ActiveRecord::Base
   has_many :presentations
   
   validates_presence_of :title
+  
+  default_scope :order => 'title'
 end

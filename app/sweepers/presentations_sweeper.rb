@@ -15,6 +15,7 @@ class PresentationsSweeper < ActionController::Caching::Sweeper
   
   private
   def expire_cache(record)
-    expire_fragment "presentations/h_#{record.happening_id}"
+    expire_fragment "presentations/keynotes_#{record.happening_id}"
+    expire_fragment "presentations/regular_#{record.happening_id}"
   end
 end

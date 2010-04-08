@@ -19,6 +19,8 @@ class Presentation < ActiveRecord::Base
   
   accepts_nested_attributes_for :speaker, :talk
   
+  default_scope :order => 'speakers.first_name, speakers.last_name', :include => [:speaker, :talk]
+  
   named_scope :keynotes, :conditions => ['keynote = ?', true]
   named_scope :regular, :conditions => ['keynote = ?', false]
 end
