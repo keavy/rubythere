@@ -17,6 +17,13 @@ class EventsController < ApplicationController
   
   def create
     #raise params.to_yaml
+    if params[:event][:happenings_attributes]
+      params[:event][:happenings_attributes].each do |h|
+        unless h[1]["location_id"].blank?
+          h[1].delete("location_attributes")
+        end
+      end
+    end
     @event = Event.new(params[:event])
     if @event.save
       flash[:notice] = "Thanks! Your event has been submitted for review"
