@@ -50,7 +50,7 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 end
 
-EMAIL_CONTACT = 'rubythere@keavy.co.uk'
+EMAIL_CONTACT = 'mail@rubythere.com'
 
 ActionController::Base.cache_store = :file_store, "#{RAILS_ROOT}/tmp/cache"
 ActionController::Base.page_cache_directory = "#{RAILS_ROOT}/tmp/cache"
