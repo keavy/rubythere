@@ -1,0 +1,10 @@
+%h2= "Edit presentation"
+= link_to "Delete", admin_presentation_path(@presentation), :method => :delete
+
+.main.left
+  - labeled_form_for setup_presentation(@presentation), :url => admin_presentation_path(@presentation), :html => { :method => :put } do |f|
+    = f.error_messages
+    
+    = render :partial => 'fields', :locals => {:f => f}
+    
+    = f.submit "Save changes"

@@ -21,7 +21,7 @@
     
       .box 
         %h4 Speakers include:
-        - cache "presentations/event_#{@event.id}" do
+        - cache "presentations/h_#{@latest.id}" do
           %ul.speakers
             - @latest.presentations.each do |p|
               %li

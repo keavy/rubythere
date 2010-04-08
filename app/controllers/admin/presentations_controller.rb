@@ -1,6 +1,8 @@
 class Admin::PresentationsController < AdminAreaController
   resource_controller
   
+  cache_sweeper :presentations_sweeper
+  
   [create, update].each { |action| action.wants.html {redirect_to admin_presentations_path} }
   
   def create
