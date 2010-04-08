@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100402120418) do
+ActiveRecord::Schema.define(:version => 20100408082915) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -53,6 +53,14 @@ ActiveRecord::Schema.define(:version => 20100402120418) do
     t.datetime "updated_at"
   end
 
+  create_table "presentations", :force => true do |t|
+    t.integer  "speaker_id"
+    t.integer  "talk_id"
+    t.integer  "happening_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
@@ -75,11 +83,28 @@ ActiveRecord::Schema.define(:version => 20100402120418) do
   add_index "slugs", ["name", "sluggable_type", "scope", "sequence"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
 
+  create_table "speakers", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "company"
+    t.string   "twitter"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "submitters", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
     t.string   "twitter"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "talks", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
