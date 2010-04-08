@@ -25,6 +25,7 @@
     
     %div.secondary
       %h5 Registering
+      = h_f.check_box :sold_out, :label => 'Sold out'
       = h_f.check_box :open_for_reg, :label => 'Registration open'
       = h_f.text_field :cost, :size => 7, :limit => 7, :label => 'Registration cost', :class => 'short', :hint => '195'
       = h_f.text_field :currency, :size => 3, :limit => 3, :class => 'short', :hint => '£'
