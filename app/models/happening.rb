@@ -45,6 +45,8 @@ class Happening < ActiveRecord::Base
   named_scope :open_for_speakers, :conditions => "(cfp_open = 1 AND cfp_closes_at is NULL) OR (cfp_open = 1 AND cfp_closes_at > '#{Time.now.to_s(:db)}')"
   named_scope :summaries, :select => 'happenings.id, happenings.event_id, happenings.start_at, events.name, events.id', :order => 'events.name'
   
+  before_save :set_formatted_fields
+  
   def status
     if sold_out
       'Sold out'
@@ -70,5 +72,13 @@ class Happening < ActiveRecord::Base
   
   def summary
     event.name + ', ' + start_at.strftime("%Y")
+  end
+  
+  protected
+  def set_formatted_fields
+    if value = read_attribute(:description) then
+      value = RedCloth.new(value).to_html
+      write_attribute :description_f, value
+    end
   end
 end

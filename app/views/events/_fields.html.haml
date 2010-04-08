@@ -3,10 +3,11 @@
   %h4 About the event:
   = f.text_field :name, :required => true, :hint => "My Ruby Conf"
   = f.text_field :twitter, :label => "Twitter name", :hint => "myrubyconf"
-  = f.text_area :description, :rows => 3
+  
   
   - f.fields_for :happenings do |h_f|
     = h_f.text_field :url, :label => 'URL', :hint => "http://www.myrubyconf.com"
+    = h_f.text_area :description, :rows => 3
     
     %div.field_wrap.clearfix
       =label :start_at, "Start date"
