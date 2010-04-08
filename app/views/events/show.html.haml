@@ -19,11 +19,15 @@
         %h4 Event Facilities:
         = "#{cross_or_tick(@latest.childcare)} Offers childcare"
     
-      .box
-        %h4 Keynotes by:
-    
       .box 
         %h4 Speakers include:
+        - cache "presentations/event_#{@event.id}" do
+          %ul.speakers
+            - @latest.presentations.each do |p|
+              %li
+                %span.speaker_name= p.speaker.full_name
+                - unless p.talk.blank?
+                  = " / #{p.talk.title}"
     
       .last
         %h4 Organiser's registration:

@@ -40,6 +40,25 @@ class Admin::PresentationsControllerTest < ActionController::TestCase
         assert assigns(:presentation).errors.full_messages.to_sentence.blank?
       end
     end
+    
+    context "with existing talk details" do
+      setup do
+        @talk = Factory(:talk)
+        post :create, :presentation =>  {:keynote => 1,
+                                        :speaker_attributes => Factory.attributes_for(:speaker),
+                                        :talk_attributes => {
+                                          :title => '',
+                                          :description => ''
+                                        },
+                                        :talk_id => @talk.id}
+      end
+
+      should_change('Presentation count by 1', :by => 1) { Presentation.count }
+      should_redirect_to("admin presentations path") {admin_presentations_path}
+      should "return no errors" do
+        assert assigns(:presentation).errors.full_messages.to_sentence.blank?
+      end
+    end
   end
   
 end

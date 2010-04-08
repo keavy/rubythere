@@ -29,13 +29,14 @@ class Happening < ActiveRecord::Base
   belongs_to :location
   belongs_to :venue
   has_many :presentations
+  has_many :speakers, :through => :presentations
   
   validates_presence_of :start_at
   validates_presence_of :url, :message => '^Please add a URL'
   
   accepts_nested_attributes_for :location, :venue
   
-  default_scope :order => 'start_at', :include => [:location, :event]
+  default_scope :order => 'start_at', :include => [:location, :event, :presentations]
   
   named_scope :upcoming, :conditions => "start_at > '#{Time.now.to_s(:db)}'"
   named_scope :approved, :conditions => ['events.approved = ?', true]

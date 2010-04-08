@@ -76,6 +76,7 @@ sup{line-height:0; vertical-align:super; font-size: 83%; padding-left: 2px;}
 cite{color: #999;}
 .follow{padding: 9px 0; border-top: 1px solid #a33638; border-bottom: 1px solid #a33638; margin: 8px 0 13px;}
 .past{color: #999;}
+.speaker_name{color: #8c0406;}
 
 /* links */
 a{color: #000;}
@@ -214,9 +215,10 @@ td.date{width: 15%;}
 
 /* lists */
 ul#tweets, ul.speakers{margin: 5px 0 10px 0;}
-ul#tweets li, ul.speakers li{margin: 0 0 2px 0;}
+ul#tweets li{margin: 0 0 2px 0;}
 #ft ul li{display: inline-block; margin-right:15px;}
 #tweets li{margin-bottom: 15px;}
+ul.speakers li{margin: 0 0 2px 0;}
 
 /* images */
 #hd img{display: block;}
