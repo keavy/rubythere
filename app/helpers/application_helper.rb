@@ -25,6 +25,13 @@ module ApplicationHelper
     end
   end
   
+  def setup_presentation(presentation)
+    returning(presentation) do |e|
+      e.build_talk if e.talk.nil?
+      e.build_speaker if e.speaker.nil?
+    end
+  end
+  
   def display_location(location)
     output = ""
     unless location.nil?

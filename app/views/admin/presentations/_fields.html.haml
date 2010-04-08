@@ -1,0 +1,33 @@
+
+%div
+  %div.secondary
+    =f.check_box :keynote
+    
+  %div.secondary
+    %h5 Event
+    = f.select :happening_id, Happening.summaries.collect {|s| [s.summary, s.id]}, { :prompt => 'Select an event', :hide_label => true}
+    
+  %div.secondary
+    %h5 Speaker
+    = f.select :speaker_id, Speaker.all.collect {|s| [s.full_name, s.id]}, { :prompt => 'Select an existing speaker', :hide_label => true}
+
+    %div{:id => "new_speaker"}
+      %p Or create a new speaker
+    - f.fields_for :speaker do |s_f|
+      = s_f.text_field :title
+      = s_f.text_field :first_name
+      = s_f.text_field :middle_name
+      = s_f.text_field :last_name
+      = s_f.text_field :email
+      = s_f.text_field :twitter
+      = s_f.text_field :company
+      
+  %div.secondary
+    %h5 Talk
+    = f.select :talk_id, Talk.all.collect {|s| [s.title, s.id]}, { :prompt => 'Select an existing talk', :hide_label => true}
+
+    %div{:id => "new_talk"}
+      %p Or create a new one
+    - f.fields_for :talk do |s_f|
+      = s_f.text_field :title
+      = s_f.text_area :description, :rows => 5

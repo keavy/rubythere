@@ -1,0 +1,14 @@
+- unless collection.blank?
+  %h2 Presentations
+  %table#summary
+    %tr
+      %th
+      %th Event
+      %th Speaker
+      %th Talk
+    - collection.each do |pres|
+      %tr
+        %td= link_to "Edit", edit_admin_presentation_path(pres), :class => 'secondary'
+        %td= pres.happening.summary 
+        %td= pres.speaker.full_name
+        %td= pres.talk.title

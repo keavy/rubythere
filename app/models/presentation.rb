@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100408082915
+# Schema version: 20100408092106
 #
 # Table name: presentations
 #
@@ -16,9 +16,6 @@ class Presentation < ActiveRecord::Base
   belongs_to :speaker
   belongs_to :talk
   belongs_to :happening
-  
-  validates_presence_of :speaker_id
-  validates_presence_of :happening_id
   
   accepts_nested_attributes_for :speaker, :talk
   

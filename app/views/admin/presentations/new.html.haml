@@ -1,0 +1,8 @@
+%h2 Create a new presentation
+.main.left
+  - labeled_form_for setup_presentation(@presentation), :url => admin_presentations_path do |f|
+    = f.error_messages
+
+    = render :partial => 'fields', :locals => {:f => f}
+    
+    = f.submit "Create presentation"

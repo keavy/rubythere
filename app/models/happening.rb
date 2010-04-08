@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100408082915
+# Schema version: 20100408092106
 #
 # Table name: happenings
 #
@@ -42,6 +42,7 @@ class Happening < ActiveRecord::Base
   named_scope :past, :conditions => "start_at < '#{Time.now.to_s(:db)}'"
   named_scope :unknown, :conditions => {:start_at => nil}
   named_scope :open_for_speakers, :conditions => "(cfp_open = 1 AND cfp_closes_at is NULL) OR (cfp_open = 1 AND cfp_closes_at > '#{Time.now.to_s(:db)}')"
+  named_scope :summaries, :select => 'happenings.id, happenings.event_id, happenings.start_at, events.name, events.id', :order => 'events.name'
   
   def status
     if sold_out

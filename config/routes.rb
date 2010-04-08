@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
     admin.resources :events
     admin.resource :user_session
+    admin.resources :presentations
   end
   map.admin 'admin', :controller => 'admin/events'
   
