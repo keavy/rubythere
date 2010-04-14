@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
     session['rtoken']  = nil
     session['rsecret'] = nil
     
-    profile = Twitter::Base.new(oauth).verify_credentials
+    profile = Twitter::Base.new(oauth.access_token).verify_credentials
     if profile
       user    = User.find_or_create_by_screen_name(profile.screen_name.downcase)
     
@@ -33,7 +33,7 @@ class SessionsController < ApplicationController
       sign_in(user)
       redirect_back_or root_path
     else
-      redirect_back_or login_path
+      redirect_to login_path
     end
   end
   
