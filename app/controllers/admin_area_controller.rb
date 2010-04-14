@@ -1,7 +1,7 @@
 class AdminAreaController < ApplicationController
   layout 'admin'
   
-  if RAILS_ENV == 'production'
+  unless RAILS_ENV == 'development'
     before_filter :authenticate_for_admin
   end
 end
