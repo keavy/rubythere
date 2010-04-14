@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Admin::UserSessionsControllerTest < ActionController::TestCase
   setup :activate_authlogic
-  
+
   context "on GET to :new" do
     setup { get :new}
     should_respond_with :success
