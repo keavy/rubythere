@@ -35,3 +35,4 @@ config.gem "webrat", :lib => false, :version => ">=0.4.3"
 config.gem "cucumber", :lib => false, :version => ">=0.2.2"
 config.gem "database_cleaner"
 config.gem "jnunemaker-matchy", :lib => 'matchy'
+config.gem 'fakeweb'

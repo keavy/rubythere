@@ -1,0 +1,3 @@
+HTTP/1.1 200 OK
+
+oauth_token=this_need_not_be_real&oauth_token_secret=same_for_this
