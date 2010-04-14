@@ -24,6 +24,10 @@ module Twitter
         def authenticate
           deny_access unless signed_in?
         end
+        
+        def authenticate_for_admin
+          deny_access unless signed_in? && current_user.admin?
+        end
 
         def user_from_session
           if session[:user_id].present?

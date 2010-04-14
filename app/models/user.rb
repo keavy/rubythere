@@ -1,25 +1,21 @@
 # == Schema Information
-# Schema version: 20100414101053
+# Schema version: 20100414121512
 #
 # Table name: users
 #
-#  id                :integer(4)      not null, primary key
-#  email             :string(255)     not null
-#  crypted_password  :string(255)     not null
-#  password_salt     :string(255)     not null
-#  persistence_token :string(255)     not null
-#  created_at        :datetime
-#  updated_at        :datetime
-#  screen_name       :string(30)
-#  atoken            :string(255)
-#  asecret           :string(255)
+#  id          :integer(4)      not null, primary key
+#  email       :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#  screen_name :string(30)
+#  atoken      :string(255)
+#  asecret     :string(255)
+#  admin       :boolean(1)
 #
 
 class User < ActiveRecord::Base
-  acts_as_authentic
-  
   attr_accessible :atoken, :asecret
-  
+
   def authorized?
     atoken.present? && asecret.present?
   end

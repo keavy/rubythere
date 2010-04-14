@@ -34,8 +34,7 @@ end
 
 Factory.define :user do |f|
   f.email                 { Factory.next(:email) }
-  f.password              "test"
-  f.password_confirmation "test"
+  f.screen_name           { Factory.next(:twitter) }
 end
 
 Factory.define :submitter do |f|

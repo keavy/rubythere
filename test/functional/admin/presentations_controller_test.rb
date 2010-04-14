@@ -1,8 +1,6 @@
 require 'test_helper'
 
 class Admin::PresentationsControllerTest < ActionController::TestCase
-  setup :activate_authlogic
-  
   def setup
     @user     = Factory(:user)
     login_as @user

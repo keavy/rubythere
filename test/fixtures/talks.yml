@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100414101053
+# Schema version: 20100414121512
 #
 # Table name: talks
 #

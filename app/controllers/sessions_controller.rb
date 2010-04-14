@@ -22,19 +22,15 @@ class SessionsController < ApplicationController
     session['rsecret'] = nil
     
     profile = Twitter::Base.new(oauth.access_token).verify_credentials
-    if profile
-      user    = User.find_or_create_by_screen_name(profile.screen_name.downcase)
-    
-      user.update_attributes({
-        :atoken  => oauth.access_token.token, 
-        :asecret => oauth.access_token.secret,
-      })
-    
-      sign_in(user)
-      redirect_back_or root_path
-    else
-      redirect_to login_path
-    end
+    user    = User.find_or_create_by_screen_name(profile.screen_name.downcase)
+  
+    user.update_attributes({
+      :atoken  => oauth.access_token.token, 
+      :asecret => oauth.access_token.secret,
+    })
+  
+    sign_in(user)
+    redirect_back_or root_path
   end
   
   private

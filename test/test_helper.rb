@@ -1,7 +1,6 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
-require 'authlogic/test_case'
 require 'matchy'
 require 'mocha'
 
@@ -40,6 +39,6 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
   
   def login_as(user)
-    UserSession.create(user)
+    session[:user_id] = user.id
   end
 end
