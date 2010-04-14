@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
     
     profile = Twitter::Base.new(oauth).verify_credentials
     if profile
-      user    = User.find_or_create_by_screen_name(profile.screen_name)
+      user    = User.find_or_create_by_screen_name(profile.screen_name.downcase)
     
       user.update_attributes({
         :atoken  => oauth.access_token.token, 

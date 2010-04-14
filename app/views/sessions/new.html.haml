@@ -4,5 +4,8 @@
   %h1 Sign in
   - form_tag session_path do
     = image_submit_tag 'Sign-in-with-Twitter-lighter.png'
+    
+  - if signed_in?
+    = "You are logged in as #{current_user.screen_name}"
   
  
