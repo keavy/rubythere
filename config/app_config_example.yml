@@ -1,6 +1,14 @@
 development:
   hoptoad_key: 12345
+  twitter_key: 12345
+  twitter_secret: 12345
 test:
-  hoptoad_key: 12345 
+  hoptoad_key: 12345
+  twitter_key: 12345
+  twitter_secret: 12345
 production:
   hoptoad_key: 12345
+  twitter_key: 12345
+  twitter_secret: 12345
+cucumber:
+  <<: *test
