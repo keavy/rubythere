@@ -36,6 +36,6 @@ class SessionsController < ApplicationController
   
   private
     def oauth
-      @oauth ||= Twitter::OAuth.new(APP_CONFIG['twitter_key'], APP_CONFIG['twitter_secret'], :sign_in => true)
+      @oauth ||= Twitter::OAuth.new(APP_CONFIG[:twitter_key], APP_CONFIG[:twitter_secret], :sign_in => true)
     end
 end
