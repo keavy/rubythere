@@ -13,5 +13,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :archive, :contact
   map.register '/register', :controller => 'users', :action => 'new'
   
+  map.resource :session
+  map.confirm_session 'session/confirm', :controller => 'sessions', :action => 'confirm'
+  
   map.root :controller => "home"
 end
