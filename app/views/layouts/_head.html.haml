@@ -7,8 +7,9 @@
     = "#{@page_title}  &middot; " if @page_title
     Ruby There
       
-  = stylesheet_link_tag 'fonts-min',        :media => "all"
-  = stylesheet_link_tag 'reset-min',        :media => "all"
-  = stylesheet_link_tag 'rubythere',        :media => "all"
+  = tag("link", { "rel" => "Stylesheet", "type" => "text/css", "media" => "screen", "href" => '/stylesheets/fonts-min.css' })
+  = stylesheet_link_tag 'fonts-min'
+  = stylesheet_link_tag 'reset-min'
+  = stylesheet_link_tag 'rubythere'
   
   = yield :head

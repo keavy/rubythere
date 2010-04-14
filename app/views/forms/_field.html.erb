@@ -1,8 +1,8 @@
 <div class="clearfix field_wrap">
-    <%= label unless options[:hide_label] %>
-    <%= element %>
-    <%= error %>
-    <% if options[:hint] -%>
-      <span class="info"><%= options[:hint] -%></span>
-    <% end -%>
+  <%= label unless other[:hide_label] %>
+  <%= element %>
+  <%= error %>
+  <% if other[:hint] -%>
+    <span class="info"><%= other[:hint] -%></span>
+  <% end -%>
 </div>

@@ -3,13 +3,21 @@ class LabeledFormBuilder < ActionView::Helpers::FormBuilder
     define_method(method_name) do |field_name, *args|
       #options = args.extract_options!
       options = args.detect {|argument| argument.is_a?(Hash)} || {}
-      hint = (options[:hint]) ? @template.content_tag(:small, options[:hint]) : ''
+      other   = {}
+      other_options = [:hint, :hide_label, :required]
+      other_options.each do |o|
+        unless options.blank?
+          other[o] = options[o] unless options[o].nil?
+          options.delete_if {|key, value| key = o } unless options[o].nil?
+        end
+      end
       
       locals = {
-        :element => super,
-        :label   => field_label(field_name, *args),
-        :options => options,
-        :error   => field_error(field_name,options[:class])
+        :element    => super,
+        :label      => field_label(field_name, *args),
+        :options    => options,
+        :error      => field_error(field_name,options[:class]),
+        :other      => other
       }
         
       @template.render :partial => 'forms/field', :locals  => locals
