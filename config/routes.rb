@@ -15,6 +15,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resource :session
   map.confirm_session 'session/confirm', :controller => 'sessions', :action => 'confirm'
+  map.logout 'logout', :controller => 'sessions', :action => 'destroy'
+  map.login 'login', :controller => 'sessions', :action => 'new'
   
   map.root :controller => "home"
 end
