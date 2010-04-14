@@ -18,20 +18,23 @@ class SessionsController < ApplicationController
   
   def confirm
     oauth.authorize_from_request(session['rtoken'], session['rsecret'], params[:oauth_verifier])
-    
     session['rtoken']  = nil
     session['rsecret'] = nil
     
     profile = Twitter::Base.new(oauth).verify_credentials
-    user    = User.find_or_create_by_screen_name(profile.screen_name)
+    if profile
+      user    = User.find_or_create_by_screen_name(profile.screen_name)
     
-    user.update_attributes({
-      :atoken => oauth.access_token.token, 
-      :asecret => oauth.access_token.secret,
-    })
+      user.update_attributes({
+        :atoken  => oauth.access_token.token, 
+        :asecret => oauth.access_token.secret,
+      })
     
-    sign_in(user)
-    redirect_back_or root_path
+      sign_in(user)
+      redirect_back_or root_path
+    else
+      redirect_back_or login_path
+    end
   end
   
   private
