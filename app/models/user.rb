@@ -35,6 +35,10 @@ class User < ActiveRecord::Base
   end
   
   def events
-    Event.find(:all).reject {|e| e.twitter != self.screen_name}
+    Event.find(:all).find_all {|e| e.twitter == self.screen_name}
+  end
+  
+  def editor_for?(event)
+    self.events.include?(event)
   end
 end

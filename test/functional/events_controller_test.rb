@@ -129,4 +129,31 @@ class EventsControllerTest < ActionController::TestCase
       end
     end
   end
+  
+  context "on GET to :edit" do
+    setup do
+      @user  = Factory(:user)
+      login_as @user
+    end
+    
+    context "for an event the user is authorized to edit" do
+      setup do
+        @event = Factory(:event, :twitter => @user.screen_name)
+        get :edit, :id => @event
+      end
+
+      should_respond_with :success
+    end
+    
+    context "for an event the user is not authorized to edit" do
+      setup do
+        @event = Factory(:event, :twitter => 'something')
+        get :edit, :id => @event
+      end
+
+      should_respond_with :redirect
+      should_set_the_flash_to 'You are not authorized to view the page you requested'
+    end
+  end
+  
 end

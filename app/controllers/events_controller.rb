@@ -1,4 +1,8 @@
 class EventsController < ApplicationController
+  before_filter :find_event, :only => [:edit, :update]
+  before_filter :authenticate, :only => [:edit, :update]
+  before_filter :check_authorized, :only => [:edit, :update]
+  
   def show
     @event = Event.approved.find(params[:id])
     
@@ -6,9 +10,6 @@ class EventsController < ApplicationController
       @latest = @event.happenings[0]
       @other  = @event.happenings[1..@event.happenings.size]
     end
-    
-  rescue ActiveRecord::RecordNotFound
-    redirect_to root_url
   end
   
   def new
@@ -30,6 +31,22 @@ class EventsController < ApplicationController
       redirect_to root_path
     else
       render :action => :new
+    end
+  end
+  
+  def edit
+  end
+  
+  private
+  def find_event
+    @event = Event.find(params[:id])
+  end
+  
+  def check_authorized
+    unless current_user.editor_for?(@event)
+      flash[:error] = "You are not authorized to view the page you requested"
+      redirect_to account_path
+      return false
     end
   end
 end

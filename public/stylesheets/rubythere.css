@@ -236,3 +236,8 @@ img.wwrails{margin-top: 20px;}
 ul#tabs li{display: inline-block; margin-right: 1px; background-color: #c7c7c7; padding: 8px 17px;}
 ul#tabs li.active{background-color: #8c0406;}
 ul#tabs a{color: #fff; font-size: 131%; text-decoration: none;}
+ul#sub_tabs{margin: 0 0 20px 0;}
+ul#sub_tabs li{display: inline-block; margin-right: 4px; padding-right: 8px; border-right: 1px dotted #c7c7c7;}
+ul#sub_tabs li:last-child{border-right: none;}
+ul#sub_tabs li.active a{color: #8c0406;}
+ul#sub_tabs a{color: #000000; text-decoration: none;}
