@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
+  def setup
+    Factory(:user)
+  end
+  
   should_allow_mass_assignment_of :atoken
   should_allow_mass_assignment_of :asecret
+  should_validate_uniqueness_of :screen_name
   
   context "authorized?" do
     setup do
