@@ -8,8 +8,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.events_to 'events/to/:focus.:format', :controller => 'events', :action => 'index'
   
-  map.resources :events, :feeds
-  map.resources :happenings, :collection => {:archive => :get}
+  map.resources :events, :has_many => [:happenings]
+  map.resources :feeds
   map.resource :archive, :contact, :account
   map.register '/register', :controller => 'users', :action => 'new'
   
