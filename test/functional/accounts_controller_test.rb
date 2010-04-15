@@ -8,11 +8,11 @@ class AccountsControllerTest < ActionController::TestCase
   
   context "on GET to :show" do
     setup do
+      Factory(:event, :twitter => @user.screen_name)
       get :show
     end
 
     should_respond_with :success
+    should_assign_to :events
   end
-  
-  
 end

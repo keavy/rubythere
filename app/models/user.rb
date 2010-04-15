@@ -33,4 +33,8 @@ class User < ActiveRecord::Base
       Twitter::Base.new(oauth)
     end
   end
+  
+  def events
+    Event.find(:all).reject {|e| e.twitter != self.screen_name}
+  end
 end

@@ -59,4 +59,16 @@ class UserTest < ActiveSupport::TestCase
       @user.client.class.should == Twitter::Base
     end
   end
+  
+  context "calling #events on a User" do
+    setup do
+      @user = Factory(:user)
+      Factory(:event, :twitter => @user.screen_name)
+    end
+
+    should "return an array of events" do
+      assert_equal 1, @user.events.size
+    end
+  end
+  
 end
