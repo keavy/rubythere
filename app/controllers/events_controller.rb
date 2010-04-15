@@ -51,6 +51,23 @@ class EventsController < ApplicationController
   def edit
   end
   
+  def update
+    #raise params.to_yaml
+    if params[:event][:happenings_attributes]
+      params[:event][:happenings_attributes].each do |h|
+        unless h[1]["location_id"].blank?
+          h[1].delete("location_attributes")
+        end
+      end
+    end
+    if @event.update_attributes(params[:event])
+      flash[:notice] = "Thanks! Your event has been updated"
+      redirect_to event_path(@event)
+    else
+      render :action => :edit
+    end
+  end
+  
   private
   def find_event
     @event = Event.find(params[:id])

@@ -1,0 +1,21 @@
+- @page_title = "Edit #{@event.name}: When & Where"
+
+.wrapper.clearfix
+  %h1= "Edit #{@event.name}"
+  = render :partial => 'events/tabs'
+  
+  - unless @happenings.blank?
+    - labeled_form_for setup_event(@event), :url => event_path(@event), :html => {:method => :put} do |f|
+
+      = f.error_messages
+
+      - f.fields_for :happenings do |h_f|
+        = render :partial => 'fields', :locals => {:h_f => h_f}
+        
+      .submit
+        =image_submit_tag('btn_submit.gif')
+      
+        
+      
+  - else
+    %p Create first?

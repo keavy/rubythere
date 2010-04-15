@@ -1,4 +1,4 @@
 %ul#sub_tabs
-  = link_to_showing_current('Overview', edit_event_path, true)
-  = link_to_showing_current('Happening', '#')
+  = link_to_showing_current('Overview', edit_event_path(@event), true)
+  = link_to_showing_current('When &amp; Where', event_happenings_path(@event))
   = link_to_showing_current('Talks', '#')

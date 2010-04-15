@@ -181,4 +181,29 @@ class EventsControllerTest < ActionController::TestCase
     end
   end
   
+  context "on PUT to :update" do
+    setup do 
+      @user = Factory(:user)
+      login_as @user
+      @event     = Factory(:event, :twitter => @user.screen_name)
+      #@happening = Factory(:happening, :event => @event)
+      @location             = Factory(:location)
+      @submitter_attributes = Factory.attributes_for(:submitter)
+    end
+    
+    context "with valid data" do
+      setup do
+        happening_attributes = Factory.attributes_for(:happening)
+        
+        put :update, :id => @event.id,
+                     :event => { :name                  => 'test event', 
+                                 :happenings_attributes => { 0 => happening_attributes}}
+      end
+      should_change('Happening count by 1', :by => 1) { Happening.count }
+      should_set_the_flash_to /Thanks/
+      should_redirect_to("event path") {event_path(assigns(:event))}
+    end
+  end
+  
+  
 end
