@@ -1,5 +1,5 @@
-- cache "happenings/attend" do
-  = render :partial => 'happenings/attend', :locals => {:happenings => Happening.approved.upcoming}
+- cache "events/attend" do
+  = render :partial => 'events/attend', :locals => {:happenings => Happening.approved.upcoming}
 
 
 = content_for :side do

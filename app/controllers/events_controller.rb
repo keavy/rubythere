@@ -3,6 +3,20 @@ class EventsController < ApplicationController
   before_filter :authenticate, :only => [:edit, :update]
   before_filter :check_authorized, :only => [:edit, :update]
   
+  def index
+    options = ['attend','speak']
+    @focus  = 'attend'
+    
+    if params[:focus] && options.include?(params[:focus])
+      @focus = params[:focus]
+      @content_title = (@focus == 'speak') ? 'to speak at' : 'to attend'
+    end
+    
+    unless fragment_exist?("events/#{@focus}")
+      @happenings = (params[:focus] == 'speak') ? Happening.approved.upcoming.open_for_speakers : Happening.approved.upcoming
+    end
+  end
+  
   def show
     @event = Event.approved.find(params[:id])
     

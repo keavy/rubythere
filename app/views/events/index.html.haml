@@ -1,0 +1,8 @@
+- @page_title = "Ruby events to #{@focus}"
+- @page_title += " at" if @focus == 'speak'
+
+- cache "events/#{@focus}" do
+  = render :partial => @focus, :locals => {:happenings => @happenings}
+
+= content_for :side do
+  = render :partial => 'shared/box_submit'
