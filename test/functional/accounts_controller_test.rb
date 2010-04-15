@@ -1,8 +1,18 @@
 require 'test_helper'
 
 class AccountsControllerTest < ActionController::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  def setup
+    @user = Factory(:user)
+    login_as @user
   end
+  
+  context "on GET to :show" do
+    setup do
+      get :show
+    end
+
+    should_respond_with :success
+  end
+  
+  
 end

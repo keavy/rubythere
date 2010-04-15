@@ -53,6 +53,7 @@ div.last{padding: 25px 0; border-bottom: none;}
 .submit_box{background-color: #737373; color: #fff; padding: 15px 10px 8px 20px;}
 div.secondary{margin-top: 27px; padding-top: 27px; border-top: 1px solid #ededed;}
 #tweets{background-color: #8c0406; padding: 20px 18px; color: #fff;}
+#user_bar{float: right;}
 
 /* text */
 #hd h1{height: 41px; background: url('../images/title.gif') top left no-repeat; text-indent:-9999px; width: 100%;}
