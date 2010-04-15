@@ -46,8 +46,11 @@
                     = " / #{p.talk.title}"
     
       .last
-        %h4 Organiser's registration:
-        %p= "Event organisers #{link_to 'register here', register_path, :class => 'primary'} to update/amend details"
+        - if signed_in? && current_user.editor_for?(@event)
+          %p= "#{link_to 'Update event details', event_happenings_path(@event)}"
+        - else
+          %h4 Organiser's registration:
+          %p= "Event organisers #{link_to 'register here', register_path, :class => 'primary'} to update/amend details"
         
   - content_for :side do
     - unless @event.twitter.blank?
