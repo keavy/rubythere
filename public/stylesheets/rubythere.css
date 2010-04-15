@@ -88,6 +88,7 @@ a{color: #000;}
 a.primary{color: #8c0406;}
 a.active{color: #333;}
 #hd a{color: #333;}
+#hd h1 a{width: 100%; height: 41px; display: block;}
 a[rel]{color: #00A0F0; padding-right: 15px; background:url(../images/external.png) no-repeat;
 background-position: top right;
 }
