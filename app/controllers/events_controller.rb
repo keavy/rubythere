@@ -3,6 +3,8 @@ class EventsController < ApplicationController
   before_filter :authenticate, :only => [:edit, :update]
   before_filter :check_authorized, :only => [:edit, :update]
   
+  layout :select_layout
+  
   def index
     options = ['attend','speak']
     @focus  = 'attend'
@@ -79,5 +81,13 @@ class EventsController < ApplicationController
       redirect_to account_path
       return false
     end
+  end
+  
+  def select_layout
+    if [ 'index' ].include? action_name
+       'listings'
+     else
+       'application'
+     end
   end
 end

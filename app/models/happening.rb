@@ -36,7 +36,7 @@ class Happening < ActiveRecord::Base
   
   accepts_nested_attributes_for :location, :venue
   
-  default_scope :order => 'start_at', :include => [:location, :event, :presentations]
+  default_scope :order => 'start_at DESC', :include => [:location, :event, :presentations]
   
   named_scope :upcoming, :conditions => "start_at > '#{Time.now.to_s(:db)}'"
   named_scope :approved, :conditions => ['events.approved = ?', true]
@@ -71,7 +71,7 @@ class Happening < ActiveRecord::Base
   end
   
   def summary
-    event.name + ', ' + start_at.strftime("%Y")
+    event.name + ', ' + start_at.strftime("%b %Y")
   end
   
   protected

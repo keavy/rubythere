@@ -29,10 +29,12 @@ body{
 #bd{background-color: #f3f3f3; padding: 32px 50px 42px 50px}
 #ft{background-color: #8c0406; color: #fff; padding: 26px 50px 40px;}
 #content, #ft .wrapper{width: 860px;}
+#form form{float: left;}
 #user-bar-greeting{ text-align: right;}
 #user-bar-action{ text-align: right;}
 .main{ width: 653px;}
 .side{ width: 191px;}
+.col{width: 180px; border: 1px solid red;}
 .left{float: left;}
 .right{float: right;}
 .half{width: 49%;}
@@ -54,6 +56,7 @@ div.last{padding: 25px 0; border-bottom: none;}
 div.secondary{margin-top: 27px; padding-top: 27px; border-top: 1px solid #ededed;}
 #tweets{background-color: #8c0406; padding: 20px 18px; color: #fff;}
 #user_bar{float: right;}
+.section_links{margin: 0 0 10px 0; text-align: right;}
 
 /* text */
 #hd h1{height: 41px; background: url('../images/title.gif') top left no-repeat; text-indent:-9999px; width: 100%;}

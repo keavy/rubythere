@@ -1,34 +1,37 @@
 - @page_title = "Edit #{@event.name}: When & Where"
 
-.wrapper.clearfix
-  %h1= "Edit #{@event.name}"
-  = render :partial => 'events/tabs'
-  
-  - unless @happenings.blank?
-    - labeled_form_for setup_happening(@happenings[0]), :url => happening_path(@happenings[0]), :html => {:method => :put} do |f|
-  
-      = f.error_messages
+%h1= "Edit #{@event.name}"
+= render :partial => 'events/tabs'
+
+- unless @happenings.blank?  
+  - labeled_form_for setup_happening(@happenings[0]), :url => happening_path(@happenings[0]), :html => {:method => :put} do |f|
+
+    = f.error_messages
+    
+    = render :partial => 'fields', :locals => {:h_f => f}
       
-      = render :partial => 'fields', :locals => {:h_f => f}
-        
-      .submit
-        =image_submit_tag('btn_submit.gif')
-        
+    .submit
+      =image_submit_tag('btn_submit.gif')
+      
+- else
+
+  %p Create first
+  - labeled_form_for setup_happening(@happening), :url => happenings_path do |f|
+
+    = f.error_messages
+
+    = render :partial => 'fields', :locals => {:h_f => f}
+
+    .submit
+      =image_submit_tag('btn_submit.gif')
+      
+- content_for :side do
+  - unless @happenings.blank?
+    %p.section_links= link_to "Add a new listing?", new_event_happening_path
+  
     - if @happenings.size > 1
       %h4 Edit previous
       %ul
       - @happenings[1..@happenings.size].each do |happening|
-        %li= link_to happening.summary, edit_happening_path(happening)
-        
-  - else
+        %li= link_to happening.summary, edit_event_happening_path(@event, happening)
   
-    %p Create first
-    - labeled_form_for setup_happening(@happening), :url => happenings_path do |f|
-
-      = f.error_messages
-
-      = render :partial => 'fields', :locals => {:h_f => f}
-
-      .submit
-        =image_submit_tag('btn_submit.gif')
-    

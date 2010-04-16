@@ -1,14 +1,13 @@
 - @page_title = "Edit #{@event.name}"
 
-.wrapper.clearfix
-  %h1= "Edit #{@event.name}"
-  = render :partial => 'tabs'
+%h1= "Edit #{@event.name}"
+= render :partial => 'tabs'
+
+- labeled_form_for setup_event(@event), :url => event_path(@event), :html => {:method => :put} do |f|
+
+  = f.error_messages
   
-  - labeled_form_for setup_event(@event), :url => event_path(@event), :html => {:method => :put} do |f|
+  = render :partial => 'fields_general', :locals => {:f => f}
   
-    = f.error_messages
-    
-    = render :partial => 'fields_general', :locals => {:f => f}
-    
-    .submit
-      =image_submit_tag('btn_submit.gif')
+  .submit
+    =image_submit_tag('btn_submit.gif')

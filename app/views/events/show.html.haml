@@ -1,65 +1,63 @@
 - @page_title = @event.name
 
-.wrapper.clearfix
-  = image_tag "http://img.tweetimag.es/i/#{@event.twitter}_o", :class => 'logo' unless @event.twitter.blank?
-  %h1= @event.name
+= image_tag "http://img.tweetimag.es/i/#{@event.twitter}_o", :class => 'logo' unless @event.twitter.blank?
+%h1= @event.name
+
+- if @latest
+  .primary_info
+    %p.date 
+      - if @latest.past?
+        %p.past Last held:
+      %span.date= event_date(@latest.start_at,@latest.end_at)
+      %span.location= " / #{@latest.location.city_state_country}" if @latest.location
+    %p.cost= "Registration cost: #{number_to_currency(@latest.cost, :unit => @latest.currency)}"
+    -unless @latest.description_f.blank?
+      .event_desc
+        =@latest.description_f
+    =link_to @latest.www, @latest.url, :class => 'primary'
+
+  .secondary_info
+    .box
+      %h4 Event Facilities:
+      = "#{cross_or_tick(@latest.childcare)} Offers childcare"
   
-  - if @latest
-    .primary_info
-      %p.date 
-        - if @latest.past?
-          %p.past Last held:
-        %span.date= event_date(@latest.start_at,@latest.end_at)
-        %span.location= " / #{@latest.location.city_state_country}" if @latest.location
-      %p.cost= "Registration cost: #{number_to_currency(@latest.cost, :unit => @latest.currency)}"
-      -unless @latest.description_f.blank?
-        .event_desc
-          =@latest.description_f
-      =link_to @latest.www, @latest.url, :class => 'primary'
+    - cache "presentations/keynotes_h_#{@latest.id}" do
+      - unless @latest.presentations.keynotes.blank?
+        .box 
+          %h4 Keynotes include:
+          %ul.speakers
+            - @latest.presentations.keynotes.each do |p|
+              %li
+                %span.speaker_name= p.speaker.full_name
+                - unless p.talk.blank?
+                  = " / #{p.talk.title}"
+                
+      
+    - cache "presentations/regular_h_#{@latest.id}" do
+      - unless @latest.presentations.regular.blank?
+        .box 
+          %h4 Speakers include:
+          %ul.speakers
+            - @latest.presentations.regular.each do |p|
+              %li
+                %span.speaker_name= p.speaker.full_name
+                - unless p.talk.blank?
+                  = " / #{p.talk.title}"
   
-    .secondary_info
-      .box
-        %h4 Event Facilities:
-        = "#{cross_or_tick(@latest.childcare)} Offers childcare"
-    
-      - cache "presentations/keynotes_h_#{@latest.id}" do
-        - unless @latest.presentations.keynotes.blank?
-          .box 
-            %h4 Keynotes include:
-            %ul.speakers
-              - @latest.presentations.keynotes.each do |p|
-                %li
-                  %span.speaker_name= p.speaker.full_name
-                  - unless p.talk.blank?
-                    = " / #{p.talk.title}"
-                  
+    .last
+      - if signed_in? && current_user.editor_for?(@event)
+        %p= "#{link_to 'Update event details', event_happenings_path(@event)}"
+      - else
+        %h4 Organiser's registration:
+        %p= "Event organisers #{link_to 'register here', register_path, :class => 'primary'} to update/amend details"
         
-      - cache "presentations/regular_h_#{@latest.id}" do
-        - unless @latest.presentations.regular.blank?
-          .box 
-            %h4 Speakers include:
-            %ul.speakers
-              - @latest.presentations.regular.each do |p|
-                %li
-                  %span.speaker_name= p.speaker.full_name
-                  - unless p.talk.blank?
-                    = " / #{p.talk.title}"
-    
-      .last
-        - if signed_in? && current_user.editor_for?(@event)
-          %p= "#{link_to 'Update event details', event_happenings_path(@event)}"
-        - else
-          %h4 Organiser's registration:
-          %p= "Event organisers #{link_to 'register here', register_path, :class => 'primary'} to update/amend details"
-        
-  - content_for :side do
-    - unless @event.twitter.blank?
-      #tweets
-        %h3= "Tweets about #{@event.name}"
-        .follow 
-          %p Follow us:
-          = link_to "@#{@event.twitter}", "http://twitter.com/#{@event.twitter}"
-        %ul
-        - cache "tweets/event_#{@event.id}" do
-          = render :partial => 'tweet', :collection => Tweet.messages_for(@event.twitter,4)
-          
+- content_for :side do
+  - unless @event.twitter.blank?
+    #tweets
+      %h3= "Tweets about #{@event.name}"
+      .follow 
+        %p Follow us:
+        = link_to "@#{@event.twitter}", "http://twitter.com/#{@event.twitter}"
+      %ul
+      - cache "tweets/event_#{@event.id}" do
+        = render :partial => 'tweet', :collection => Tweet.messages_for(@event.twitter,4)

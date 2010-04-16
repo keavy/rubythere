@@ -1,0 +1,4 @@
+%h1= link_to 'ruby there', root_path
+%h2 Events of interest to rubyists around the world
+- if current_user
+  = render :partial => 'shared/user_bar'

@@ -1,13 +1,12 @@
 - @page_title = "Account"
 
-.wrapper.clearfix
-  %h1 Account
-  
-  - unless @events.blank?
-    %h4 Your events
-    %ul.events
-    - @events.each do |event|
-      %li= "#{link_to event.name, edit_event_path(event)}"
-  - else
-    %p You don't have any events yet to manage.
-    %p= "#{link_to 'Add a new event?', new_event_path}"
+%h1 Account
+
+- unless @events.blank?
+  %h4 Your events
+  %ul.events
+  - @events.each do |event|
+    %li= "#{link_to event.name, edit_event_path(event)}"
+- else
+  %p You don't have any events yet to manage.
+  %p= "#{link_to 'Add a new event?', new_event_path}"
