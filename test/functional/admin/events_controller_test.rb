@@ -25,13 +25,16 @@ class Admin::EventsControllerTest < ActionController::TestCase
   context "on POST to :create" do
     context "with valid details" do
       setup do
-        post :create, :event => Factory.attributes_for(:event)
+        post :create, :event => Factory.attributes_for(:event, :approved => 1)
       end
 
       should_change('Event count by 1', :by => 1) { Event.count }
       should_redirect_to("admin events path") {admin_events_path}
       should "return no errors" do
         assert assigns(:event).errors.full_messages.to_sentence.blank?
+      end
+      should "set the approved field" do
+        assert_equal true, assigns(:event).approved
       end
     end
     
@@ -108,12 +111,15 @@ class Admin::EventsControllerTest < ActionController::TestCase
   context "on PUT to :update" do
     context "with valid details" do
       setup do
-        put :update, :event => Factory.attributes_for(:event, :name => 'updated'), :id => @event.id
+        put :update, :event => Factory.attributes_for(:event, :name => 'updated', :approved => 0), :id => @event.id
       end
 
       should_redirect_to("admin events path") {admin_events_path}
       should "update the name" do
         assert_equal 'updated', assigns(:event).name
+      end
+      should "set the approved field" do
+        assert_equal false, assigns(:event).approved
       end
     end
     

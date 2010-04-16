@@ -23,6 +23,7 @@ class Admin::EventsController < AdminAreaController
       end
     end
     @event = Event.new(params[:event])
+    @event.approved        = params[:event][:approved] 
     @event.admin_submitted = true
     if @event.save
       flash[:notice] = "Event successfully added"
