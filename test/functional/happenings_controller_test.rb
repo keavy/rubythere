@@ -37,4 +37,43 @@ class HappeningsControllerTest < ActionController::TestCase
     should_respond_with :success
   end
   
+  context "on GET to :edit" do
+    setup do
+      @happening = Factory(:happening, :event => @event)
+      get :edit, :id => @happening
+    end
+
+    should_respond_with :success
+    should_assign_to :happening
+    should_assign_to :event
+  end
+  
+  context "on PUT to :update" do
+    setup do
+      @happening = Factory(:happening, :event => @event)
+      put :update, :happening => {}, :id => @happening, :event_id => @event
+    end
+    
+    should_set_the_flash_to /Thanks/
+    should_respond_with :redirect
+    
+    context "with invalid details" do
+      setup do
+        put :update, :happening => {:url => ''}, :id => @happening, :event_id => @event
+      end
+
+      should_respond_with :success
+      should_render_template :edit
+    end
+  end
+  
+  context "on POST to :create" do
+    setup do
+      post :create, :happening => Factory.attributes_for(:happening), :event_id => @event
+    end
+    
+    should_set_the_flash_to /Thanks/
+    should_respond_with :redirect
+  end
+  
 end

@@ -1,7 +1,11 @@
 class HappeningsController < ApplicationController
-  before_filter :find_event
+  before_filter :find_happening, :only => [:edit, :update]
+  before_filter :find_event, :except => [:edit, :update]
+  
   before_filter :authenticate
   before_filter :check_authorized
+  
+  #layout 'form'
   
   def index
     if @event.happenings.blank?
@@ -15,7 +19,34 @@ class HappeningsController < ApplicationController
     @happening = @event.happenings.build
   end
   
+  def edit
+  end
+  
+  def update
+    if @happening.update_attributes(params[:happening])
+      flash[:notice] = "Thanks! Where & When updated"
+      redirect_to event_path(@event)
+    else
+      render :action => :edit
+    end
+  end
+  
+  def create
+    @happening = @event.happenings.build(params[:happening])
+    if @happening.save
+      flash[:notice] = "Thanks! Where & When updated"
+      redirect_to event_path(@event)
+    else
+      render :action => :new
+    end
+  end
+  
   private
+  def find_happening
+    @happening = Happening.find(params[:id])
+    @event     = Event.find(@happening.event_id)
+  end
+  
   def find_event
     @event = Event.find(params[:event_id])
   end
