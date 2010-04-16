@@ -25,6 +25,12 @@ module ApplicationHelper
     end
   end
   
+  def setup_happening(happening)
+    returning(happening) do |h|
+      h.build_location if h.location.nil?
+    end
+  end
+  
   def setup_presentation(presentation)
     returning(presentation) do |e|
       e.build_talk if e.talk.nil?

@@ -1,0 +1,14 @@
+- @page_title = "New happening for #{@event.name}"
+
+.wrapper.clearfix
+
+  %h1= "Submit a new happening for #{@event.name}"
+  
+  - labeled_form_for @happening, :url => event_happenings_path(@event) do |f|
+  
+    = f.error_messages
+    
+    = render :partial => 'fields', :locals => {:h_f => f}
+      
+    .submit
+      =image_submit_tag('btn_submit.gif')

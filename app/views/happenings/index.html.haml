@@ -5,17 +5,30 @@
   = render :partial => 'events/tabs'
   
   - unless @happenings.blank?
-    - labeled_form_for setup_event(@event), :url => event_path(@event), :html => {:method => :put} do |f|
-
+    - labeled_form_for setup_happening(@happenings[0]), :url => happening_path(@happenings[0]), :html => {:method => :put} do |f|
+  
       = f.error_messages
-
-      - f.fields_for :happenings do |h_f|
-        = render :partial => 'fields', :locals => {:h_f => h_f}
+      
+      = render :partial => 'fields', :locals => {:h_f => f}
         
       .submit
         =image_submit_tag('btn_submit.gif')
-      
         
-      
+    - if @happenings.size > 1
+      %h4 Edit previous
+      %ul
+      - @happenings[1..@happenings.size].each do |happening|
+        %li= link_to happening.summary, edit_happening_path(happening)
+        
   - else
-    %p Create first?
+  
+    %p Create first
+    - labeled_form_for setup_happening(@happening), :url => happenings_path do |f|
+
+      = f.error_messages
+
+      = render :partial => 'fields', :locals => {:h_f => f}
+
+      .submit
+        =image_submit_tag('btn_submit.gif')
+    

@@ -4,7 +4,15 @@ class HappeningsController < ApplicationController
   before_filter :check_authorized
   
   def index
-    @happenings = @event.happenings
+    if @event.happenings.blank?
+      @happening  = @event.happenings.build
+    else
+      @happenings = @event.happenings 
+    end
+  end
+  
+  def new
+    @happening = @event.happenings.build
   end
   
   private
