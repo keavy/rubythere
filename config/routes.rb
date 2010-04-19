@@ -11,8 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :events, :has_many => [:happenings]
   map.resources :feeds, :happenings
   map.resource :archive, :contact, :account
-  map.register '/register', :controller => 'users', :action => 'new'
-  
+    
   map.resource :session
   map.confirm_session 'session/confirm', :controller => 'sessions', :action => 'confirm'
   map.logout 'logout', :controller => 'sessions', :action => 'destroy'
