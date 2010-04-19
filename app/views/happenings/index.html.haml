@@ -12,6 +12,8 @@
       
     .submit
       =image_submit_tag('btn_submit.gif')
+      or
+      = link_to 'Cancel', event_path(@event)
       
 - else
 
@@ -24,10 +26,12 @@
 
     .submit
       =image_submit_tag('btn_submit.gif')
+      or
+      = link_to 'Cancel', event_path(@event)
       
 - content_for :side do
   - unless @happenings.blank?
-    %p.section_links= link_to "Add a new listing?", new_event_happening_path
+    %p.section_links= link_to "Add a new date?", new_event_happening_path
   
     - if @happenings.size > 1
       %h4 Edit previous
