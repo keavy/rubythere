@@ -6,21 +6,26 @@ class MailerTest < ActionMailer::TestCase
   
   context "new event notification" do
     setup do
-      @event    = Factory(:event)
-      @response = Mailer.create_new_event_notification(@event)
+      @submitter = Factory(:submitter)
+      @event     = Factory(:event, :submitter => @submitter)
+      @response  = Mailer.create_new_event_notification(@event)
     end
 
     should "set the email subject" do
       assert_equal '[RubyThere] New event submitted', @response.subject
     end
     
-    should "include the admin url for the event in the body" do
-      assert_match /#{admin_event_url(@event)}/, @response.body
+    should "include the edit admin url for the event in the body" do
+      assert_match /#{edit_admin_event_url(@event)}/, @response.body
       puts 
     end
     
     should "set email to field to #{EMAIL_CONTACT}" do
       assert_equal EMAIL_CONTACT, @response.to[0]
+    end
+    
+    should "set from field to the submitter's email" do
+      assert_equal @submitter.email, @response.from[0]
     end
   end
   
@@ -41,6 +46,10 @@ class MailerTest < ActionMailer::TestCase
     
     should "set email to field to #{EMAIL_CONTACT}" do
       assert_equal EMAIL_CONTACT, @response.to[0]
+    end
+    
+    should "set from field to #{EMAIL_CONTACT}" do
+      assert_equal EMAIL_CONTACT, @response.from[0]
     end
   end
   

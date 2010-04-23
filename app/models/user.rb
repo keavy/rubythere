@@ -39,6 +39,6 @@ class User < ActiveRecord::Base
   end
   
   def editor_for?(event)
-    self.events.include?(event)
+    self.events.include?(event) || self.admin?
   end
 end

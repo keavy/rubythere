@@ -8,7 +8,7 @@ class LabeledFormBuilder < ActionView::Helpers::FormBuilder
       other_options.each do |o|
         unless options.blank?
           other[o] = options[o] unless options[o].nil?
-          options.delete_if {|key, value| key = o } unless options[o].nil?
+          options.delete_if {|key, value| key == o } unless options[o].nil?
         end
       end
       
