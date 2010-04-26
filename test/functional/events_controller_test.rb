@@ -65,9 +65,9 @@ class EventsControllerTest < ActionController::TestCase
       setup do
         post :create, :event => Factory.attributes_for(:event, :name => '', :happenings_attributes => {}, :submitter_attributes => {})
       end
-      should_not_change "Event.count"
-      should_not_change "Happening.count"
-      should_not_change "Submitter.count"
+      should_not_change ("Event.count") {Event.count}
+      should_not_change ("Happening.count") {Happening.count}
+      should_not_change ("Submitter.count") {Submitter.count}
       should_render_template :new
     end
     
@@ -126,6 +126,30 @@ class EventsControllerTest < ActionController::TestCase
 
       should "set the event happening location to the new location" do
         assert_equal assigns(:event).happenings.first.location.country, "Australia"
+        assert_equal assigns(:event).happenings.first.location.city, "Sydney"
+      end
+    end
+    
+    context "including happening and existing location details, entered as new" do
+      setup do
+        post :create, :event => { :name => 'test',
+                                  :happenings_attributes =>{
+                                     "0"=>{
+                                       :start_at => '2010-03-02',
+                                       :url      => 'http://www.test.com',
+                                       :location_attributes => {
+                                         :city    => @location.city,
+                                         :country => @location.country,
+                                         :state   => ""
+                                        },
+                                       :location_id => "" }
+                                    },
+                                    :submitter_attributes  => @submitter_attributes
+                                  }
+      end
+
+      should "set the event happening location to the existing location" do
+        assert_equal assigns(:event).happenings.first.location, @location
       end
     end
   end

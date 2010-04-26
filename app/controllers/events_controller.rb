@@ -34,13 +34,7 @@ class EventsController < ApplicationController
   
   def create
     #raise params.to_yaml
-    if params[:event][:happenings_attributes]
-      params[:event][:happenings_attributes].each do |h|
-        unless h[1]["location_id"].blank?
-          h[1].delete("location_attributes")
-        end
-      end
-    end
+    set_location
     @event = Event.new(params[:event])
     if @event.save
       flash[:notice] = "Thanks! Your event has been submitted for review"
@@ -55,13 +49,8 @@ class EventsController < ApplicationController
   
   def update
     #raise params.to_yaml
-    if params[:event][:happenings_attributes]
-      params[:event][:happenings_attributes].each do |h|
-        unless h[1]["location_id"].blank?
-          h[1].delete("location_attributes")
-        end
-      end
-    end
+    set_location
+    
     if @event.update_attributes(params[:event])
       flash[:notice] = "Thanks! Your event has been updated"
       redirect_to event_path(@event)
@@ -89,5 +78,27 @@ class EventsController < ApplicationController
      else
        'application'
      end
+  end
+  
+  def set_location
+    if params[:event][:happenings_attributes]
+      params[:event][:happenings_attributes].each do |h|
+        if h[1]["location_id"].blank?
+          location = find_or_create_location(h[1]['location_attributes'])
+          location = location.id unless location.nil?
+        else
+          location = h[1]["location_id"]
+        end
+        h[1].delete("location_attributes")
+        h[1]["location_id"] = location
+      end
+    end
+  end
+
+  def find_or_create_location(attributes)
+    return nil if attributes.blank?
+    city     = attributes['city']
+    country  = attributes['country']
+    location = Location.find_or_create_by_city_and_country(city, country)
   end
 end

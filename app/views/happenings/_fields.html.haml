@@ -34,11 +34,13 @@
 
 %div.secondary
   %h5 Location
-  = h_f.select :location_id, Location.all.collect {|l| [l.city_state_country, l.id]}, { :prompt => 'Select an existing location', :hide_label => true}, {:class => 'country'}
+  = h_f.select :location_id, Location.all.collect {|l| [l.city_state_country, l.id]}, { :prompt => 'Select an existing location', :include_blank => true, :hide_label => true}, {:class => 'country'}
 
   %div{:id => "new_location"}
     %p Or create a new location
   - h_f.fields_for :location do |l_f|
+    - unless l_f.object.new_record?
+      - l_f.object = h_f.object.build_location
     = l_f.text_field :city
     = l_f.text_field :state
     = l_f.country_select :country, ['Anywhere'], {:prompt => 'Please select', :include_blank => true}, {:class => 'country'}
