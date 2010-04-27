@@ -23,3 +23,7 @@ every :hour do
   #command "rm -rf #{RAILS_ROOT}/tmp/cache/tweets"
   rake "twitter:fetch_tweets"
 end
+
+every :day do
+  rake "thinking_sphinx:index"
+end

@@ -1,0 +1,18 @@
+- @page_title = "Search"
+
+- unless @events.blank?
+  %h1="Search results"
+  %ul#results
+    - @events.each do |event|
+      %li
+        = link_to ((image_tag "http://img.tweetimag.es/i/#{event.twitter}_n"), event_path(event)) unless event.twitter.blank?
+        = link_to event.name, event_path(event)
+        
+- else
+  %h1="No results found"
+  %p="Would you like to #{link_to 'add an event', new_event_path}?"
+  
+  
+= content_for :side do
+  = render :partial => 'shared/box_search'
+  = render :partial => 'shared/box_submit'

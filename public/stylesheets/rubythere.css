@@ -58,6 +58,8 @@ div.secondary{margin-top: 27px; padding-top: 27px; border-top: 1px solid #ededed
 #user_bar{float: right;}
 .section_links{margin: 0 0 10px 0; text-align: right;}
 
+.search_box{background-color: #8c0406; color: #fff; padding: 15px 10px 8px 20px; margin-bottom: 15px;}
+
 /* text */
 #hd h1{height: 41px; background: url('../images/title.gif') top left no-repeat; text-indent:-9999px; width: 100%;}
 #hd h2{height: 76px; background: url('../images/header_subtitle.gif') top left no-repeat; text-indent:-9999px;}
@@ -107,11 +109,14 @@ ul#menu li{display: inline-block; margin-right: 10px;}
 /* form */
 form{width: 380px;}
 form.small{width: 300px;}
+.search_box form{width: auto; margin-top: 17px;}
 .field_wrap{padding: 2px;}
 .row{margin: 0 0 10px 0;}
 input,textarea{padding: 3px 8px; background-color: #f7f7f7; border: 1px solid #c7c7c7;}
 input[type='image']{padding: 0; background-color: #fff; border: none;}
 input[type='text']{width: 250px;}
+.search_box input[type='text']{width: 144px;}
+
 input.short{width: 40px;}
 textarea{width: 250px;}
 textarea.wide{width: 95%;}
@@ -228,6 +233,7 @@ ul#tweets li{margin: 0 0 2px 0;}
 #ft ul li{display: inline-block; margin-right:15px;}
 #tweets li{margin-bottom: 15px;}
 ul.speakers li{margin: 0 0 4px 0;}
+ul#results li{vertical-align: top; padding: 12px 15px 14px 15px;}
 
 /* images */
 #hd img{display: block;}
@@ -235,6 +241,7 @@ img.logo{float: right;}
 .submit_box img{margin-bottom: 16px;}
 img.submit{float: right; margin-top: 9px; margin-bottom: 0;}
 img.wwrails{margin-top: 20px;}
+ul#results li img{margin-right: 15px;}
 
 /* menu */
 ul#tabs li{display: inline-block; margin-right: 1px; background-color: #c7c7c7; padding: 8px 17px;}
