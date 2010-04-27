@@ -23,6 +23,7 @@ class HappeningsController < ApplicationController
   end
   
   def update
+    set_location
     if @happening.update_attributes(params[:happening])
       flash[:notice] = "Thanks! Where & When updated"
       redirect_to event_path(@event)
@@ -32,6 +33,7 @@ class HappeningsController < ApplicationController
   end
   
   def create
+    set_location
     @happening = @event.happenings.build(params[:happening])
     if @happening.save
       flash[:notice] = "Thanks! Where & When updated"
@@ -57,5 +59,23 @@ class HappeningsController < ApplicationController
       redirect_to account_path
       return false
     end
+  end
+  
+  def set_location
+    if params['happening']["location_id"].blank?
+      location = find_or_create_location(params['happening']['location_attributes'])
+      location = location.id unless location.nil?
+    else
+      location = params['happening']["location_id"]
+    end
+    params['happening'].delete("location_attributes")
+    params['happening']["location_id"] = location
+  end
+
+  def find_or_create_location(attributes)
+    return nil if attributes.blank?
+    city     = attributes['city']
+    country  = attributes['country']
+    location = Location.find_or_create_by_city_and_country(city, country)
   end
 end

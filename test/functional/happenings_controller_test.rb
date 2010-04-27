@@ -49,17 +49,57 @@ class HappeningsControllerTest < ActionController::TestCase
   end
   
   context "on PUT to :update" do
-    setup do
-      @happening = Factory(:happening, :event => @event)
-      put :update, :happening => {}, :id => @happening, :event_id => @event
+    setup {@happening = Factory(:happening, :event => @event)}
+    
+    context "with new location details" do
+      setup do
+        @happening.location.delete
+        put :update, :id => @happening,
+                      :happening => {
+                        :location_attributes => {
+                           :city    => "Sydney",
+                           :country => "Australia",
+                           :state   => ""
+                          },
+                        :location_id => "" 
+                      }
+                      
+      end
+
+      should_set_the_flash_to /Thanks/
+      should_respond_with :redirect
+      should "set the happening location to the new location" do
+        assert_equal assigns(:happening).location.country, "Australia"
+        assert_equal assigns(:happening).location.city, "Sydney"
+      end
     end
-    
-    should_set_the_flash_to /Thanks/
-    should_respond_with :redirect
-    
+      
+    context "with existing location details" do
+      setup do
+        @location = Factory(:location)
+        put :update, :id => @happening,
+                      :happening => {
+                        :location_attributes => {
+                           :city    => "",
+                           :country => "",
+                           :state   => ""
+                          },
+                        :location_id => @location.id
+                      }
+
+      end
+
+      should_set_the_flash_to /Thanks/
+      should_respond_with :redirect
+      should "set the happening location to the new location" do
+        assert_equal assigns(:happening).location.country, @location.country
+        assert_equal assigns(:happening).location.city, @location.city
+      end
+    end
+
     context "with invalid details" do
       setup do
-        put :update, :happening => {:url => ''}, :id => @happening, :event_id => @event
+        put :update, :happening => {:url => ''}, :id => @happening
       end
 
       should_respond_with :success
