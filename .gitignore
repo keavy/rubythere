@@ -9,3 +9,4 @@ log/development.log
 log/test.log
 coverage.data
 metrics/*
+db/sphinx/*
