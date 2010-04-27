@@ -33,6 +33,10 @@ class Event < ActiveRecord::Base
   
   has_friendly_id :name, :use_slug => true
   
+  define_index do 
+    indexes name, description
+  end
+  
   protected
   def set_formatted_fields
     if value = read_attribute(:description) then
