@@ -10,3 +10,5 @@ log/test.log
 coverage.data
 metrics/*
 db/sphinx/*
+config/development.sphinx.conf
+config/test.sphinx.conf
