@@ -12,3 +12,4 @@ metrics/*
 db/sphinx/*
 config/development.sphinx.conf
 config/test.sphinx.conf
+rerun.txt
