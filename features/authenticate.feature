@@ -6,4 +6,4 @@ Feature: Authentication
   Scenario: Viewing the authentication page  
     Given I am signed in  
     When I go to "account page"  
-    Then I should see "Logged in as"
+    Then I should see "logged in as"
