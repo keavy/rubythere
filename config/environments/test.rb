@@ -31,8 +31,11 @@ config.gem 'shoulda', :lib => 'shoulda/rails', :source => 'http://rubygems.org',
 config.gem 'seanhussey-woulda', :lib => 'woulda', :source => 'http://gems.github.com'
 config.gem "rspec", :lib => false, :version => ">=1.2.2"
 config.gem "rspec-rails", :lib => false, :version => ">=1.2.2"
-config.gem "webrat", :lib => false, :version => ">=0.4.3"
 config.gem "cucumber", :lib => false, :version => ">=0.2.2"
+config.gem "cucumber-rails"
 config.gem "database_cleaner"
 config.gem "jnunemaker-matchy", :lib => 'matchy'
 config.gem 'fakeweb'
+config.gem 'capybara'
+config.gem 'sqlite3'
+config.gem 'launchy'
