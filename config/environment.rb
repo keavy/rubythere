@@ -21,7 +21,7 @@ Rails::Initializer.run do |config|
   config.gem 'RedCloth'
   config.gem "friendly_id", :version => ">= 2.3.0"
   config.gem 'hoptoad_notifier'
-  config.gem 'haml'
+  config.gem 'haml', :version => "= 3.0.6"
   config.gem 'whenever'
   config.gem 'twitter', :version => ">= 0.9.0"
   config.gem 'thinking-sphinx', :lib => 'thinking_sphinx'
