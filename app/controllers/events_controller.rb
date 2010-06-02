@@ -23,6 +23,7 @@ class EventsController < ApplicationController
     @event = Event.approved.find(params[:id])
     
     unless @event.happenings.blank?
+      @event.happenings.reverse
       @latest = @event.happenings[0]
       @other  = @event.happenings[1..@event.happenings.size]
     end
