@@ -25,6 +25,9 @@ module NavigationHelpers
     when /new event page/
       new_event_path
 
+    when /the event page for (.*)/
+      event_path(Event.find_by_name!($1))
+
     else
       begin
         page_name =~ /the (.*) page/
