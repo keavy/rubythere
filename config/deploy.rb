@@ -2,7 +2,7 @@
 # recipe file, so that the real stuff can exist locally without being
 # checked into the main repo.
  
-capfile = File.expand_path("~/Sites/rubythere/library/deploy.rb")
+capfile = File.expand_path("~/Projects/rubythere/library/deploy.rb")
 load(capfile) if File.exists?(capfile)
 
 Dir[File.join(File.dirname(__FILE__), '..', 'vendor', 'gems', 'hoptoad_notifier-*')].each do |vendored_notifier|
