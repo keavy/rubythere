@@ -17,9 +17,10 @@
     =link_to @latest.www, @latest.url, :class => 'primary'
 
   .secondary_info
-    .box
-      %h4 Event Facilities:
-      = "#{cross_or_tick(@latest.childcare)} Offers childcare"
+    - if @latest.childcare?
+      .box
+        %h4 Event Facilities:
+        = "#{cross_or_tick(@latest.childcare)} Offers childcare"
   
     - cache "presentations/keynotes_h_#{@latest.id}" do
       - unless @latest.presentations.keynotes.blank?
