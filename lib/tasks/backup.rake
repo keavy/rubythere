@@ -3,11 +3,11 @@ namespace :db do
   desc "Backup the database to a file. Options: DIR=base_dir RAILS_ENV=production MAX=20" 
   task :backup => [:environment] do
     datestamp = Time.now.strftime("%Y-%m-%d_%H-%M-%S")    
-    base_path = ENV["DIR"] || "db" 
+    base_path = ENV["DIR"] || "../db_backups" 
     backup_base = File.join(base_path, 'backup')
     backup_folder = File.join(backup_base, datestamp)
     backup_file = File.join(backup_folder, "#{RAILS_ENV}_dump.sql.gz")    
-    File.makedirs(backup_folder)    
+    FileUtils.makedirs(backup_folder)    
     db_config = ActiveRecord::Base.configurations[RAILS_ENV]    
     sh "mysqldump -u #{db_config['username']} -p#{db_config['password']} -Q --add-drop-table -O add-locks=FALSE -O lock-tables=FALSE #{db_config['database']} | gzip -c > #{backup_file}"     
     dir = Dir.new(backup_base)
