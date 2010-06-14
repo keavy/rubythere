@@ -36,7 +36,7 @@ class Admin::EventsController < AdminAreaController
   end
 
   def update
-    #raise params.to_yaml
+    find_event
     set_location
 
     if @event.update_attributes(params[:event])
