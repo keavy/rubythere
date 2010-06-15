@@ -7,3 +7,4 @@ Feature: Authentication
     Given I am signed in
     When I go to "the home page"
     Then I should see "logged in as"
+    And I should see "logout"
