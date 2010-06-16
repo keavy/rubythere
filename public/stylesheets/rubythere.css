@@ -52,7 +52,7 @@ div.last{padding: 25px 0; border-bottom: none;}
 .primary_info{font-size: 108%; }
 .secondary_info{width: 368px;}
 
-.submit_box{background-color: #737373; color: #fff; padding: 15px 10px 8px 20px;}
+.submit_box{background-color: #737373; color: #fff; padding: 15px 10px 8px 20px; margin-bottom: 15px;}
 div.secondary{margin-top: 27px; padding-top: 27px; border-top: 1px solid #ededed;}
 #tweets{background-color: #8c0406; padding: 20px 18px; color: #fff;}
 #user_bar{float: right;}

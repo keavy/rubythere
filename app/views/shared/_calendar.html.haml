@@ -1,0 +1,5 @@
+.calendar_box
+  iCal 
+  = link_to "Download", calendar_path
+  |
+  = link_to "Subscribe", calendar_path(:format => :ics, :only_path => false, :protocol => "webcal")
