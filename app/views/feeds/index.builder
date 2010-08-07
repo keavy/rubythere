@@ -16,6 +16,7 @@ xml.channel do
   end
 
   @happenings.each do |happening|
+    next if happening.event.nil?
     xml.item do
       xml.title "#{happening.event.name}"
       #xml.pubDate happening.created_at.to_s(:rfc822)

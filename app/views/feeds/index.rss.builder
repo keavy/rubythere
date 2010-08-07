@@ -13,6 +13,7 @@ xml.rss "version" => "2.0", "xmlns:atom" => "http://www.w3.org/2005/Atom" do
     xml.atom :link, :href=> "http://www.rubythere.com/feeds.rss", :rel=>"self", :type=>"application/rss+xml"
 
     @happenings.each do |happening|
+      next if happening.event.nil?
       xml.item do
         xml.title "#{happening.event.name}"
         xml.description do
