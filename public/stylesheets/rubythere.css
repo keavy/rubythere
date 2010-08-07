@@ -52,7 +52,7 @@ div.last{padding: 25px 0; border-bottom: none;}
 .primary_info{font-size: 108%; }
 .secondary_info{width: 368px;}
 
-.submit_box{background-color: #737373; color: #fff; padding: 15px 10px 8px 20px;}
+.submit_box{background-color: #737373; color: #fff; padding: 15px 10px 8px 20px; margin-bottom: 15px;}
 div.secondary{margin-top: 27px; padding-top: 27px; border-top: 1px solid #ededed;}
 #tweets{background-color: #8c0406; padding: 20px 18px; color: #fff;}
 #user_bar{float: right;}
@@ -101,6 +101,27 @@ background-position: top right;
 sup a{color: #999;}
 #ft a{color: #fff; text-decoration: none;}
 #tweets a{color: #edb815; text-decoration: none;}
+
+a#feedback_tab:hover {
+  background-color: #BD0609;
+  border-color: #BD0609 #BD0609 #BD0609 -moz-use-text-color;
+  border-style: outset outset outset none;
+  border-width: 1px 1px 1px medium;
+  cursor: pointer;
+}
+a#feedback_tab {
+  background: #C7C7C7 url(http://rubythere.uservoice.com/images/feedback_tab.png) no-repeat scroll -2px 50%;
+  border-color: #C7C7C7 #C7C7C7 #C7C7C7 -moz-use-text-color;
+  border-style: outset outset outset none;
+  border-width: 1px 1px 1px medium;
+  position: fixed;
+  left: 0;
+  top: 50%;
+  display: block;
+  height: 90px;
+  width: 25px;
+  z-index: 1000;
+}
 
 /* menu */
 ul#menu{margin: 10px 0;}

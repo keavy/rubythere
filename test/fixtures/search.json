@@ -1,1 +1,3 @@
-{"results":[],"max_id":15239120459,"since_id":0,"refresh_url":"?since_id=15239120459&q=paratweets","results_per_page":15,"page":1,"completed_in":0.612763,"query":"paratweets"}
+HTTP/1.1 200 OK
+
+{"results":[{"profile_image_url":"http://a1.twimg.com/profile_images/694644820/17466_306808018335_697858335_4591305_3762613_n_normal.jpg","created_at":"Tue, 15 Jun 2010 08:32:37 +0000","from_user":"Mcgill_Laura","metadata":{"result_type":"recent"},"to_user_id":94610797,"text":"@jap47 hell yeaaaah, very exciting stuff!! but be warned by #paratweets are obssessive :\\ raa.","id":16210104161,"from_user_id":96631640,"to_user":"jap47","geo":null,"iso_language_code":"en","source":"&lt;a href=&quot;http://twitter.com/&quot;&gt;web&lt;/a&gt;"}],"max_id":16226402726,"since_id":0,"refresh_url":"?since_id=16226402726&q=paratweets","total":1,"results_per_page":15,"page":1,"completed_in":0.728041,"query":"paratweets"}
