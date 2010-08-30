@@ -9,12 +9,12 @@ class FeedsControllerTest < ActionController::TestCase
   context "on GET to :index" do
     context "with format of 'rss'" do
       setup { get :index, :format => 'rss'}
-      should_respond_with :success
+      should respond_with(:success)
     end
     
     context "with format of 'xml'" do
       setup { get :index, :format => 'xml'}
-      should_respond_with :success
+      should respond_with(:success)
     end
   end
 end

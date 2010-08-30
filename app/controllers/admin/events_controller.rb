@@ -9,11 +9,6 @@ class Admin::EventsController < AdminAreaController
     object.admin_submitted = true
   end }
 
-  [create,update].each { |action| action.before do
-    object.approved        = params[:event][:approved]
-    object.admin_submitted = true
-  end }
-
   def create
     set_location
     if params[:event][:happenings_attributes]
@@ -24,8 +19,7 @@ class Admin::EventsController < AdminAreaController
       end
     end
     @event = Event.new(params[:event])
-    @event.approved        = params[:event][:approved]
-    @event.admin_submitted = true
+    set_admin_approval(@event)
     if @event.save
       flash[:notice] = "Event successfully added"
       redirect_to admin_events_path
@@ -38,7 +32,7 @@ class Admin::EventsController < AdminAreaController
   def update
     find_event
     set_location
-
+    set_admin_approval(@event)
     if @event.update_attributes(params[:event])
       flash[:notice] = "Thanks! Your event has been updated"
       redirect_to event_path(@event)
@@ -90,4 +84,8 @@ class Admin::EventsController < AdminAreaController
     location = Location.find_or_create_by_city_and_country(city, country)
   end
 
+  def set_admin_approval(event)
+    event.approved        = params[:event][:approved]
+    event.admin_submitted = true
+  end
 end

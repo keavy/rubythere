@@ -13,13 +13,13 @@ class Admin::EventsControllerTest < ActionController::TestCase
       get :index
     end
 
-    should_respond_with :success
+    should respond_with(:success)
   end
   
   context "on GET to :new" do
     setup { get :new }
 
-    should_respond_with :success
+    should respond_with(:success)
   end
   
   context "on POST to :create" do
@@ -105,7 +105,7 @@ class Admin::EventsControllerTest < ActionController::TestCase
   context "on GET to :edit" do
     setup { get :edit, :id => @event.id }
 
-    should_respond_with :success
+    should respond_with(:success)
   end
   
   context "on PUT to :update" do
@@ -114,7 +114,7 @@ class Admin::EventsControllerTest < ActionController::TestCase
         put :update, :event => Factory.attributes_for(:event, :name => 'updated', :approved => 0), :id => @event.id
       end
 
-      should_redirect_to("admin events path") {admin_events_path}
+      should_redirect_to("event path") {event_path(assigns(:event))}
       should "update the name" do
         assert_equal 'updated', assigns(:event).name
       end

@@ -12,7 +12,7 @@ class Admin::PresentationsControllerTest < ActionController::TestCase
       get :index
     end
 
-    should_respond_with :success
+    should respond_with(:success)
   end
   
   context "on GET to :new" do
@@ -20,7 +20,7 @@ class Admin::PresentationsControllerTest < ActionController::TestCase
        get :new
      end
 
-     should_respond_with :success
+     should respond_with(:success)
    end
 
    context "on POST to :create" do

@@ -7,7 +7,7 @@ class EventsControllerTest < ActionController::TestCase
         @event = Factory(:event)
         get :show, :id => @event
       end
-      should_respond_with :success
+      should respond_with(:success)
       should_assign_to :event
 
       context "with an upcoming happening" do
@@ -16,7 +16,7 @@ class EventsControllerTest < ActionController::TestCase
           get :show, :id => @event
         end
 
-        should_respond_with :success
+        should respond_with(:success)
         should_assign_to :latest
       end
     end
@@ -25,14 +25,14 @@ class EventsControllerTest < ActionController::TestCase
         @event = Factory(:event, :twitter => '')
         get :show, :id => @event
       end
-      should_respond_with :success
+      should respond_with(:success)
       should_assign_to :event
     end
   end
   
   context "on GET to :new" do
     setup { get :new}
-    should_respond_with :success
+    should respond_with(:success)
     should_assign_to :event
   end
   
@@ -166,7 +166,7 @@ class EventsControllerTest < ActionController::TestCase
         get :edit, :id => @event
       end
 
-      should_respond_with :success
+      should respond_with(:success)
     end
     
     context "for an event the user is not authorized to edit" do

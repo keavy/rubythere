@@ -12,7 +12,7 @@ class AccountsControllerTest < ActionController::TestCase
       get :show
     end
 
-    should_respond_with :success
+    should respond_with(:success)
     should_assign_to :events
   end
 end

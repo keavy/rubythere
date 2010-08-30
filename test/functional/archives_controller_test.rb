@@ -8,7 +8,7 @@ class ArchivesControllerTest < ActionController::TestCase
   
   context "on GET to :show" do
     setup { get :show}
-    should_respond_with :success
+    should respond_with(:success)
     should_assign_to :happenings
   end
 end

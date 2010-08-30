@@ -14,7 +14,7 @@ class HappeningsControllerTest < ActionController::TestCase
         get :index, :event_id => @event
       end
 
-      should_respond_with :success
+      should respond_with(:success)
       should_assign_to :happenings
     end
     
@@ -34,7 +34,7 @@ class HappeningsControllerTest < ActionController::TestCase
   context "on GET to :new" do
     setup { get :new, :event_id => @event}
     
-    should_respond_with :success
+    should respond_with(:success)
   end
   
   context "on GET to :edit" do
@@ -43,7 +43,7 @@ class HappeningsControllerTest < ActionController::TestCase
       get :edit, :id => @happening
     end
 
-    should_respond_with :success
+    should respond_with(:success)
     should_assign_to :happening
     should_assign_to :event
   end
@@ -102,7 +102,7 @@ class HappeningsControllerTest < ActionController::TestCase
         put :update, :happening => {:url => ''}, :id => @happening
       end
 
-      should_respond_with :success
+      should respond_with(:success)
       should_render_template :edit
     end
   end
