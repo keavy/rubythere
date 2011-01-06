@@ -1,7 +1,7 @@
 - if h_f.object.new_record?
   %h4 New happening
 - else
-  %h4= h_f.object.summary 
+  %h4= h_f.object.summary
 
 = h_f.text_field :url, :label => 'URL', :hint => "http://www.myrubyconf.com"
 = h_f.text_area :description, :rows => 3
@@ -32,15 +32,19 @@
   %h5 Facilities
   = h_f.check_box :childcare, :label => 'Offers childcare'
 
-%div.secondary
+%div.secondary.clearfix
   %h5 Location
-  = h_f.select :location_id, Location.all.collect {|l| [l.city_state_country, l.id]}, { :prompt => 'Select an existing location', :include_blank => true, :hide_label => true}, {:class => 'country'}
+  %div.choice.left
+    = h_f.select :location_id, Location.all.collect {|l| [l.city_state_country, l.id]}, { :prompt => 'Select an existing location', :include_blank => true, :hide_label => true}, {:class => 'country'}
 
-  %div{:id => "new_location"}
-    %p Or create a new location
-  - h_f.fields_for :location do |l_f|
-    - unless l_f.object.new_record?
-      - l_f.object = h_f.object.build_location
-    = l_f.text_field :city
-    = l_f.text_field :state
-    = l_f.country_select :country, ['Anywhere'], {:prompt => 'Please select', :include_blank => true}, {:class => 'country'}
+  %div.or.left
+    %p Or
+
+  %div.choice.left
+    %div{:id => "new_location"}
+    - h_f.fields_for :location do |l_f|
+      - unless l_f.object.new_record?
+        - l_f.object = h_f.object.build_location
+      = l_f.text_field :city
+      = l_f.text_field :state
+      = l_f.country_select :country, ['Anywhere'], {:prompt => 'Please select', :include_blank => true}, {:class => 'country'}

@@ -39,6 +39,9 @@ body{
 .right{float: right;}
 .half{width: 49%;}
 .third{width: 33%;}
+.choice{width: 250px;}
+.or{width: 50px;}
+.or p{text-align: center;}
 .form_block{}
 #select_date{ margin: 10px 0;}
 .page_links{margin: 0 0 10px 0;}
@@ -128,7 +131,7 @@ ul#menu{margin: 10px 0;}
 ul#menu li{display: inline-block; margin-right: 10px;}
 
 /* form */
-form{width: 380px;}
+form{width: 585px;}
 form.small{width: 300px;}
 .search_box form{width: auto; margin-top: 17px;}
 .field_wrap{padding: 2px;}

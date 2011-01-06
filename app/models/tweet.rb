@@ -7,5 +7,7 @@ class Tweet
       tweets << r
     end
     return tweets[0..limit]
+  rescue SocketError
+    []
   end
 end

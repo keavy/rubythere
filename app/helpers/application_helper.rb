@@ -110,4 +110,9 @@ module ApplicationHelper
       image_tag 'cross.gif'
     end
   end
+
+  def admin?
+    return true if RAILS_ENV == 'development'
+    signed_in? && current_user.admin?
+  end
 end

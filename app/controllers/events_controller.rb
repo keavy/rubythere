@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_filter :find_event, :only => [:edit, :update]
-  before_filter :authenticate, :only => [:edit, :update]
-  before_filter :check_authorized, :only => [:edit, :update]
+  before_filter :authenticate, :only => [:edit, :update] unless RAILS_ENV == 'development'
+  before_filter :check_authorized, :only => [:edit, :update] unless RAILS_ENV == 'development'
   
   layout :select_layout
   

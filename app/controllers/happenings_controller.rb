@@ -2,8 +2,8 @@ class HappeningsController < ApplicationController
   before_filter :find_happening, :only => [:edit, :update]
   before_filter :find_event, :except => [:edit, :update]
   
-  before_filter :authenticate
-  before_filter :check_authorized
+  before_filter :authenticate unless RAILS_ENV == 'development'
+  before_filter :check_authorized unless RAILS_ENV == 'development'
   
   #layout 'form'
   
@@ -11,7 +11,7 @@ class HappeningsController < ApplicationController
     if @event.happenings.blank?
       @happening  = @event.happenings.build
     else
-      @happenings = @event.happenings 
+      @happenings = @event.happenings
     end
   end
   

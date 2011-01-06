@@ -62,4 +62,4 @@
         = link_to "@#{@event.twitter}", "http://twitter.com/#{@event.twitter}"
       %ul
       - cache "tweets/event_#{@event.id}" do
-        = render :partial => 'tweet', :collection => Tweet.messages_for(@event.twitter,4)
+        = render :partial => 'tweet', :collection => Tweet.messages_for(@event.twitter,4) unless RAILS_ENV == 'development'
