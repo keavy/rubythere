@@ -11,7 +11,7 @@ class HappeningsController < ApplicationController
     if @event.happenings.blank?
       @happening  = @event.happenings.build
     else
-      @happenings = @event.happenings
+      @happenings = @event.happenings.reverse
     end
   end
   
