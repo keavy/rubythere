@@ -1,6 +1,6 @@
 - @page_title = "Submit an event"
 
-%h1 Submit an event
+%h1 Submit a new event
 
 - labeled_form_for setup_event(@event), :url => events_path do |f|
 
@@ -10,3 +10,8 @@
     
   .submit
     =image_submit_tag('btn_submit.gif', :alt => 'submit')
+
+= content_for :side do
+  %div.note
+    %h4 Is this for an existing event?
+    %p= "If it's in #{ link_to "the archive", archive_path}, you can just add new details for the upcoming one"

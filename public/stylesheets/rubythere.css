@@ -49,6 +49,7 @@ div.primary{border: 1px solid #ccc; background-color: #f6f6f6; padding: 10px; ma
 #search{margin: 0 0 20px 0;}
 div.box{padding: 25px 0; border-bottom: 1px solid #ededed;}
 div.last{padding: 25px 0; border-bottom: none;}
+div.note{border: 1px solid #8c0406; padding: 5px; background-color: #fff;}
 
 #ft .side{text-align: right;}
 #content .main .wrapper{background-color: #fff; padding: 32px 34px;}
