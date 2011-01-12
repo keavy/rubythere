@@ -262,7 +262,7 @@ ul#results li{vertical-align: top; padding: 12px 15px 14px 15px;}
 
 /* images */
 #hd img{display: block;}
-img.logo{float: right;}
+img.logo{float: right; max-width: 150px;}
 .submit_box img{margin-bottom: 16px;}
 img.submit{float: right; margin-top: 9px; margin-bottom: 0;}
 img.wwrails{margin-top: 20px;}
