@@ -42,9 +42,7 @@
 
   %div.choice.left
     %div{:id => "new_location"}
-    - h_f.fields_for :location do |l_f|
-      - unless l_f.object.new_record?
-        - l_f.object = h_f.object.build_location
-      = l_f.text_field :city
-      = l_f.text_field :state
-      = l_f.country_select :country, ['Anywhere'], {:prompt => 'Please select', :include_blank => true}, {:class => 'country'}
+      - h_f.fields_for :location do |l_f|
+        = l_f.text_field :city
+        = l_f.text_field :state
+        = l_f.country_select :country, ['Anywhere'], {:prompt => 'Please select', :include_blank => true}, {:class => 'country'}

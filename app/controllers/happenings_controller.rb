@@ -17,12 +17,14 @@ class HappeningsController < ApplicationController
   
   def new
     @happening = @event.happenings.build
+    @happening.build_location
   end
   
   def edit
   end
   
   def update
+    # raise params.to_yaml
     set_location
     if @happening.update_attributes(params[:happening])
       flash[:notice] = "Thanks! Where & When updated"
@@ -62,14 +64,15 @@ class HappeningsController < ApplicationController
   end
   
   def set_location
-    if params['happening']["location_id"].blank?
+    unless params['happening']['location_attributes']['city'].blank?
       location = find_or_create_location(params['happening']['location_attributes'])
       location = location.id unless location.nil?
     else
       location = params['happening']["location_id"]
     end
+
     params['happening'].delete("location_attributes")
-    params['happening']["location_id"] = location
+    params['happening']["location_id"] = location if location
   end
 
   def find_or_create_location(attributes)
