@@ -138,7 +138,7 @@ form.small{width: 300px;}
 .field_wrap{padding: 2px;}
 .row{margin: 0 0 10px 0;}
 input,textarea{padding: 3px 8px; background-color: #f7f7f7; border: 1px solid #c7c7c7;}
-input[type='image']{padding: 0; background-color: #fff; border: none;}
+input[type='image']{padding: 0; background-color: #fff; border: none;  vertical-align: middle; margin-right: 3px;}
 input[type='text']{width: 250px;}
 .search_box input[type='text']{width: 144px;}
 
@@ -250,6 +250,7 @@ tbody tr{border-bottom: 1px solid #ededed;}
 td.status{width: 22%; color: #686868; font-weight: bold;}
 td.city{width: 26%;}
 td.date{width: 15%;}
+tr.pending td{background-color: lightpink;}
 
 
 /* lists */
