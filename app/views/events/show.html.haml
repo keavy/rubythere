@@ -51,7 +51,7 @@
           %p= "#{link_to 'Update event details', event_happenings_path(@event)}"
       - else
         %h4 Organiser's registration:
-        %p= "Event organisers #{link_to 'login', login_path, :class => 'primary'} to update/amend details"
+        %p= raw "Event organisers #{link_to 'login', login_path, :class => 'primary'} to update/amend details"
         
 - content_for :side do
   - unless @event.twitter.blank?
