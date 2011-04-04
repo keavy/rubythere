@@ -5,8 +5,8 @@
 - labeled_form_for @happening, :url => event_happening_path(@event, @happening), :html => {:method => :put} do |f|
 
   = f.error_messages
-
+  
   = render :partial => 'fields', :locals => {:h_f => f}
-
+    
   .submit
-    = image_submit_tag('btn_submit.gif')
+    =image_submit_tag('btn_submit.gif')

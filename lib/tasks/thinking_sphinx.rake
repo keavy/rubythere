@@ -2,7 +2,7 @@ require 'fileutils'
 
 namespace :thinking_sphinx do
   task :app_env do
-    if defined?(RAILS_ROOT)
+    if defined?(Rails.root)
       Rake::Task[:environment].invoke
       Rails.configuration.cache_classes = false
     end

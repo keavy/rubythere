@@ -2,8 +2,8 @@ class HappeningsController < ApplicationController
   before_filter :find_happening, :only => [:edit, :update]
   before_filter :find_event, :except => [:edit, :update]
   
-  before_filter :authenticate unless RAILS_ENV == 'development'
-  before_filter :check_authorized unless RAILS_ENV == 'development'
+  before_filter :authenticate unless Rails.env == 'development'
+  before_filter :check_authorized unless Rails.env == 'development'
   
   #layout 'form'
   
@@ -17,14 +17,12 @@ class HappeningsController < ApplicationController
   
   def new
     @happening = @event.happenings.build
-    @happening.build_location
   end
   
   def edit
   end
   
   def update
-    # raise params.to_yaml
     set_location
     if @happening.update_attributes(params[:happening])
       flash[:notice] = "Thanks! Where & When updated"
@@ -64,15 +62,14 @@ class HappeningsController < ApplicationController
   end
   
   def set_location
-    unless params['happening']['location_attributes']['city'].blank?
+    if params['happening']["location_id"].blank?
       location = find_or_create_location(params['happening']['location_attributes'])
       location = location.id unless location.nil?
     else
       location = params['happening']["location_id"]
     end
-
     params['happening'].delete("location_attributes")
-    params['happening']["location_id"] = location if location
+    params['happening']["location_id"] = location
   end
 
   def find_or_create_location(attributes)

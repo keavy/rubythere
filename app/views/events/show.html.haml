@@ -5,7 +5,7 @@
 
 - if @latest
   .primary_info
-    %p.date
+    %p.date 
       - if @latest.past?
         %p.past Last held:
       %span.date= event_date(@latest.start_at,@latest.end_at)
@@ -21,15 +21,10 @@
       .box
         %h4 Event Facilities:
         = "#{cross_or_tick(@latest.childcare)} Offers childcare"
-
-    - if @latest.cfp_open
-      .box
-        %h4 Call for Proposals
-        %p="Closes: #{format_date(@latest.cfp_closes_at)}"
-
+  
     - cache "presentations/keynotes_h_#{@latest.id}" do
       - unless @latest.presentations.keynotes.blank?
-        .box
+        .box 
           %h4 Keynotes include:
           %ul.speakers
             - @latest.presentations.keynotes.each do |p|
@@ -37,11 +32,11 @@
                 %span.speaker_name= p.speaker.full_name
                 - unless p.talk.blank?
                   = " / #{p.talk.title}"
-
-
+                
+      
     - cache "presentations/regular_h_#{@latest.id}" do
       - unless @latest.presentations.regular.blank?
-        .box
+        .box 
           %h4 Speakers include:
           %ul.speakers
             - @latest.presentations.regular.each do |p|
@@ -49,7 +44,7 @@
                 %span.speaker_name= p.speaker.full_name
                 - unless p.talk.blank?
                   = " / #{p.talk.title}"
-
+  
     .last
       - if signed_in?
         - if current_user.editor_for?(@event)
@@ -57,14 +52,14 @@
       - else
         %h4 Organiser's registration:
         %p= "Event organisers #{link_to 'login', login_path, :class => 'primary'} to update/amend details"
-
+        
 - content_for :side do
   - unless @event.twitter.blank?
     #tweets
       %h3= "Tweets about #{@event.name}"
-      .follow
+      .follow 
         %p Follow us:
         = link_to "@#{@event.twitter}", "http://twitter.com/#{@event.twitter}"
       %ul
       - cache "tweets/event_#{@event.id}" do
-        = render :partial => 'tweet', :collection => Tweet.messages_for(@event.twitter,4) unless RAILS_ENV == 'development'
+        = render :partial => 'tweet', :collection => Tweet.messages_for(@event.twitter,4) unless Rails.env == 'development'

@@ -19,24 +19,24 @@
 class Event < ActiveRecord::Base
   has_many :happenings
   belongs_to :submitter
-
+  
   validates_presence_of :name, :message => '^Please add a name'
-
+ 
   accepts_nested_attributes_for :happenings, :submitter
-
+  
   before_save :set_formatted_fields
-
+  
   default_scope :order => 'name', :include => :happenings
   named_scope :approved, :conditions => ['approved = ?', true]
   attr_accessible :name, :url, :description, :twitter, :happenings_attributes, :submitter_attributes
   attr_accessor :admin_submitted
-
+  
   has_friendly_id :name, :use_slug => true
-
-  define_index do
+  
+  define_index do 
     indexes name, description
   end
-
+  
   protected
   def set_formatted_fields
     if value = read_attribute(:description) then

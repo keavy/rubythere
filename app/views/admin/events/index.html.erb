@@ -7,11 +7,8 @@
         <th>Name</th>
       </tr>
     <% collection.each do |event| -%>
-      <% state = event.approved? ? "approved" : "pending" %>
-      <tr class='<%= state %>'>
-        <td class="actions">
-          <%= link_to "Edit", edit_admin_event_path(event), :class => 'secondary' %> | <%= link_to "Delete", admin_event_path(event), :method => :delete %>
-        </td>
+      <tr>
+        <td><%= link_to "Edit", edit_admin_event_path(event), :class => 'secondary' %></td>
         <td><%= event.twitter %></td>
         <td><%= link_to_name(event) %></td>
       </tr>

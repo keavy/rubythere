@@ -5,7 +5,7 @@ module FakewebHelpers
   # Turns a fixture file name into a full path
   def fixture_file(filename)
     return '' if filename == ''
-    File.expand_path(RAILS_ROOT + '/test/fixtures/' + filename)
+    File.expand_path(Rails.root + '/test/fixtures/' + filename)
   end
 
   # Convenience methods for stubbing URLs to fixtures

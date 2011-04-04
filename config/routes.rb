@@ -1,21 +1,28 @@
-ActionController::Routing::Routes.draw do |map|
-  map.namespace :admin do |admin|
-    admin.resources :events
-    admin.resource :user_session
-    admin.resources :presentations
+Rubythere::Application.routes.draw do
+  namespace :admin do |admin|
+    resources :events do
+      resources :happenings
+    end
+    resource :user_session
+    resources :presentations
   end
-  map.admin 'admin', :controller => 'admin/events'
-  
-  map.events_to 'events/to/:focus.:format', :controller => 'events', :action => 'index'
-  
-  map.resources :events, :has_many => [:happenings]
-  map.resources :feeds, :happenings
-  map.resource :archive, :contact, :account
-    
-  map.resource :session, :search, :calendar
-  map.confirm_session 'session/confirm', :controller => 'sessions', :action => 'confirm'
-  map.logout 'logout', :controller => 'sessions', :action => 'destroy'
-  map.login 'login', :controller => 'sessions', :action => 'new'
-  
-  map.root :controller => "home"
+  match 'admin', :to => 'admin#events', :as => 'admin'
+
+  match 'events/to/:focus.:format', :to => 'events#index', :as => 'events_to'
+
+  resources :events do
+    collection do
+      resources :happenings
+    end
+  end
+
+  resources :feeds, :happenings
+  resource :archive, :contact, :account, :search, :calendar
+
+  resource :session
+  match 'session/confirm', :to => 'sessions#confirm', :as => 'confirm_session'
+  match 'logout', :to => 'sessions#destroy', :as => 'logout'
+  match 'login', :to => 'sessions#new', :as => 'login'
+
+  root :to => "home#index"
 end

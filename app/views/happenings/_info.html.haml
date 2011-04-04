@@ -1,0 +1,6 @@
+- if h_f.object.new_record?
+  %h4 New happening
+  = render :partial => 'happenings/info', :locals => {:h_f => h_f}
+- else
+  %h4= h_f.object.summary
+  =# link_to "Edit", edit_admin_event_happening_path(@event,h_f.object) if admin?

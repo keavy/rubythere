@@ -1,20 +1,19 @@
-# Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   def labeled_form_for(*args, &block)
     options = args.extract_options!.merge(:builder => LabeledFormBuilder)
     form_for(*(args + [options]), &block)
   end
-  
+
   def labeled_fields_for(*args, &block)
     options = args.extract_options!.merge(:builder => LabeledFormBuilder)
     fields_for(*(args + [options]), &block)
   end
-  
+
   def render_error_messages(*objects)
     messages = objects.compact.map { |o| o.errors.full_messages }.flatten
     render :partial => 'shared/error_messages', :object => messages unless messages.empty?
   end
-  
+
   def setup_event(event)
     returning(event) do |e|
       e.build_submitter if e.submitter.nil?
@@ -24,20 +23,20 @@ module ApplicationHelper
       end
     end
   end
-  
+
   def setup_happening(happening)
     returning(happening) do |h|
       h.build_location if h.location.nil?
     end
   end
-  
+
   def setup_presentation(presentation)
     returning(presentation) do |e|
       e.build_talk if e.talk.nil?
       e.build_speaker if e.speaker.nil?
     end
   end
-  
+
   def display_location(location)
     output = ""
     unless location.nil?
@@ -47,7 +46,7 @@ module ApplicationHelper
     end
     return output
   end
-  
+
   def city_state(location)
     output = ""
     unless location.nil?
@@ -56,7 +55,7 @@ module ApplicationHelper
     end
     return output
   end
-  
+
   def format_date(date)
     return '' if date.nil?
     if Time.now.year == date.year
@@ -65,7 +64,7 @@ module ApplicationHelper
       date.strftime("%b %e %Y")
     end
   end
-  
+
   def event_date(start_date,end_date)
     return "" if !start_date
     output = ""
@@ -82,7 +81,7 @@ module ApplicationHelper
     end
     return output
   end
-  
+
   def been_and_gone?(date)
     case true
     when date.nil? then 'unknown'
@@ -90,12 +89,12 @@ module ApplicationHelper
     else 'upcoming'
     end
   end
-  
+
   def twitter_link(name)
     return "" if name.nil?
     link_to "@#{name}", "http://twitter.com/#{name}"
   end
-  
+
   def link_to_showing_current(text,path,default=false)
     if (request.path == path) || (request.path == '/' && default)
       cl = 'active'
@@ -112,7 +111,7 @@ module ApplicationHelper
   end
 
   def admin?
-    return true if RAILS_ENV == 'development'
+    return true if Rails.env == 'development'
     signed_in? && current_user.admin?
   end
 end

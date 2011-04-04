@@ -3,18 +3,18 @@
 %h1= "Edit #{@event.name}"
 = render :partial => 'events/tabs'
 
-- unless @happenings.blank?
+- unless @happenings.blank?  
   - labeled_form_for setup_happening(@happenings[0]), :url => happening_path(@happenings[0]), :html => {:method => :put} do |f|
 
     = f.error_messages
-
+    
     = render :partial => 'fields', :locals => {:h_f => f}
-
+      
     .submit
-      = image_submit_tag('btn_submit.gif')
+      =image_submit_tag('btn_submit.gif')
       or
       = link_to 'Cancel', event_path(@event)
-
+      
 - else
 
   %p Create first
@@ -25,16 +25,17 @@
     = render :partial => 'fields', :locals => {:h_f => f}
 
     .submit
-      = image_submit_tag('btn_submit.gif')
+      =image_submit_tag('btn_submit.gif')
       or
       = link_to 'Cancel', event_path(@event)
-
+      
 - content_for :side do
   - unless @happenings.blank?
     %p.section_links= link_to "Add a new date?", new_event_happening_path
-
+  
     - if @happenings.size > 1
       %h4 Edit previous
       %ul
       - @happenings[1..@happenings.size].each do |happening|
         %li= link_to happening.summary, edit_event_happening_path(@event, happening)
+  

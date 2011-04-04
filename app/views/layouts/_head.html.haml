@@ -2,14 +2,16 @@
   %meta{ :name => "keywords",    :content => "Ruby, Rails, Conferences, Events" }/
   %meta{ :name => "description", :content => "Ruby There: Events of interest to Rubyists around the world#{": #{@page_title}" if @page_title}" }/
   %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-type" }/
-  
+
+  %meta{:name => 'csrf-token', :content => form_authenticity_token}
+  %meta{:name => 'csrf-param', :content => 'authenticity_token'}
+
   %title
     = "#{@page_title}  &middot; " if @page_title
     Ruby There
-      
-  = tag("link", { "rel" => "Stylesheet", "type" => "text/css", "media" => "screen", "href" => '/stylesheets/fonts-min.css' })
+
   = stylesheet_link_tag 'fonts-min'
   = stylesheet_link_tag 'reset-min'
   = stylesheet_link_tag 'rubythere'
-  
+
   = yield :head
