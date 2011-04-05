@@ -108,6 +108,7 @@ PLATFORMS
 
 DEPENDENCIES
   RedCloth (>= 4.0)
+  bundler (>= 1.0.7)
   friendly_id
   haml
   hoptoad_notifier

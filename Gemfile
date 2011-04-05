@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
 gem 'mysql', '2.8.1'
+gem 'bundler', '>= 1.0.7'
 
 gem "RedCloth", ">=4.0", :require => 'redcloth'
 gem "friendly_id"
