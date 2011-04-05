@@ -21,13 +21,13 @@ class SessionsController < ApplicationController
     reset_session
     session['access_token'] = access_token.token
     session['access_secret'] = access_token.secret
-    user = client.verify_credentials
+    profile = client.verify_credentials
 
-    # user    = User.find_or_create_by_screen_name(profile.screen_name.downcase)
-    # user.update_attributes({
-    #   :atoken  => oauth.access_token.token,
-    #   :asecret => oauth.access_token.secret,
-    # })
+    user    = User.find_or_create_by_screen_name(profile.screen_name.downcase)
+    user.update_attributes({
+      :atoken  => access_token.token,
+      :asecret => access_token.secret,
+    })
 
     sign_in(user)
     redirect_back_or root_path
