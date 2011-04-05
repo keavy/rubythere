@@ -30,23 +30,23 @@ class Happening < ActiveRecord::Base
   belongs_to :venue
   has_many :presentations
   has_many :speakers, :through => :presentations
-  
+
   validates_presence_of :start_at
   validates_presence_of :url, :message => '^Please add a URL'
-  
+
   accepts_nested_attributes_for :location, :venue
-  
+
   default_scope :order => 'start_at', :include => [:location, :event, :presentations]
-  
+
   named_scope :upcoming, :conditions => "start_at > '#{Time.now.to_s(:db)}'"
   named_scope :approved, :conditions => ['events.approved = ?', true]
   named_scope :past, :conditions => "start_at < '#{Time.now.to_s(:db)}'"
   named_scope :unknown, :conditions => {:start_at => nil}
   named_scope :open_for_speakers, :conditions => "(cfp_open = 1 AND cfp_closes_at is NULL) OR (cfp_open = 1 AND cfp_closes_at > '#{Time.now.to_s(:db)}')"
   named_scope :summaries, :select => 'happenings.id, happenings.event_id, happenings.start_at, events.name, events.id', :order => 'events.name'
-  
+
   before_save :set_formatted_fields
-  
+
   def status
     if sold_out
       'Sold out'
@@ -56,7 +56,7 @@ class Happening < ActiveRecord::Base
       ''
     end
   end
-  
+
   def www
     url.sub(/http:\/\//, '') unless url.blank?
   end
@@ -69,11 +69,15 @@ class Happening < ActiveRecord::Base
       start_at.past?
     end
   end
-  
+
   def summary
     event.name + ', ' + start_at.strftime("%b %Y")
   end
-  
+
+  def currency_or_default
+    currency ||= '$'
+  end
+
   protected
   def set_formatted_fields
     if value = read_attribute(:description) then
