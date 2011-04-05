@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     redirect_to login_path
   end
 
-  def confirm
+  def callback
     request_token = OAuth::RequestToken.new(oauth_consumer, session['request_token'], session['request_secret'])
     access_token = request_token.get_access_token(:oauth_verifier => params[:oauth_verifier])
     reset_session
