@@ -1,7 +1,8 @@
-class ApplicationController < ActionController::Base
-  protect_from_forgery
+require 'twitter/authentication_helpers'
 
+class ApplicationController < ActionController::Base
   include Twitter::AuthenticationHelpers
+  protect_from_forgery
   rescue_from Twitter::Unauthorized, :with => :force_sign_in
 
   if Rails.env == 'production'
@@ -10,6 +11,22 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def oauth_consumer
+    @oauth_consumer ||= OAuth::Consumer.new(APP_CONFIG[:twitter_key], APP_CONFIG[:twitter_secret], :site => 'http://api.twitter.com', :request_endpoint => 'http://api.twitter.com', :sign_in => true)
+  end
+
+  def client
+    Twitter.configure do |config|
+      config.consumer_key = APP_CONFIG[:twitter_key]
+      config.consumer_secret = APP_CONFIG[:twitter_secret]
+      config.oauth_token = session['access_token']
+      config.oauth_token_secret = session['access_secret']
+    end
+    @client ||= Twitter::Client.new
+  end
+  helper_method :client
+
   def force_sign_in(exception)
     reset_session
     flash[:error] = 'Seems your credentials are not good anymore. Please sign in again.'

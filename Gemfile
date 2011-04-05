@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '~> 3.0.5'
 gem 'mysql', '2.8.1'
 gem 'bundler', '>= 1.0.7'
 
@@ -9,7 +9,8 @@ gem "friendly_id"
 gem 'hoptoad_notifier'
 gem 'haml'
 gem 'whenever', :require => false 
-gem 'twitter'
+gem 'oauth', '~> 0.4.4'
+gem 'twitter', '~> 1.2.0'
 gem 'thinking-sphinx', :require => 'thinking_sphinx'
 gem 'icalendar'
 gem 'will_paginate', '>=3.0.pre'

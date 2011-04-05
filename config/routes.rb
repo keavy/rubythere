@@ -20,7 +20,7 @@ Rubythere::Application.routes.draw do
   resource :archive, :contact, :account, :search, :calendar
 
   resource :session
-  match 'session/confirm', :to => 'sessions#confirm', :as => 'confirm_session'
+  get 'sessions/callback', :to => 'sessions#callback', :as => 'callback'
   match 'logout', :to => 'sessions#destroy', :as => 'logout'
   match 'login', :to => 'sessions#new', :as => 'login'
 
