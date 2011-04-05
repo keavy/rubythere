@@ -2,7 +2,7 @@ include Twitter
 class Tweet
   def self.messages_for(phrase,limit=4)
     tweets = []
-    search = Twitter::Search.new("#{phrase}")
+    search = Twitter::Search.new.containing("#{phrase}")
     search.each do |r|
       tweets << r
     end
