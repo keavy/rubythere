@@ -1,9 +1,7 @@
 class Admin::PresentationsController < AdminAreaController
-  resource_controller
+  inherit_resources
   
   cache_sweeper :presentations_sweeper
-  
-  [create, update].each { |action| action.wants.html {redirect_to admin_presentations_path} }
   
   def create
     if params[:presentation][:speaker_attributes]

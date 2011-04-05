@@ -14,4 +14,4 @@ gem 'thinking-sphinx', :require => 'thinking_sphinx'
 gem 'icalendar'
 gem 'will_paginate', '>=3.0.pre'
 gem "simple_form"
-gem "resource_controller"
+gem "inherited_resources"

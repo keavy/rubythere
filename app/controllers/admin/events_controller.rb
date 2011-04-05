@@ -1,16 +1,21 @@
 class Admin::EventsController < AdminAreaController
-  resource_controller
+  inherit_resources
 
   cache_sweeper :events_sweeper
 
-  [create, update].each { |action| action.wants.html {redirect_to admin_events_path} }
+  def edit
+    resource.admin_submitted = true
+    edit!
+  end
 
-  [new_action,create,edit].each { |action| action.before do
-    object.admin_submitted = true
-  end }
+  def new
+    resource.admin_submitted = true
+    new!
+  end
 
   def create
     set_location
+    resource.admin_submitted = true
     if params[:event][:happenings_attributes]
       params[:event][:happenings_attributes].each do |h|
         unless h[1]["location_id"].blank?
