@@ -1,13 +1,4 @@
 module ApplicationHelper
-  def labeled_form_for(*args, &block)
-    options = args.extract_options!.merge(:builder => LabeledFormBuilder)
-    form_for(*(args + [options]), &block)
-  end
-
-  def labeled_fields_for(*args, &block)
-    options = args.extract_options!.merge(:builder => LabeledFormBuilder)
-    fields_for(*(args + [options]), &block)
-  end
 
   def render_error_messages(*objects)
     messages = objects.compact.map { |o| o.errors.full_messages }.flatten
@@ -99,7 +90,7 @@ module ApplicationHelper
     if (request.path == path) || (request.path == '/' && default)
       cl = 'active'
     end
-    "<li class='#{cl}'>#{link_to text, path}</li>"
+    raw "<li class='#{cl}'>#{link_to text, path}</li>"
   end
 
   def cross_or_tick(value)

@@ -8,7 +8,7 @@ Rubythere::Application.routes.draw do
   end
   match 'admin', :to => 'admin#events', :as => 'admin'
 
-  match 'events/to/:focus.:format', :to => 'events#index', :as => 'events_to'
+  match 'events/to/:focus', :to => 'events#index', :as => 'events_to'
 
   resources :events do
     collection do

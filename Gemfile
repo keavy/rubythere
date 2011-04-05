@@ -12,3 +12,4 @@ gem 'twitter'
 gem 'thinking-sphinx', :require => 'thinking_sphinx'
 gem 'icalendar'
 gem 'will_paginate', '>=3.0.pre'
+gem "simple_form"

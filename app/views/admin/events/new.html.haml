@@ -1,6 +1,6 @@
 %h2 Create a new event
 .main.left
-  - labeled_form_for setup_event(@event), :url => admin_events_path do |f|
+  = simple_form_for setup_event(@event), :url => admin_events_path do |f|
     = f.error_messages
     
     %div.secondary

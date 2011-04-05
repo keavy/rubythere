@@ -3,8 +3,8 @@
 - else
   %h4= h_f.object.summary
 
-= h_f.text_field :url, :label => 'URL', :hint => "http://www.myrubyconf.com"
-= h_f.text_area :description, :rows => 3
+= h_f.input :url, :label => 'URL', :hint => "http://www.myrubyconf.com"
+= h_f.input :description, :input_html => {:rows => 3}
 
 %div.field_wrap.clearfix
   =label :start_at, "Start date"
@@ -16,21 +16,21 @@
 
 %div.secondary
   %h5 Proposals
-  = h_f.check_box :cfp_open, :label => 'Call for proposals open'
+  = h_f.input :cfp_open, :as => :boolean, :label => 'Call for proposals open'
   %div.field_wrap.clearfix
     =label :cfp_closes_at, "CFP closes"
     = h_f.date_select :cfp_closes_at, :order => [:day, :month, :year ], :start_year => Time.now.year, :include_blank => true
 
 %div.secondary
   %h5 Registering
-  = h_f.check_box :sold_out, :label => 'Sold out'
-  = h_f.check_box :open_for_reg, :label => 'Registration open'
-  = h_f.text_field :cost, :size => 7, :limit => 7, :label => 'Registration cost', :class => 'short', :hint => '195'
-  = h_f.text_field :currency, :size => 3, :limit => 3, :class => 'short', :hint => '£'
+  = h_f.input :sold_out, :as => :boolean, :label => 'Sold out'
+  = h_f.input :open_for_reg, :as => :boolean, :label => 'Registration open'
+  = h_f.input :cost, :size => 7, :limit => 7, :label => 'Registration cost', :class => 'short', :hint => '195'
+  = h_f.input :currency, :size => 3, :limit => 3, :class => 'short', :hint => '£', :wrapper_class => 'currency'
 
 %div.secondary
   %h5 Facilities
-  = h_f.check_box :childcare, :label => 'Offers childcare'
+  = h_f.input :childcare, :as => :boolean, :label => 'Offers childcare'
 
 %div.secondary.clearfix
   %h5 Location
@@ -45,6 +45,6 @@
     - h_f.fields_for :location do |l_f|
       - unless l_f.object.new_record?
         - l_f.object = h_f.object.build_location
-      = l_f.text_field :city
-      = l_f.text_field :state
+      = l_f.input :city
+      = l_f.input :state
       = l_f.country_select :country, ['Anywhere'], {:prompt => 'Please select', :include_blank => true}, {:class => 'country'}

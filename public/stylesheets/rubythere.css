@@ -135,11 +135,14 @@ form{width: 585px;}
 form.small{width: 300px;}
 .search_box form{width: auto; margin-top: 17px;}
 .field_wrap{padding: 2px;}
+div.input{padding: 2px;}
 .row{margin: 0 0 10px 0;}
 input,textarea{padding: 3px 8px; background-color: #f7f7f7; border: 1px solid #c7c7c7;}
 input[type='image']{padding: 0; background-color: #fff; border: none;}
-input[type='text']{width: 250px;}
+input[type='text'], input[type='url'], input[type='email']{width: 250px;}
 .search_box input[type='text']{width: 144px;}
+input[type='checkbox'] { margin-right: 5px;}
+input[type='number'], .currency input[type='text']{ width: 50px;}
 
 input.short{width: 40px;}
 textarea{width: 250px;}
@@ -148,6 +151,7 @@ select.country{width: 250px;}
 label{width: 100px; display: inline-block; color: #686868;}
 label.hori{ width: 100%; display: block;}
 label.inline{display: inline;}
+label.boolean{width: auto;}
 .checkbox_wrap label{width: 200px;}
 textarea.hori{ width: 100%;}
 .row{margin: 0 0 20px 0;}
@@ -163,6 +167,7 @@ textarea.hori{ width: 100%;}
 div.submit{margin: 17px 0 0 0;text-align: right;}
 form span.info{margin-left: 102px; color: #ccc; font-size: 85%; display: block;}
 label em {margin-left: 2px; color: #df0000;}
+.hint { color:#666; margin: 0 0 0 10px; }
 
 /* notices */
 #flash_notice, #flash_error {

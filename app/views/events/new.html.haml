@@ -2,7 +2,7 @@
 
 %h1 Submit an event
 
-- labeled_form_for setup_event(@event), :url => events_path do |f|
+= simple_form_for setup_event(@event), :url => events_path do |f|
 
   = f.error_messages
   

@@ -2,7 +2,7 @@
 
 %h1= "Edit #{@happening.summary}"
 
-- labeled_form_for @happening, :url => event_happening_path(@event, @happening), :html => {:method => :put} do |f|
+= simple_form_for @happening, :url => event_happening_path(@event, @happening), :html => {:method => :put} do |f|
 
   = f.error_messages
   

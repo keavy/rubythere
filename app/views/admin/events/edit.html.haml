@@ -2,7 +2,7 @@
 = link_to "Delete", admin_event_path(@event), :method => :delete
 
 .main.left
-  - labeled_form_for setup_event(@event), :url => admin_event_path(@event), :html => { :method => :put } do |f|
+  = simple_form_for setup_event(@event), :url => admin_event_path(@event), :html => { :method => :put } do |f|
     = f.error_messages
     
     %div.secondary
