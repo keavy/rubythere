@@ -15,3 +15,16 @@ gem 'icalendar'
 gem 'will_paginate', '>=3.0.pre'
 gem "simple_form"
 gem "inherited_resources"
+gem 'annotate'
+
+group :test do
+  gem 'shoulda'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'cucumber-rails', '0.3.2'
+  gem 'cucumber', '0.10.0'
+  gem 'rspec-rails'
+  gem 'spork'
+  gem 'launchy'
+end
