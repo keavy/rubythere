@@ -48,7 +48,7 @@
     .last
       - if signed_in?
         - if current_user.editor_for?(@event)
-          %p= "#{link_to 'Update event details', event_happenings_path(@event)}"
+          %p= raw "#{link_to 'Update event details', event_happenings_path(@event)}"
       - else
         %h4 Organiser's registration:
         %p= raw "Event organisers #{link_to 'login', login_path, :class => 'primary'} to update/amend details"
