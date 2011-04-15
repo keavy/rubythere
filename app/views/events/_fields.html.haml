@@ -3,15 +3,15 @@
   = f.input :name, :required => true, :hint => "My Ruby Conf"
   = f.input :twitter, :label => "Twitter name", :hint => "myrubyconf"
 
-  - f.fields_for :happenings do |h_f|
+  = f.fields_for :happenings do |h_f|
     = render :partial => 'happenings/fields', :locals => {:h_f => h_f}
 
   - unless @event.admin_submitted
     %div.secondary
       %h4 About you:
       %p This information will not be displayed on the site
-    - f.fields_for :submitter do |s_f|
-      = s_f.text_field :first_name
-      = s_f.text_field :last_name
-      = s_f.text_field :email
-      = s_f.text_field :twitter
+    = f.fields_for :submitter do |s_f|
+      = s_f.input :first_name
+      = s_f.input :last_name
+      = s_f.input :email
+      = s_f.input :twitter
