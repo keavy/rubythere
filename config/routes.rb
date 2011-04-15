@@ -11,9 +11,7 @@ Rubythere::Application.routes.draw do
   match 'events/to/:focus', :to => 'events#index', :as => 'events_to'
 
   resources :events do
-    collection do
-      resources :happenings
-    end
+    resources :happenings
   end
 
   resources :feeds, :happenings
