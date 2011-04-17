@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '~> 3.0.5'
-gem 'mysql', '2.8.1'
+gem 'mysql2', '0.2.7'
 gem 'bundler', '>= 1.0.7'
 
 gem 'annotate'
