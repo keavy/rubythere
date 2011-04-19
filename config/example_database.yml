@@ -1,29 +1,23 @@
-development:
-  adapter: mysql
+common: &common
+  adapter: mysql2
   encoding: utf8
-  database: rubyvous_development
+  reconnect: false
   pool: 5
   username: root
   password:
-  socket: /tmp/mysql.sock
-  
+  socket: <%= %w[/opt/local/var/run/mysql5/mysqld.sock
+                 /var/lib/mysql/mysql.sock
+                 /var/lib/mysqld/mysqld.sock
+                 /tmp/mysql.sock].find { |socket| File.exist?(socket) } %>
+
 production:
-  adapter: mysql
-  encoding: utf8
-  database: rubyvous_production
-  pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+ <<: *common
+ database: rubythere_production
 
-test: &TEST
-  adapter: mysql
-  encoding: utf8
-  database: rubyvous_test
-  pool: 5
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+development:
+  <<: *common
+  database: rubythere_development
 
-cucumber:
-  <<: *TEST
+test:
+  <<: *common
+  database: rubythere_test
