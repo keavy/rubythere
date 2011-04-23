@@ -16,11 +16,16 @@ class Presentation < ActiveRecord::Base
   belongs_to :speaker
   belongs_to :talk
   belongs_to :happening
-  
+
   accepts_nested_attributes_for :speaker, :talk
-  
+
   default_scope :order => 'speakers.first_name, speakers.last_name', :include => [:speaker, :talk]
-  
-  named_scope :keynotes, :conditions => ['keynote = ?', true]
-  named_scope :regular, :conditions => ['keynote = ?', false]
+
+  def self.keynotes
+    where('keynote = ?', true)
+  end
+
+  def self.regular
+    where('keynote = ?', false)
+  end
 end

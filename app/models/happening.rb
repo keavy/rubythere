@@ -38,14 +38,31 @@ class Happening < ActiveRecord::Base
 
   default_scope :order => 'start_at', :include => [:location, :event, :presentations]
 
-  named_scope :upcoming, :conditions => "start_at > '#{Time.now.to_s(:db)}'"
-  named_scope :approved, :conditions => ['events.approved = ?', true]
-  named_scope :past, :conditions => "start_at < '#{Time.now.to_s(:db)}'"
-  named_scope :unknown, :conditions => {:start_at => nil}
-  named_scope :open_for_speakers, :conditions => "(cfp_open = 1 AND cfp_closes_at is NULL) OR (cfp_open = 1 AND cfp_closes_at > '#{Time.now.to_s(:db)}')"
-  named_scope :summaries, :select => 'happenings.id, happenings.event_id, happenings.start_at, events.name, events.id', :order => 'events.name'
-
   before_save :set_formatted_fields
+
+  def self.upcoming
+    where("start_at > '#{Time.now.to_s(:db)}'")
+  end
+
+  def self.approved
+    where('events.approved = ?', true)
+  end
+
+  def self.unknown
+    where(:start_at => nil)
+  end
+
+  def self.past
+    where("start_at < '#{Time.now.to_s(:db)}'")
+  end
+
+  def self.open_for_speakers
+    where("(cfp_open = 1 AND cfp_closes_at is NULL) OR (cfp_open = 1 AND cfp_closes_at > '#{Time.now.to_s(:db)}')")
+  end
+
+  def self.summaries
+    select('happenings.id, happenings.event_id, happenings.start_at, events.name, events.id').order('events.name')
+  end
 
   def status
     if sold_out
