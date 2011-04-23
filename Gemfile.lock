@@ -128,19 +128,6 @@ GEM
     rake (0.8.7)
     responders (0.6.2)
     riddle (1.2.2)
-    rspec (2.5.0)
-      rspec-core (~> 2.5.0)
-      rspec-expectations (~> 2.5.0)
-      rspec-mocks (~> 2.5.0)
-    rspec-core (2.5.1)
-    rspec-expectations (2.5.0)
-      diff-lcs (~> 1.1.2)
-    rspec-mocks (2.5.0)
-    rspec-rails (2.5.0)
-      actionpack (~> 3.0)
-      activesupport (~> 3.0)
-      railties (~> 3.0)
-      rspec (~> 2.5.0)
     rubyzip (0.9.4)
     selenium-webdriver (0.1.4)
       childprocess (>= 0.1.7)
@@ -181,8 +168,8 @@ DEPENDENCIES
   annotate
   bundler (>= 1.0.7)
   capybara
-  cucumber (= 0.10.0)
-  cucumber-rails (= 0.3.2)
+  cucumber (~> 0.10.0)
+  cucumber-rails (~> 0.3.2)
   database_cleaner
   factory_girl_rails
   fakeweb
@@ -195,7 +182,6 @@ DEPENDENCIES
   mysql2 (= 0.2.7)
   oauth (~> 0.4.4)
   rails (~> 3.0.5)
-  rspec-rails
   shoulda
   simple_form
   spork
