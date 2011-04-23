@@ -4,8 +4,7 @@ class Mailer < ActionMailer::Base
   default_url_options[:host] = 'www.rubythere.com'
   
   def new_event_notification(event)
-    from = event.submitter.email
-    setup_email(from)
+    setup_email(event.submitter.email)
     @body[:url]  = edit_admin_event_url(event)
     @subject    += 'New event submitted'
     @body[:event] = event

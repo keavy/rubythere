@@ -1,5 +1,5 @@
 class EventObserver < ActiveRecord::Observer
   def after_create(event)
-    Mailer.deliver_new_event_notification(event) unless event.admin_submitted
+    Mailer.new_event_notification(event).deliver unless event.admin_submitted || !event.submitter.present?
   end
 end
