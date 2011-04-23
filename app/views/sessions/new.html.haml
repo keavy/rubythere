@@ -4,7 +4,5 @@
 %p Event organisers can manage their event information.
 %p Please authorize yourself via your event's twitter account.
 
-- form_tag session_path do
-  = image_submit_tag 'Sign-in-with-Twitter-lighter.png'
-  
- 
+- form_tag session_path, :id => 'signin' do
+  = image_submit_tag 'Sign-in-with-Twitter-lighter.png', :value => "Sign in with Twitter"

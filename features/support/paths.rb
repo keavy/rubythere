@@ -16,8 +16,12 @@ module NavigationHelpers
     #
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
-    when /the auth confirm page/
-      confirm_session_path
+
+    when /the login page/
+     login_path
+
+    when /the auth callback page/
+      callback_path
 
     when /account page/
       account_path
