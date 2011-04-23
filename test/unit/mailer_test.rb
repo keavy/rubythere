@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class MailerTest < ActionMailer::TestCase
-  include ActionController::UrlWriter
+  include Rails.application.routes.url_helpers
   default_url_options[:host] = 'www.rubythere.com'
   
   context "new event notification" do

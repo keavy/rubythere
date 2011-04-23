@@ -1,5 +1,5 @@
 class Mailer < ActionMailer::Base
-  include ActionController::UrlWriter
+  include Rails.application.routes.url_helpers
   
   default_url_options[:host] = 'www.rubythere.com'
   
