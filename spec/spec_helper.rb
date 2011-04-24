@@ -25,3 +25,7 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 end
+
+def valid_event_params
+  Factory.attributes_for(:event, :approved => false)
+end

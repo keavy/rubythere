@@ -11,7 +11,7 @@ describe Event do
     event.should have(1).error_on(:name)
   end
 
-  describe "before_save" do
+  describe "#before_save" do
     it "should write value for description_formatted" do
       @event.description = "awesome conf"
       @event.save
@@ -19,11 +19,14 @@ describe Event do
     end
   end
 
-  describe "protected attributes" do
-    it "shouldn't allow mass assignment of submitter" do
-      dodgy = Factory(:user)
-      @event.update_attributes(:submitter => dodgy)
-      @event.reload.submitter.should_not == dodgy
-    end
+  it "shouldn't allow mass assignment of submitter" do
+    dodgy = Factory(:user)
+    @event.update_attributes(:submitter => dodgy)
+    @event.reload.submitter.should_not == dodgy
+  end
+
+  it "should send an email on event creation" do
+    Mailer.expects(:deliver_new_event_notification)
+    Event.create(valid_event_params)
   end
 end
