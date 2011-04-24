@@ -27,6 +27,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'fakeweb'
   gem 'launchy'
+  gem 'mocha'
   gem 'rspec-rails', '~> 2.4'
   gem 'shoulda'
   gem 'spork'
