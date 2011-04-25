@@ -12,7 +12,7 @@ class Mailer < ActionMailer::Base
 
   def new_user_notification(user)
     setup_email
-    @body[:user] = user
+    @user = user
     @subject    += 'New user registered'
   end
 
