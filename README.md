@@ -7,12 +7,12 @@ A site for events of interest to Rubyists
   Install gems
 
     $ bundle install
-  
+
   Setup config files
 
-    * Copy the database_example.yml to database.yml with whatever changes you want locally 
+    * Copy the database_example.yml to database.yml with whatever changes you want locally
     * Copy the app_config_example.yml to app_config.yml with whatever changes you want locally
-    
+
   Setup the databases
 
     $ rake db:create:all
@@ -20,11 +20,12 @@ A site for events of interest to Rubyists
 
   Setup Sphinx:
 
-    You may need to install Sphinx: http://freelancing-god.github.com/ts/en/
-    Rebuild indexes and restart:
+  You may need to install Sphinx: http://freelancing-god.github.com/ts/en/
+
+  Rebuild indexes and restart:
 
     $ rake ts:rebuild
-    
+
 
 ## Contributing to rubythere
 
