@@ -32,7 +32,7 @@ class Happening < ActiveRecord::Base
   has_many :speakers, :through => :presentations
 
   validates_presence_of :start_at
-  validates_presence_of :url, :message => '^Please add a URL'
+  validates_presence_of :url
 
   accepts_nested_attributes_for :location, :venue
 

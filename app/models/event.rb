@@ -20,7 +20,7 @@ class Event < ActiveRecord::Base
   has_many :happenings
   belongs_to :submitter
 
-  validates_presence_of :name, :message => '^Please add a name'
+  validates_presence_of :name
 
   accepts_nested_attributes_for :happenings, :submitter
 

@@ -1,19 +1,15 @@
 require 'spec_helper'
 
 describe Happening do
-  # before do
-  #   @happening = Factory(:happening)
-  # end
-
   describe "validation" do
-    it "should be invalid without a URL" do
-      happening = Happening.new :url => nil
-      happening.should_not be_valid
-      happening.should have(1).error_on(:url)
+    let(:happening){Happening.new}
+
+    it "requires a URL" do
+      happening.valid?
+      happening.errors.full_messages.should include "Url can't be blank"
     end
 
-    it "should be invalid without start_at" do
-      happening = Happening.new :start_at => nil
+    it "requires start_at" do
       happening.should_not be_valid
       happening.should have(1).error_on(:start_at)
     end
