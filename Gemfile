@@ -29,8 +29,8 @@ group :test do
   gem 'launchy'
   gem 'mocha'
   gem 'rspec-rails', '~> 2.4'
-  gem 'shoulda'
   gem 'spork'
+  gem 'webmock'
 end
 
 group :development do
