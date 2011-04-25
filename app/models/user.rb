@@ -17,23 +17,6 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :screen_name 
   attr_accessible :atoken, :asecret
 
-  def authorized?
-    atoken.present? && asecret.present?
-  end
-  
-  def oauth
-    @oauth ||= Twitter::OAuth.new(APP_CONFIG['twitter_key'], APP_CONFIG['twitter_secret'])
-  end
-  
-  delegate :request_token, :access_token, :authorize_from_request, :to => :oauth
-  
-  def client
-    @client ||= begin
-      oauth.authorize_from_access(atoken, asecret)
-      Twitter::Base.new(oauth)
-    end
-  end
-  
   def events
     Event.find(:all).find_all {|e| e.twitter == self.screen_name}
   end
