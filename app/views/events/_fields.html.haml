@@ -3,7 +3,7 @@
   = f.input :name, :required => true, :hint => "My Ruby Conf"
   = f.input :twitter, :label => "Twitter name", :hint => "myrubyconf"
 
-  = f.fields_for :happenings do |h_f|
+  = f.fields_for :happenings, @event.happenings.last do |h_f|
     = render :partial => 'happenings/fields', :locals => {:h_f => h_f}
 
   - unless @event.admin_submitted
