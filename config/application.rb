@@ -6,6 +6,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
+APP_CONFIG = YAML.load_file(File.expand_path('../app_config.yml', __FILE__))[Rails.env].symbolize_keys
+
 module Rubythere
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

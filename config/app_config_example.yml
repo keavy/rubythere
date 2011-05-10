@@ -2,13 +2,18 @@ development:
   hoptoad_key: 12345
   twitter_key: 12345
   twitter_secret: 12345
+  google_map_key: 12345
 test:
   hoptoad_key: 12345
   twitter_key: 12345
   twitter_secret: 12345
+  google_map_key: 12345
 production:
   hoptoad_key: 12345
   twitter_key: 12345
   twitter_secret: 12345
+  email_user: 12345@example.com
+  email_password: 12345
+  google_map_key: 12345
 cucumber:
   <<: *test
