@@ -26,4 +26,12 @@ class Location < ActiveRecord::Base
     output += "#{country}"
     return output
   end
+
+  def lat_long
+    geocoder = Graticule.service(:google).new APP_CONFIG[:google_map_key]
+    location = geocoder.locate self.city_state_country
+    lat_long = [location.latitude,location.longitude].join(",")
+  rescue Graticule::AddressError
+    lat_long = nil
+  end
 end
