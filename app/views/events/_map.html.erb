@@ -1,9 +1,18 @@
 <div id="map_canvas" style="width: 300px; height: 200px"></div>
 
 <script type="text/javascript" charset="utf-8">
-  var map = new GMap2(document.getElementById("map_canvas"));
-  map.setCenter(new GLatLng(<%= latlng %>), 4);
-  map.setUIToDefault();
-  point = new GLatLng(<%= latlng %>);
-  map.addOverlay(new GMarker(point));
+  var latlng = new google.maps.LatLng(<%= latlng %>);
+
+  var myOptions = {
+    zoom: 5,
+    center: latlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+  var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+  var marker = new google.maps.Marker({
+      position: latlng,
+      map: map
+  });
 </script>
