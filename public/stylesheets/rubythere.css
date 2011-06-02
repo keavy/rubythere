@@ -153,6 +153,7 @@ label{width: 100px; display: inline-block; color: #686868;}
 label.hori{ width: 100%; display: block;}
 label.inline{display: inline;}
 label.boolean{width: auto;}
+label.hidden{display: none; width: 0;}
 .checkbox_wrap label{width: 200px;}
 textarea.hori{ width: 100%;}
 .row{margin: 0 0 20px 0;}
