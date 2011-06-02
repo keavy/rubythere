@@ -54,6 +54,5 @@ Rubythere::Application.configure do
     :domain               => 'mail.rubythere.com',
     :user_name            => APP_CONFIG[:email_user],
     :password             => APP_CONFIG[:email_password],
-    :authentication       => 'login',
-    :enable_starttls_auto => true  }
+    :authentication       => :plain}
 end
