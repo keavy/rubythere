@@ -26,7 +26,7 @@
     - if @latest.childcare?
       .box
         %h4 Event Facilities:
-        = "#{cross_or_tick(@latest.childcare)} Offers childcare"
+        = raw "#{cross_or_tick(@latest.childcare)} Offers childcare"
 
     - cache "presentations/keynotes_h_#{@latest.id}" do
       - unless @latest.presentations.keynotes.blank?
