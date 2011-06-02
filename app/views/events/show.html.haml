@@ -14,13 +14,13 @@
       %span.date= event_date(@latest.start_at,@latest.end_at)
       %span.location= " / #{@latest.location.city_state_country}" if @latest.location
 
-      %p.cost=# "Registration cost: #{number_to_currency(@latest.cost, :unit => @latest.currency_or_default)}"
+      %p.cost= "Registration cost: #{number_to_currency(@latest.cost, :unit => @latest.currency)}" unless @latest.cost.blank?
     -unless @latest.description_f.blank?
       .event_desc
         = raw @latest.description_f
     = link_to @latest.www, @latest.url, :class => 'primary'
 
-    = render :partial => 'map', :locals => {:latlng => @latest.location.lat_long } if @latest.location
+    = render :partial => 'map', :locals => {:latlng => @latest.location.lat_long } if @latest.location && @latest.location.lat_long
 
   .secondary_info
     - if @latest.childcare?
