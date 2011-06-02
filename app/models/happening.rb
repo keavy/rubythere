@@ -31,8 +31,9 @@ class Happening < ActiveRecord::Base
   has_many :presentations
   has_many :speakers, :through => :presentations
 
-  validates_presence_of :start_at
-  validates_presence_of :url
+  validates :start_at, :presence => true
+  validates :url, :presence => true
+  validates_with HappeningValidator
 
   accepts_nested_attributes_for :location, :venue
 
@@ -89,10 +90,6 @@ class Happening < ActiveRecord::Base
 
   def summary
     event.name + ', ' + start_at.strftime("%b %Y")
-  end
-
-  def currency_or_default
-    currency ||= '$'
   end
 
   protected
