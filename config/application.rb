@@ -7,6 +7,7 @@ require 'rails/all'
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 APP_CONFIG = YAML.load_file(File.expand_path('../app_config.yml', __FILE__))[Rails.env].symbolize_keys
+LOCATIONS_FILE_PATH = File.expand_path('../locations.yml', __FILE__)
 
 module Rubythere
   class Application < Rails::Application

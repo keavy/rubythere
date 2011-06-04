@@ -1,0 +1,67 @@
+--- 
+- :name: GoRuCo
+  :lat: 40.7143528
+  :lng: -74.0059731
+- :name: Rails Camp Lake Ainsworth
+  :lat: -28.7956026
+  :lng: 153.593777
+- :name: RubyDay
+  :lat: 45.463681
+  :lng: 9.1881714
+- :name: Nordic Ruby
+  :lat: 57.6969943
+  :lng: 11.9865
+- :name: Great Lakes Ruby Bash
+  :lat: 41.4994954
+  :lng: -81.6954088
+- :name: WindyCityDB
+  :lat: 41.8781136
+  :lng: -87.6297982
+- :name: Gotham JS
+  :lat: 40.7143528
+  :lng: -74.0059731
+- :name: RubyKaigi
+  :lat: 35.6894875
+  :lng: 139.6917064
+- :name: OSCON
+  :lat: 45.5234515
+  :lng: -122.6762071
+- :name: Cascadia Ruby Conf
+  :lat: 47.6062095
+  :lng: -122.3320708
+- :name: JRubyConf
+  :lat: 38.8951118
+  :lng: -77.0363658
+- :name: Ruby Brewhaha
+  :lat: 42.5916836
+  :lng: -88.4334301
+- :name: Lone Star Ruby Conference
+  :lat: 30.267153
+  :lng: -97.7430608
+- :name: Madison Ruby Conference
+  :lat: 43.0730517
+  :lng: -89.4012302
+- :name: GoGaRuCo
+  :lat: 37.7749295
+  :lng: -122.4194155
+- :name: WindyCityRails
+  :lat: 41.8781136
+  :lng: -87.6297982
+- :name: Strange Loop
+  :lat: 38.646991
+  :lng: -90.224967
+- :name: Frozen Rails
+  :lat: 60.1698125
+  :lng: 24.9382401
+- :name: Ruby DCamp
+  :lat: 38.5467876
+  :lng: -77.3366491
+- :name: ArrrrCamp
+  :lat: 51.05665
+  :lng: 3.72
+- :name: RuPy Conference
+  :lat: 52.406374
+  :lng: 16.9251681
+- :name: Ruby Midwest
+  :lat: 39.0997265
+  :lng: -94.5785667

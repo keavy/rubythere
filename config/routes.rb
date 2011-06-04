@@ -14,6 +14,8 @@ Rubythere::Application.routes.draw do
     resources :happenings
   end
 
+  match 'map', :to => 'happenings#map', :as => 'map'
+
   resources :feeds, :happenings
   resource :archive, :contact, :account, :search, :calendar
 
