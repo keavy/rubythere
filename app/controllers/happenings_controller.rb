@@ -1,6 +1,6 @@
 class HappeningsController < ApplicationController
   before_filter :find_happening, :only => [:edit, :update]
-  before_filter :find_event, :except => [:edit, :update]
+  before_filter :find_event, :except => [:edit, :update, :map]
 
   before_filter :authenticate unless Rails.env == 'development'
   before_filter :check_authorized unless Rails.env == 'development'
@@ -40,6 +40,12 @@ class HappeningsController < ApplicationController
       redirect_to event_path(@event)
     else
       render :action => :new
+    end
+  end
+
+  def map
+    unless fragment_exist?("map")
+      @happenings = Happening.approved.upcoming
     end
   end
 
