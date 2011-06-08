@@ -16,6 +16,7 @@ class EventsSweeper < ActionController::Caching::Sweeper
 
   private
   def expire_cache(record)
+    @controller ||= ActionController::Base.new
     expire_fragment 'events/attend'
     expire_fragment 'events/speak'
     expire_fragment 'events/archive'
