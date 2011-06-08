@@ -1,12 +1,12 @@
 class HappeningsController < ApplicationController
   before_filter :find_happening, :only => [:edit, :update]
   before_filter :find_event, :except => [:edit, :update]
-  
+
   before_filter :authenticate unless Rails.env == 'development'
   before_filter :check_authorized unless Rails.env == 'development'
-  
-  #layout 'form'
-  
+
+  cache_sweeper :events_sweeper
+
   def index
     if @event.happenings.blank?
       @happening  = @event.happenings.build
@@ -14,14 +14,14 @@ class HappeningsController < ApplicationController
       @happenings = @event.happenings.reverse
     end
   end
-  
+
   def new
     @happening = @event.happenings.build
   end
-  
+
   def edit
   end
-  
+
   def update
     set_location
     if @happening.update_attributes(params[:happening])
@@ -31,7 +31,7 @@ class HappeningsController < ApplicationController
       render :action => :edit
     end
   end
-  
+
   def create
     set_location
     @happening = @event.happenings.build(params[:happening])
@@ -42,17 +42,17 @@ class HappeningsController < ApplicationController
       render :action => :new
     end
   end
-  
+
   private
   def find_happening
     @happening = Happening.find(params[:id])
     @event     = Event.find(@happening.event_id)
   end
-  
+
   def find_event
     @event = Event.find(params[:event_id])
   end
-  
+
   def check_authorized
     unless current_user.editor_for?(@event)
       flash[:error] = "You are not authorized to view the page you requested"
@@ -60,7 +60,7 @@ class HappeningsController < ApplicationController
       return false
     end
   end
-  
+
   def set_location
     if params['happening']["location_id"].blank?
       location = find_or_create_location(params['happening']['location_attributes'])

@@ -3,6 +3,8 @@ class EventsController < ApplicationController
   before_filter :authenticate, :only => [:edit, :update] unless Rails.env == 'development'
   before_filter :check_authorized, :only => [:edit, :update] unless Rails.env == 'development'
 
+  cache_sweeper :events_sweeper
+
   layout :select_layout
 
   def index
