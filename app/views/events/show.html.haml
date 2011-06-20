@@ -20,6 +20,11 @@
         = raw @latest.description_f
     = link_to @latest.www, @latest.url, :class => 'primary'
 
+    - if @latest.cfp_open?
+      %p.cfp CFP is open
+      %p="Closes: #{format_date(@latest.cfp_closes_at)}" if @latest.cfp_closes_at.present?
+      = link_to @latest.cfp_url if @latest.cfp_url.present?
+
     = render :partial => 'map', :locals => {:latlng => @latest.location.lat_long } if @latest.location && @latest.location.lat_long
 
   .secondary_info
