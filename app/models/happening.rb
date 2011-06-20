@@ -92,23 +92,14 @@ class Happening < ActiveRecord::Base
     event.name + ', ' + start_at.strftime("%b %Y")
   end
 
-  def self.locations_array
-    YAML.load_file(LOCATIONS_FILE_PATH)
-  rescue
-    []
+  def self.locations_file
+    File.expand_path('../../../config/locations.yml', __FILE__)
   end
 
-  def self.write_locations_to_file
-    results = []
-    Happening.approved.upcoming.each do |happening|
-      a = happening.location.lat_long.split(",")
-      lat,lng = a[0].to_f,a[1].to_f
-      results << {:name => happening.event.name, :lat => lat, :lng => lng} if happening.location.present?
-    end
-
-    File.open(LOCATIONS_FILE_PATH, 'w') do |out|
-      YAML.dump(results, out)
-    end
+  def self.locations_array
+    YAML.load_file(Happening.locations_file)
+  rescue
+    []
   end
 
   protected
