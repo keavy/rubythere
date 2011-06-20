@@ -5,12 +5,12 @@
   %ul#results
     - @events.each do |event|
       %li
-        = raw link_to((image_tag "http://img.tweetimag.es/i/#{event.twitter}_n"), event_path(event)) unless event.twitter.blank?
+        = link_to((image_tag "http://img.tweetimag.es/i/#{event.twitter}_n"), event_path(event)) unless event.twitter.blank?
         = link_to event.name, event_path(event)
         
 - else
   %h1="No results found"
-  %p= raw "Would you like to #{link_to 'add an event', new_event_path}?"
+  %p="Would you like to #{link_to 'add an event', new_event_path}?"
   
   
 = content_for :side do

@@ -21,12 +21,3 @@ Then /^I should have downloaded a file called "([^\"]*)"$/ do |arg1|
   pending # express the regexp above with the code you wish you had
 end
 
-When /^I select "([^"]*)" from countries$/ do |value|
-  field = "event_happenings_attributes_0_location_attributes_country"
-  select(value, :from => field)
-end
-
-When /^I select "([^"]*)" from existing locations$/ do |value|
-  field = "event_happenings_attributes_0_location_id"
-  select(value, :from => field)
-end

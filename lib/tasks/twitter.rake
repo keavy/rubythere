@@ -4,8 +4,8 @@ namespace :twitter do
   desc "Fetch tweets for events"
   task :fetch_tweets => :environment do
     ac = ActionController::Base.new
-    av = ActionView::Base.new(Rails::Configuration.new.view_path)
-    events = Event.find(:all)
+    av = ActionView::Base.new(Rails.root.join('app', 'views'))
+    events = Event.all
     events.each do |e|
       unless e.twitter.blank?
         key = "tweets/event_#{e.id}"

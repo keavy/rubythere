@@ -5,9 +5,8 @@ class Happening < ActiveRecord::Base
   has_many :presentations
   has_many :speakers, :through => :presentations
 
-  validates :start_at, :presence => true
-  validates :url, :presence => true
-  validates_with HappeningValidator
+  validates_presence_of :start_at
+  validates_presence_of :url
 
   accepts_nested_attributes_for :location, :venue
 

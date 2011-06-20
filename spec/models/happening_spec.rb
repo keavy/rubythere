@@ -13,13 +13,6 @@ describe Happening do
       happening.should_not be_valid
       happening.should have(1).error_on(:start_at)
     end
-
-    it "requires a currency if cost present" do
-      happening.cost = 20.00
-      happening.currency = nil
-      happening.should_not be_valid
-      happening.should have(1).error_on(:currency)
-    end
   end
 
   describe "#status" do

@@ -34,14 +34,15 @@
   = h_f.input :childcare, :as => :boolean, :label => 'Offers childcare'
 
 %div.secondary.clearfix
-  %h5 Where
-  %div{:id => "existing_location", :class => "choice left"}
-    = h_f.input :location_id, :as => :select, :collection => Location.all.collect {|l| [l.city_state_country, l.id]}, :prompt => 'Select an existing location', :include_blank => true, :class => 'country', :label => "Existing location", :label_html => { :class => 'hidden' }
+  %h5 Location
+  %div.choice.left
+    = h_f.select :location_id, Location.all.collect {|l| [l.city_state_country, l.id]}, { :prompt => 'Select an existing location', :include_blank => true, :hide_label => true}, {:class => 'country'}
 
   %div.or.left
     %p Or
 
-  %div{:id => "new_location", :class => "choice left"}
+  %div.choice.left
+    %div{:id => "new_location"}
     = h_f.fields_for :location do |l_f|
       - unless l_f.object.new_record?
         - l_f.object = h_f.object.build_location
