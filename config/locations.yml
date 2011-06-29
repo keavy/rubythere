@@ -1,0 +1,103 @@
+--- 
+- :name: WindyCityDB
+  :lat: 41.8781136
+  :lng: -87.6297982
+  :url: /events/windycitydb
+  :location: Chicago, Illinois, United States
+  :date: Jun 2011
+- :name: Gotham JS
+  :lat: 40.7143528
+  :lng: -74.0059731
+  :url: /events/gotham-js
+  :location: New York, United States
+  :date: Jul 2011
+- :name: RubyKaigi
+  :lat: 35.6894875
+  :lng: 139.6917064
+  :url: /events/rubykaigi
+  :location: Tokyo, Japan
+  :date: Jul 2011
+- :name: OSCON
+  :lat: 45.5234515
+  :lng: -122.6762071
+  :url: /events/oscon
+  :location: Portland, Oregon, United States
+  :date: Jul 2011
+- :name: Cascadia Ruby Conf
+  :lat: 47.6062095
+  :lng: -122.3320708
+  :url: /events/cascadia-ruby-conf
+  :location: Seattle, United States
+  :date: Jul 2011
+- :name: JRubyConf
+  :lat: 38.8951118
+  :lng: -77.0363658
+  :url: /events/jrubyconf
+  :location: Washington, United States
+  :date: Aug 2011
+- :name: Ruby Brewhaha
+  :lat: 42.5916836
+  :lng: -88.4334301
+  :url: /events/ruby-brewhaha
+  :location: Lake Geneva, United States
+  :date: Aug 2011
+- :name: Lone Star Ruby Conference
+  :lat: 30.267153
+  :lng: -97.7430608
+  :url: /events/lone-star-ruby-conference
+  :location: Austin, Texas, United States
+  :date: Aug 2011
+- :name: Madison Ruby Conference
+  :lat: 43.0730517
+  :lng: -89.4012302
+  :url: /events/madison-ruby-conference
+  :location: Madison, United States
+  :date: Aug 2011
+- :name: GoGaRuCo
+  :lat: 37.7749295
+  :lng: -122.4194155
+  :url: /events/gogaruco--2
+  :location: San Francisco, California, United States
+  :date: Sep 2011
+- :name: WindyCityRails
+  :lat: 41.8781136
+  :lng: -87.6297982
+  :url: /events/windycityrails
+  :location: Chicago, Illinois, United States
+  :date: Sep 2011
+- :name: Strange Loop
+  :lat: 38.646991
+  :lng: -90.224967
+  :url: /events/strange-loop
+  :location: St. Louis, Missouri, United States
+  :date: Sep 2011
+- :name: Frozen Rails
+  :lat: 60.1698125
+  :lng: 24.9382401
+  :url: /events/frozen-rails
+  :location: Helsinki, Finland
+  :date: Sep 2011
+- :name: Ruby DCamp
+  :lat: 38.5467876
+  :lng: -77.3366491
+  :url: /events/ruby-dcamp
+  :location: Triangle, United States
+  :date: Sep 2011
+- :name: ArrrrCamp
+  :lat: 51.05665
+  :lng: 3.72
+  :url: /events/arrrrcamp
+  :location: Ghent, Belgium
+  :date: Oct 2011
+- :name: RuPy Conference
+  :lat: 52.406374
+  :lng: 16.9251681
+  :url: /events/rupy-conference
+  :location: Poznan, Poland
+  :date: Oct 2011
+- :name: Ruby Midwest
+  :lat: 39.0997265
+  :lng: -94.5785667
+  :url: /events/ruby-midwest
+  :location: Kansas City, Missouri, United States
+  :date: Nov 2011

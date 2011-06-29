@@ -1,6 +1,7 @@
-.search_box.clearfix
-  = image_tag 'txt_whats_on.gif'
-  = form_tag search_path, :method => :get do
-    = text_field_tag :q, params[:q]
-    %div.submit
-      = image_submit_tag 'btn_search.gif'
+/
+  .search_box.clearfix
+    = image_tag 'txt_whats_on.gif'
+    = form_tag search_path, :method => :get do
+      = text_field_tag :q, params[:q]
+      %div.submit
+        = image_submit_tag 'btn_search.gif'

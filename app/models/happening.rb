@@ -5,8 +5,9 @@ class Happening < ActiveRecord::Base
   has_many :presentations
   has_many :speakers, :through => :presentations
 
-  validates_presence_of :start_at
-  validates_presence_of :url
+  validates :start_at, :presence => true
+  validates :url, :presence => true
+  validates_with HappeningValidator
 
   accepts_nested_attributes_for :location, :venue
 
@@ -65,8 +66,14 @@ class Happening < ActiveRecord::Base
     event.name + ', ' + start_at.strftime("%b %Y")
   end
 
-  def currency_or_default
-    currency ||= '$'
+  def self.locations_file
+    File.expand_path('../../../config/locations.yml', __FILE__)
+  end
+
+  def self.locations_array
+    YAML.load_file(Happening.locations_file)
+  rescue
+    []
   end
 
   protected
@@ -77,7 +84,6 @@ class Happening < ActiveRecord::Base
     end
   end
 end
-
 
 # == Schema Information
 #
@@ -103,5 +109,6 @@ end
 #  created_at    :datetime
 #  updated_at    :datetime
 #  accessible    :boolean(1)      default(FALSE)
+#  cfp_url       :string(255)
 #
 

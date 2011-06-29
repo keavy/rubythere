@@ -1,21 +1,3 @@
-# == Schema Information
-# Schema version: 20100414121512
-#
-# Table name: events
-#
-#  id                    :integer(4)      not null, primary key
-#  name                  :string(255)
-#  url                   :string(255)
-#  description           :text
-#  description_formatted :text
-#  created_at            :datetime
-#  updated_at            :datetime
-#  twitter               :string(255)
-#  cached_slug           :string(255)
-#  approved              :boolean(1)
-#  submitter_id          :integer(4)
-#
-
 class Event < ActiveRecord::Base
   has_many :happenings
   belongs_to :submitter
@@ -49,3 +31,21 @@ class Event < ActiveRecord::Base
     end
   end
 end
+
+# == Schema Information
+#
+# Table name: events
+#
+#  id                    :integer(4)      not null, primary key
+#  name                  :string(255)
+#  url                   :string(255)
+#  description           :text
+#  description_formatted :text
+#  created_at            :datetime
+#  updated_at            :datetime
+#  twitter               :string(255)
+#  cached_slug           :string(255)
+#  approved              :boolean(1)      default(FALSE)
+#  submitter_id          :integer(4)
+#
+

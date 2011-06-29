@@ -15,7 +15,7 @@ Rubythere::Application.routes.draw do
   end
 
   resources :feeds, :happenings
-  resource :archive, :contact, :account, :search, :calendar
+  resource :archive, :contact, :account, :search, :calendar, :map
 
   resource :session
   get 'sessions/callback', :to => 'sessions#callback', :as => 'callback'

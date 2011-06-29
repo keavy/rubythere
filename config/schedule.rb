@@ -26,4 +26,5 @@ end
 
 every :day do
   rake "thinking_sphinx:index"
+  rake "locations:write"
 end

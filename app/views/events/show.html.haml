@@ -20,6 +20,14 @@
         = raw @latest.description_f
     = link_to @latest.www, @latest.url, :class => 'primary'
 
+    - if @latest.cfp_open?
+      %p.cfp
+        - if @latest.cfp_url.present?
+          = link_to "CFP is open", @latest.cfp_url
+        - else
+          = "CFP is open"
+        = " (Closes #{format_date(@latest.cfp_closes_at)})" if @latest.cfp_closes_at.present?
+
     = render :partial => 'map', :locals => {:latlng => @latest.location.lat_long } if @latest.location && @latest.location.lat_long
 
   .secondary_info
@@ -67,5 +75,5 @@
         %p Follow us:
         = link_to "@#{@event.twitter}", "http://twitter.com/#{@event.twitter}"
       %ul
-      - cache "tweets/event_#{@event.id}" do
-        = render :partial => 'tweet', :collection => Tweet.messages_for(@event.twitter,4) unless Rails.env == 'development'
+      -# cache "tweets/event_#{@event.id}" do
+        = render :partial => 'tweet', :collection => Tweet.messages_for(@event.twitter,4)

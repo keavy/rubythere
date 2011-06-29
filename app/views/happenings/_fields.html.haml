@@ -17,6 +17,7 @@
 %div.secondary
   %h5 Proposals
   = h_f.input :cfp_open, :as => :boolean, :label => 'Call for proposals open'
+  = h_f.input :cfp_url, :label => 'CFP URL'
   %div.field_wrap.clearfix
     =label :cfp_closes_at, "CFP closes"
     = h_f.date_select :cfp_closes_at, :order => [:day, :month, :year ], :start_year => Time.now.year, :include_blank => true
