@@ -2,9 +2,9 @@ class EventsSweeper < ActionController::Caching::Sweeper
   observe Event, Happening
 
   def expire_cached_content(record)
-    expire_fragment(:fragment => 'attend')
-    expire_fragment(:fragment => 'speak')
-    expire_fragment(:fragment => 'archive')
+    expire_fragment('attend')
+    expire_fragment('speak')
+    expire_fragment('archive')
   end
 
   alias_method :after_save, :expire_cached_content
