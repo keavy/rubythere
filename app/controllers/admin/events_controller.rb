@@ -1,7 +1,7 @@
 class Admin::EventsController < AdminAreaController
   inherit_resources
 
-  cache_sweeper :events_sweeper
+  cache_sweeper :events_sweeper, :only => [:create, :update, :destroy]
 
   def edit
     resource.admin_submitted = true

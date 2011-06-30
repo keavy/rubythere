@@ -1,23 +1,13 @@
 class EventsSweeper < ActionController::Caching::Sweeper
-  observe Event
-  observe Happening
+  observe Event, Happening
 
-  def after_create(record)
-    expire_cache(record)
+  def expire_cached_content(record)
+    expire_fragment(:fragment => 'events/attend')
+    expire_fragment(:fragment => 'events/speak')
+    expire_fragment(:fragment => 'events/archive')
   end
 
-  def after_update(record)
-    expire_cache(record)
-  end
-
-  def after_destroy(record)
-    expire_cache(record)
-  end
-
-  private
-  def expire_cache(record)
-    expire_fragment 'events/attend'
-    expire_fragment 'events/speak'
-    expire_fragment 'events/archive'
-  end
+  alias_method :after_save, :expire_cached_content
+  alias_method :after_destroy, :expire_cached_content
+  alias_method :after_update, :expire_cached_content
 end

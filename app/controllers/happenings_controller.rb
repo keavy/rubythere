@@ -5,7 +5,7 @@ class HappeningsController < ApplicationController
   before_filter :authenticate unless Rails.env == 'development'
   before_filter :check_authorized unless Rails.env == 'development'
 
-  cache_sweeper :events_sweeper
+  cache_sweeper :events_sweeper, :only => [:create, :update, :destroy]
 
   def index
     if @event.happenings.blank?
