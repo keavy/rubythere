@@ -21,4 +21,20 @@ namespace :locations do
 
     puts "Wrote #{results.size} locations to #{Happening.locations_file}"
   end
+
+  task :set_latlong => [:environment] do
+    geocoder = Graticule.service(:google).new APP_CONFIG[:google_map_key]
+
+    Location.where("lat_long IS NULL").each do |location|
+      puts "location: #{location.city_state_country}"
+      begin
+        if result = (geocoder.locate location.city_state_country)
+          lat_long = [result.latitude,result.longitude].join(",")
+          location.update_attribute(:lat_long, lat_long)
+        end
+      rescue Graticule::AddressError
+        nil
+      end
+    end
+  end
 end

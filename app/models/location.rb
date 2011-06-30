@@ -16,6 +16,8 @@ class Location < ActiveRecord::Base
   has_many :venues
   validates_presence_of :country
 
+  before_save :set_lat_long, :on => :create
+
   default_scope :order => 'city, state, country'
 
   def city_state_country
@@ -27,11 +29,16 @@ class Location < ActiveRecord::Base
     return output
   end
 
-  def lat_long
-    geocoder = Graticule.service(:google).new APP_CONFIG[:google_map_key]
-    location = geocoder.locate self.city_state_country
-    lat_long = [location.latitude,location.longitude].join(",")
-  rescue Graticule::AddressError
-    lat_long = nil
-  end
+  protected
+    def geocode
+      geocoder = Graticule.service(:google).new APP_CONFIG[:google_map_key]
+      location = geocoder.locate self.city_state_country
+      [location.latitude,location.longitude].join(",")
+    rescue Graticule::AddressError
+      nil
+    end
+
+    def set_lat_long
+      write_attribute :lat_long, self.geocode
+    end
 end
