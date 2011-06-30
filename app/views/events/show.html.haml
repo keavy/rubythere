@@ -36,28 +36,27 @@
       %p= raw "#{available(@latest.childcare, 'Offers childcare')}"
       %p= raw "#{available(@latest.accessible, 'Accessible venue')}"
 
-    - cache "presentations/keynotes_h_#{@latest.id}" do
-      - unless @latest.presentations.keynotes.blank?
-        .box
-          %h4 Keynotes include:
-          %ul.speakers
-            - @latest.presentations.keynotes.each do |p|
-              %li
-                %span.speaker_name= p.speaker.full_name
-                - unless p.talk.blank?
-                  = " / #{p.talk.title}"
+    / - cache "presentations/keynotes_h_#{@latest.id}" do
+    /   - unless @latest.presentations.keynotes.blank?
+    /     .box
+    /       %h4 Keynotes include:
+    /       %ul.speakers
+    /         - @latest.presentations.keynotes.each do |p|
+    /           %li
+    /             %span.speaker_name= p.speaker.full_name
+    /             - unless p.talk.blank?
+    /               = " / #{p.talk.title}"
 
-
-    - cache "presentations/regular_h_#{@latest.id}" do
-      - unless @latest.presentations.regular.blank?
-        .box
-          %h4 Speakers include:
-          %ul.speakers
-            - @latest.presentations.regular.each do |p|
-              %li
-                %span.speaker_name= p.speaker.full_name
-                - unless p.talk.blank?
-                  = " / #{p.talk.title}"
+    / - cache "presentations/regular_h_#{@latest.id}" do
+    /   - unless @latest.presentations.regular.blank?
+    /     .box
+    /       %h4 Speakers include:
+    /       %ul.speakers
+    /         - @latest.presentations.regular.each do |p|
+    /           %li
+    /             %span.speaker_name= p.speaker.full_name
+    /             - unless p.talk.blank?
+    /               = " / #{p.talk.title}"
 
     .last
       - if signed_in?
@@ -75,5 +74,5 @@
         %p Follow us:
         = link_to "@#{@event.twitter}", "http://twitter.com/#{@event.twitter}"
       %ul
-      -# cache "tweets/event_#{@event.id}" do
+      - cache "tweets_event_#{@event.id}" do
         = render :partial => 'tweet', :collection => Tweet.messages_for(@event.twitter,4)
