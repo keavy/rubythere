@@ -108,6 +108,7 @@ end
 #  venue_id      :integer(4)
 #  created_at    :datetime
 #  updated_at    :datetime
+#  accessible    :boolean(1)      default(FALSE)
 #  cfp_url       :string(255)
 #
 

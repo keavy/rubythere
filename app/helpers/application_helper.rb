@@ -93,11 +93,11 @@ module ApplicationHelper
     raw "<li class='#{cl}'>#{link_to text, path}</li>"
   end
 
-  def cross_or_tick(value)
+  def available(value,text)
     if value
-      image_tag 'tick.gif'
+      "#{image_tag 'tick.gif'} #{text}"
     else
-      image_tag 'cross.gif'
+      "#{image_tag 'cross.gif'} <s>#{text}</s>"
     end
   end
 
