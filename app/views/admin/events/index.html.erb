@@ -7,8 +7,11 @@
         <th>Name</th>
       </tr>
     <% collection.each do |event| -%>
-      <tr>
-        <td><%= link_to "Edit", edit_admin_event_path(event), :class => 'secondary' %></td>
+      <tr class="<%= event.approved? ? 'approved' : 'not-approved' %>">
+        <td>
+          <%= link_to "Edit", edit_admin_event_path(event), :class => 'secondary' %>
+          <%= link_to "Delete", admin_event_path(event), :class => 'secondary', :method => :delete %>
+        </td>
         <td><%= event.twitter %></td>
         <td><%= link_to_name(event) %></td>
       </tr>

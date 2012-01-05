@@ -102,6 +102,7 @@ a.active{color: #333;}
 a[rel]{color: #00A0F0; padding-right: 15px; background:url(../images/external.png) no-repeat;
 background-position: top right;
 }
+a[rel="nofollow"]{background: none; color: #000;}
 
 sup a{color: #999;}
 #ft a{color: #fff; text-decoration: none;}
@@ -256,7 +257,7 @@ tbody tr{border-bottom: 1px solid #ededed;}
 td.status{width: 22%; color: #686868; font-weight: bold;}
 td.city{width: 26%;}
 td.date{width: 15%;}
-
+tr.not-approved td{background-color: lightblue;}
 
 /* lists */
 ul#tweets, ul.speakers{margin: 5px 0 10px 0;}
