@@ -2,6 +2,8 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+APP_CONFIG = YAML.load(File.read(File.expand_path('../app_config.yml', __FILE__)))[Rails.env].symbolize_keys
+
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
