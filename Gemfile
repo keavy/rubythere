@@ -1,19 +1,18 @@
 source 'http://rubygems.org'
 
-
 gem 'rails', '~> 3.0.5'
 
 gem 'annotate'
 gem 'bundler', '>= 1.0.7'
 gem 'friendly_id'
-gem 'graticule'
+gem 'graticule', '~> 2.0.0'
 gem 'haml'
 gem 'hoptoad_notifier'
 gem 'inherited_resources'
 gem 'icalendar'
 gem 'mysql2', '0.2.7'
 gem 'oauth', '~> 0.4.4'
-gem 'rake', '0.8.7'
+gem 'rake', '~> 0.9.2.2'
 gem 'RedCloth', '>=4.0', :require => 'redcloth'
 gem 'simple_form'
 gem 'thinking-sphinx', :require => 'thinking_sphinx'

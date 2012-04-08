@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110620192014) do
+ActiveRecord::Schema.define(:version => 20110628011230) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20110620192014) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "cfp_url"
+    t.boolean  "accessible",                                   :default => false
   end
 
   create_table "locations", :force => true do |t|
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20110620192014) do
     t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "lat_long"
   end
 
   create_table "presentations", :force => true do |t|
