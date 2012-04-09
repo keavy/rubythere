@@ -7,8 +7,8 @@ describe EventObserver do
       observer = EventObserver.instance
 
       mail_mock = mock()
-      mail_mock.should_receive(:deliver)
-      Mailer.should_receive(:new_event_notification).with(event).and_return(mail_mock)
+      mail_mock.expects(:deliver)
+      Mailer.expects(:new_event_notification).with(event).returns(mail_mock)
 
       observer.after_create(event)
     end

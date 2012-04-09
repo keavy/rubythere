@@ -7,8 +7,8 @@ describe UserObserver do
       observer = UserObserver.instance
 
       mail_mock = mock()
-      mail_mock.should_receive(:deliver)
-      Mailer.should_receive(:new_user_notification).with(user).and_return(mail_mock)
+      mail_mock.expects(:deliver)
+      Mailer.expects(:new_user_notification).with(user).returns(mail_mock)
 
       observer.after_create(user)
     end

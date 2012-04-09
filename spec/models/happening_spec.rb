@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe Happening do
+
+  before do
+    stub_geocoding
+  end
+
   describe "validation" do
     let(:happening){Happening.new}
 

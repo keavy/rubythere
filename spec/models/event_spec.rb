@@ -25,9 +25,4 @@ describe Event do
     @event.update_attributes(:submitter => dodgy)
     @event.reload.submitter.should_not == dodgy
   end
-
-  it "should send an email on event creation" do
-    Mailer.expects(:deliver_new_event_notification)
-    Event.create(valid_event_params)
-  end
 end
