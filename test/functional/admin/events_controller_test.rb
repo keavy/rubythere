@@ -2,10 +2,10 @@ require 'test_helper'
 
 class Admin::EventsControllerTest < ActionController::TestCase
   def setup
-    @user     = Factory(:user, :admin => 1)
+    @user     = FactoryGirl.create(:user, :admin => 1)
     login_as @user
-    @event    = Factory(:event)
-    @location = Factory(:location)
+    @event    = FactoryGirl.create(:event)
+    @location = FactoryGirl.create(:location)
   end
   
   context "on GET to :index" do

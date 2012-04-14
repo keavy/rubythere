@@ -5,7 +5,8 @@ class Mailer < ActionMailer::Base
 
   def new_event_notification(event)
     setup_email(event.submitter.email)
-    @url     = edit_admin_event_url(event)
+
+    @url     = edit_admin_event_url(event.id)
     @subject += 'New event submitted'
     @event   = event
   end

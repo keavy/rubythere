@@ -12,7 +12,7 @@ describe Event do
 
   describe "#before_save" do
     it "should write value for description_formatted" do
-      @event = Factory(:event)
+      @event = FactoryGirl.create(:event)
       @event.description = "awesome conf"
       @event.save
       @event.description_formatted.should == "<p>awesome conf</p>"
@@ -20,8 +20,8 @@ describe Event do
   end
 
   it "shouldn't allow mass assignment of submitter" do
-    dodgy = Factory(:user)
-    @event = Factory(:event)
+    dodgy = FactoryGirl.create(:user)
+    @event = FactoryGirl.create(:event)
     @event.update_attributes(:submitter => dodgy)
     @event.reload.submitter.should_not == dodgy
   end

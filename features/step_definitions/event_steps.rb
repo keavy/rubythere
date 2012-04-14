@@ -1,6 +1,6 @@
 Given /^I have an event called "([^\"]*)"$/ do |name|
-  @event = Factory(:event, :name => name, :twitter => @user.screen_name)
-  Factory(:happening, :event => @event)
+  @event = FactoryGirl.create(:event, :name => name, :twitter => @user.screen_name)
+  FactoryGirl.create(:happening, :event => @event)
 end
 
 When /^I view the event page for (.*)/ do |name|
@@ -9,8 +9,8 @@ When /^I view the event page for (.*)/ do |name|
 end
 
 Given /^there is an event called "([^\"]*)"$/ do |name|
-  @event = Factory(:event, :name => name)
-  Factory(:happening, :event => @event)
+  @event = FactoryGirl.create(:event, :name => name)
+  FactoryGirl.create(:happening, :event => @event)
 end
 
 Given /^twitter has some search results for "([^\"]*)"$/ do |name|

@@ -2,15 +2,15 @@ require 'test_helper'
 
 class HappeningsControllerTest < ActionController::TestCase
   def setup
-    @user  = Factory(:user)
+    @user  = FactoryGirl.create(:user)
     login_as @user
-    @event     = Factory(:event, :twitter => @user.screen_name)
+    @event     = FactoryGirl.create(:event, :twitter => @user.screen_name)
   end
   
   context "on GET to :index" do
     context "for an event with happening(s)" do
       setup do 
-        @happening = Factory(:happening, :event => @event)
+        @happening = FactoryGirl.create(:happening, :event => @event)
         get :index, :event_id => @event
       end
 
@@ -39,7 +39,7 @@ class HappeningsControllerTest < ActionController::TestCase
   
   context "on GET to :edit" do
     setup do
-      @happening = Factory(:happening, :event => @event)
+      @happening = FactoryGirl.create(:happening, :event => @event)
       get :edit, :id => @happening
     end
 
@@ -49,7 +49,7 @@ class HappeningsControllerTest < ActionController::TestCase
   end
   
   context "on PUT to :update" do
-    setup {@happening = Factory(:happening, :event => @event)}
+    setup {@happening = FactoryGirl.create(:happening, :event => @event)}
     
     context "with new location details" do
       setup do
@@ -76,7 +76,7 @@ class HappeningsControllerTest < ActionController::TestCase
       
     context "with existing location details" do
       setup do
-        @location = Factory(:location)
+        @location = FactoryGirl.create(:location)
         put :update, :id => @happening,
                       :happening => {
                         :location_attributes => {

@@ -30,13 +30,13 @@ describe Happening do
   describe "#status" do
     context "when open for registration" do
       it "returns 'Open for registration'" do
-        happening = Factory.build(:happening, :event => @event, :open_for_reg => 1, :start_at => 1.month.from_now)
+        happening = FactoryGirl.build(:happening, :event => @event, :open_for_reg => 1, :start_at => 1.month.from_now)
         happening.status == 'Open for registration'
       end
 
       context "but in the past" do
         it "returns blank" do
-          happening = Factory.build(:happening, :event => @event, :open_for_reg => 1, :start_at => 1.month.ago)
+          happening = FactoryGirl.build(:happening, :event => @event, :open_for_reg => 1, :start_at => 1.month.ago)
           happening.status.should be_blank
         end
       end
@@ -44,14 +44,14 @@ describe Happening do
 
     context "which is sold out" do
       it "returns 'Sold out'" do
-        happening = Factory.build(:happening, :event => @event, :sold_out => 1)
+        happening = FactoryGirl.build(:happening, :event => @event, :sold_out => 1)
         happening.status == 'Sold out'
       end
     end
 
     context "which is not sold out or open for reg" do
       it "returns blank" do
-        happening = Factory.build(:happening, :event => @event, :open_for_reg => 0, :sold_out => 0)
+        happening = FactoryGirl.build(:happening, :event => @event, :open_for_reg => 0, :sold_out => 0)
         happening.status.should be_blank
       end
     end
@@ -59,7 +59,7 @@ describe Happening do
 
   describe "#summary" do
     it "returns a string that includes the event name" do
-      happening = Factory(:happening)
+      happening = FactoryGirl.create(:happening)
       happening.summary.include?(happening.event.name).should be true
     end
   end

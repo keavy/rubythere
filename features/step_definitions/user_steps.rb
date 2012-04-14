@@ -1,5 +1,5 @@
 Given /^I am signed in$/ do
-  @user = Factory(:user, :screen_name => 'paratweets')
+  @user = FactoryGirl.create(:user, :screen_name => 'paratweets')
 
   visit login_path
   stub_post('http://api.twitter.com/oauth/request_token', 'access_token')

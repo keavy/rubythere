@@ -2,8 +2,8 @@ require 'test_helper'
 
 class FeedsControllerTest < ActionController::TestCase
   def setup
-    @event     = Factory(:event)
-    @happening = Factory(:happening, :event => @event)
+    @event     = FactoryGirl.create(:event)
+    @happening = FactoryGirl.create(:happening, :event => @event)
   end
   
   context "on GET to :index" do

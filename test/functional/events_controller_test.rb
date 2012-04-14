@@ -4,7 +4,7 @@ class EventsControllerTest < ActionController::TestCase
   context "on GET to :show" do
     context "for an event with twitter name" do
       setup do
-        @event = Factory(:event)
+        @event = FactoryGirl.create(:event)
         get :show, :id => @event
       end
       should respond_with(:success)
@@ -12,7 +12,7 @@ class EventsControllerTest < ActionController::TestCase
 
       context "with an upcoming happening" do
         setup do
-          @happening = Factory(:happening, :event => @event, :start_at => 2.months.from_now)
+          @happening = FactoryGirl.create(:happening, :event => @event, :start_at => 2.months.from_now)
           get :show, :id => @event
         end
 
@@ -22,7 +22,7 @@ class EventsControllerTest < ActionController::TestCase
     end
     context "for an event without twitter name" do
       setup do
-        @event = Factory(:event, :twitter => '')
+        @event = FactoryGirl.create(:event, :twitter => '')
         get :show, :id => @event
       end
       should respond_with(:success)
@@ -38,7 +38,7 @@ class EventsControllerTest < ActionController::TestCase
   
   context "on POST to :create" do
     setup do 
-      @location             = Factory(:location)
+      @location             = FactoryGirl.create(:location)
       @submitter_attributes = Factory.attributes_for(:submitter)
     end
     
@@ -156,13 +156,13 @@ class EventsControllerTest < ActionController::TestCase
   
   context "on GET to :edit" do
     setup do
-      @user  = Factory(:user)
+      @user  = FactoryGirl.create(:user)
       login_as @user
     end
     
     context "for an event the user is authorized to edit" do
       setup do
-        @event = Factory(:event, :twitter => @user.screen_name)
+        @event = FactoryGirl.create(:event, :twitter => @user.screen_name)
         get :edit, :id => @event
       end
 
@@ -171,7 +171,7 @@ class EventsControllerTest < ActionController::TestCase
     
     context "for an event the user is not authorized to edit" do
       setup do
-        @event = Factory(:event, :twitter => 'something')
+        @event = FactoryGirl.create(:event, :twitter => 'something')
         get :edit, :id => @event
       end
 
@@ -182,8 +182,8 @@ class EventsControllerTest < ActionController::TestCase
   
   context "on GET to :index" do
     def setup
-      @event     = Factory(:event)
-      @happening = Factory(:happening, :event => @event)
+      @event     = FactoryGirl.create(:event)
+      @happening = FactoryGirl.create(:happening, :event => @event)
     end
     
     context "with 'focus' param of 'attend'" do
@@ -207,11 +207,11 @@ class EventsControllerTest < ActionController::TestCase
   
   context "on PUT to :update" do
     setup do 
-      @user = Factory(:user)
+      @user = FactoryGirl.create(:user)
       login_as @user
-      @event     = Factory(:event, :twitter => @user.screen_name)
-      #@happening = Factory(:happening, :event => @event)
-      @location             = Factory(:location)
+      @event     = FactoryGirl.create(:event, :twitter => @user.screen_name)
+      #@happening = FactoryGirl.create(:happening, :event => @event)
+      @location             = FactoryGirl.create(:location)
       @submitter_attributes = Factory.attributes_for(:submitter)
     end
     

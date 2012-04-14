@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   before do
-    @user = Factory(:user)
+    @user = FactoryGirl.create(:user)
   end
 
   describe "validation" do
@@ -31,7 +31,7 @@ describe User do
 
     context "when the user is associated with events" do
       it "returns an array of events" do
-        event = Factory(:event, :twitter => @user.screen_name)
+        event = FactoryGirl.create(:event, :twitter => @user.screen_name)
         @user.events.include?(event).should be_true
       end
     end

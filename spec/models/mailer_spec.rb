@@ -9,7 +9,7 @@ end
 describe Mailer do
   describe "when sending a new event email" do
     before(:each) do
-      @event = Factory(:event)
+      @event = FactoryGirl.create(:event)
       @email = Mailer.new_event_notification(@event)
     end
 
@@ -26,7 +26,7 @@ describe Mailer do
 
   describe "when sending a new user notification" do
     before(:each) do
-      @user  = Factory(:user)
+      @user  = FactoryGirl.create(:user)
       @email = Mailer.new_user_notification(@user)
     end
 

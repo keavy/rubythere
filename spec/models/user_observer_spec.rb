@@ -3,7 +3,7 @@ require 'spec_helper'
 describe UserObserver do
   describe ".after_create" do
     it "calls .deliver on new_user_notification object" do
-      user     = Factory(:user)
+      user     = FactoryGirl.create(:user)
       observer = UserObserver.instance
 
       mail_mock = mock()

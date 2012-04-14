@@ -3,7 +3,7 @@ require 'spec_helper'
 describe EventObserver do
   describe ".after_create" do
     it "calls .deliver on new_event_notification object" do
-      event    = Factory(:event)
+      event    = FactoryGirl.create(:event)
       observer = EventObserver.instance
 
       mail_mock = mock()

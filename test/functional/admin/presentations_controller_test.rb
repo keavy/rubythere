@@ -2,9 +2,9 @@ require 'test_helper'
 
 class Admin::PresentationsControllerTest < ActionController::TestCase
   def setup
-    @user     = Factory(:user, :admin => 1)
+    @user     = FactoryGirl.create(:user, :admin => 1)
     login_as @user
-    3.times {Factory(:presentation)}
+    3.times {FactoryGirl.create(:presentation)}
   end
   
   context "on GET to :index" do
@@ -40,7 +40,7 @@ class Admin::PresentationsControllerTest < ActionController::TestCase
 
      context "with existing talk details" do
        setup do
-         @talk = Factory(:talk)
+         @talk = FactoryGirl.create(:talk)
          post :create, :presentation =>  {:keynote => 1,
                                          :speaker_attributes => Factory.attributes_for(:speaker),
                                          :talk_attributes => {
