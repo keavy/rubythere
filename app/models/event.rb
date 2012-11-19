@@ -11,8 +11,6 @@ class Event < ActiveRecord::Base
 
   before_save :set_formatted_fields
 
-  default_scope :order => 'name', :include => :happenings
-
   attr_accessible :name, :url, :description, :twitter, :happenings_attributes, :submitter_attributes
   attr_accessor :admin_submitted
 

@@ -11,8 +11,6 @@ class Happening < ActiveRecord::Base
 
   accepts_nested_attributes_for :location, :venue
 
-  default_scope :order => 'start_at', :include => [:location, :event, :presentations]
-
   before_save :set_formatted_fields
 
   def self.upcoming
@@ -20,7 +18,7 @@ class Happening < ActiveRecord::Base
   end
 
   def self.approved
-    where('events.approved = ?', true)
+    includes(:event).where('events.approved = ?', true)
   end
 
   def self.unknown
@@ -36,7 +34,7 @@ class Happening < ActiveRecord::Base
   end
 
   def self.summaries
-    select('happenings.id, happenings.event_id, happenings.start_at, events.name, events.id').order('events.name')
+    includes(:event).select('happenings.id, happenings.event_id, happenings.start_at, events.name, events.id').order('events.name')
   end
 
   def status
