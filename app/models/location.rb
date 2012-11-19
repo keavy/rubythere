@@ -1,14 +1,14 @@
 # == Schema Information
-# Schema version: 20100414121512
 #
 # Table name: locations
 #
-#  id         :integer(4)      not null, primary key
+#  id         :integer          not null, primary key
 #  city       :string(255)
 #  state      :string(255)
 #  country    :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  lat_long   :string(255)
 #
 
 class Location < ActiveRecord::Base

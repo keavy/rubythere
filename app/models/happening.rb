@@ -1,3 +1,30 @@
+# == Schema Information
+#
+# Table name: happenings
+#
+#  id            :integer          not null, primary key
+#  event_id      :integer
+#  url           :string(255)
+#  cached_slug   :string(255)
+#  description   :text
+#  description_f :text
+#  start_at      :datetime
+#  end_at        :datetime
+#  cfp_closes_at :datetime
+#  cfp_open      :boolean          default(FALSE)
+#  open_for_reg  :boolean          default(FALSE)
+#  cost          :decimal(10, 2)
+#  currency      :string(255)
+#  sold_out      :boolean          default(FALSE)
+#  childcare     :boolean          default(FALSE)
+#  location_id   :integer
+#  venue_id      :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  cfp_url       :string(255)
+#  accessible    :boolean          default(FALSE)
+#
+
 class Happening < ActiveRecord::Base
   belongs_to :event
   belongs_to :location
@@ -82,31 +109,3 @@ class Happening < ActiveRecord::Base
     end
   end
 end
-
-# == Schema Information
-#
-# Table name: happenings
-#
-#  id            :integer(4)      not null, primary key
-#  event_id      :integer(4)
-#  url           :string(255)
-#  cached_slug   :string(255)
-#  description   :text
-#  description_f :text
-#  start_at      :datetime
-#  end_at        :datetime
-#  cfp_closes_at :datetime
-#  cfp_open      :boolean(1)      default(FALSE)
-#  open_for_reg  :boolean(1)      default(FALSE)
-#  cost          :decimal(10, 2)
-#  currency      :string(255)
-#  sold_out      :boolean(1)      default(FALSE)
-#  childcare     :boolean(1)      default(FALSE)
-#  location_id   :integer(4)
-#  venue_id      :integer(4)
-#  created_at    :datetime
-#  updated_at    :datetime
-#  accessible    :boolean(1)      default(FALSE)
-#  cfp_url       :string(255)
-#
-

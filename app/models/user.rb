@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id          :integer          not null, primary key
+#  email       :string(255)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  screen_name :string(30)
+#  atoken      :string(255)
+#  asecret     :string(255)
+#  admin       :boolean          default(FALSE)
+#  provider    :string(255)
+#  uid         :string(255)
+#  name        :string(255)
+#
+
 class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
@@ -20,18 +37,3 @@ class User < ActiveRecord::Base
     self.events.include?(event) || self.admin?
   end
 end
-
-# == Schema Information
-#
-# Table name: users
-#
-#  id          :integer(4)      not null, primary key
-#  email       :string(255)
-#  created_at  :datetime
-#  updated_at  :datetime
-#  screen_name :string(30)
-#  atoken      :string(255)
-#  asecret     :string(255)
-#  admin       :boolean(1)      default(FALSE)
-#
-

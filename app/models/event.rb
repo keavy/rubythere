@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id                    :integer          not null, primary key
+#  name                  :string(255)
+#  url                   :string(255)
+#  description           :text
+#  description_formatted :text
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#  twitter               :string(255)
+#  approved              :boolean          default(FALSE)
+#  submitter_id          :integer
+#  slug                  :string(255)
+#  cached_slug           :string(255)
+#
+
 class Event < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, :use => :slugged
@@ -26,21 +44,3 @@ class Event < ActiveRecord::Base
     end
   end
 end
-
-# == Schema Information
-#
-# Table name: events
-#
-#  id                    :integer(4)      not null, primary key
-#  name                  :string(255)
-#  url                   :string(255)
-#  description           :text
-#  description_formatted :text
-#  created_at            :datetime
-#  updated_at            :datetime
-#  twitter               :string(255)
-#  cached_slug           :string(255)
-#  approved              :boolean(1)      default(FALSE)
-#  submitter_id          :integer(4)
-#
-

@@ -1,15 +1,14 @@
 # == Schema Information
-# Schema version: 20100414121512
 #
 # Table name: venues
 #
-#  id              :integer(4)      not null, primary key
+#  id              :integer          not null, primary key
 #  name            :string(255)
 #  street_address  :string(255)
 #  street_address2 :string(255)
-#  location_id     :integer(4)
-#  created_at      :datetime
-#  updated_at      :datetime
+#  location_id     :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #
 
 class Venue < ActiveRecord::Base

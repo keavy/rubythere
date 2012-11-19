@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: presentations
+#
+#  id           :integer          not null, primary key
+#  speaker_id   :integer
+#  talk_id      :integer
+#  happening_id :integer
+#  keynote      :boolean          default(FALSE)
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
 class Presentation < ActiveRecord::Base
   belongs_to :speaker
   belongs_to :talk
@@ -15,17 +28,3 @@ class Presentation < ActiveRecord::Base
     where('keynote = ?', false)
   end
 end
-
-# == Schema Information
-#
-# Table name: presentations
-#
-#  id           :integer(4)      not null, primary key
-#  speaker_id   :integer(4)
-#  talk_id      :integer(4)
-#  happening_id :integer(4)
-#  keynote      :boolean(1)      default(FALSE)
-#  created_at   :datetime
-#  updated_at   :datetime
-#
-

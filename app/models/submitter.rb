@@ -1,15 +1,14 @@
 # == Schema Information
-# Schema version: 20100414121512
 #
 # Table name: submitters
 #
-#  id         :integer(4)      not null, primary key
+#  id         :integer          not null, primary key
 #  first_name :string(255)
 #  last_name  :string(255)
 #  email      :string(255)
 #  twitter    :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 class Submitter < ActiveRecord::Base
