@@ -1,0 +1,36 @@
+<% def boxen?; ENV['BOXEN_HOME'] || ENV['GH_HOME']; end %>
+<%
+  socket = [ENV["BOXEN_MYSQL_SOCKET"],
+            ENV["GH_MYSQL_SOCKET"],
+            "/var/run/mysql5/mysqld.sock",
+            "/tmp/mysql.sock"].detect { |f| File.exist? f }
+
+  port = ENV["BOXEN_MYSQL_PORT"] || ENV["GH_MYSQL_PORT"] || "3306"
+%>
+
+common: &common
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  pool: 5
+  username: root
+  password:
+<% if socket %>
+  host: localhost
+  socket: <%= socket %>
+<% else %>
+  host: 127.0.0.1
+  port: <%= port %>
+<% end %>
+
+production:
+ <<: *common
+ database: rubythere_production
+
+development:
+  <<: *common
+  database: rubythere_development
+
+test:
+  <<: *common
+  database: rubythere_test
