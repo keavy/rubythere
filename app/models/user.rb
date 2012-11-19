@@ -1,7 +1,4 @@
 class User < ActiveRecord::Base
-  validates_uniqueness_of :screen_name 
-  attr_accessible :atoken, :asecret
-
   def events
     Event.find(:all).find_all {|e| e.twitter == self.screen_name}
   end

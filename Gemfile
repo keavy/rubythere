@@ -9,12 +9,12 @@ gem 'graticule', '~> 2.0.0'
 gem 'haml', '~> 3.1.4'
 gem 'inherited_resources'
 gem 'icalendar'
-gem 'oauth', '~> 0.4.4'
 gem "mysql2", "~> 0.3.11"
+gem "omniauth-twitter", "~> 0.0.14"
 gem 'rake', '~> 0.9.2.2'
 gem 'RedCloth', '>=4.0', :require => 'redcloth'
 gem 'simple_form'
-gem 'twitter', '~> 1.2.0'
+gem "twitter", "~> 4.2.0"
 gem 'whenever', :require => false
 gem 'will_paginate', '>=3.0.pre'
 
