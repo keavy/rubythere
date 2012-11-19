@@ -17,10 +17,9 @@ Rubythere::Application.routes.draw do
   resources :feeds, :happenings
   resource :archive, :contact, :account, :search, :calendar, :map
 
-  resource :session
-  get 'sessions/callback', :to => 'sessions#callback', :as => 'callback'
-  match 'logout', :to => 'sessions#destroy', :as => 'logout'
-  match 'login', :to => 'sessions#new', :as => 'login'
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
 
   root :to => "home#index"
 end

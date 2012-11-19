@@ -11,15 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120414190249) do
+ActiveRecord::Schema.define(:version => 20121119184822) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
     t.string   "url"
     t.text     "description"
     t.text     "description_formatted"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.string   "twitter"
     t.boolean  "approved",              :default => false
     t.integer  "submitter_id"
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(:version => 20120414190249) do
     t.boolean  "childcare",                                    :default => false
     t.integer  "location_id"
     t.integer  "venue_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                                      :null => false
+    t.datetime "updated_at",                                                      :null => false
     t.string   "cfp_url"
     t.boolean  "accessible",                                   :default => false
   end
@@ -66,8 +66,8 @@ ActiveRecord::Schema.define(:version => 20120414190249) do
     t.string   "city"
     t.string   "state"
     t.string   "country"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "lat_long"
   end
 
@@ -76,15 +76,15 @@ ActiveRecord::Schema.define(:version => 20120414190249) do
     t.integer  "talk_id"
     t.integer  "happening_id"
     t.boolean  "keynote",      :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
@@ -96,8 +96,8 @@ ActiveRecord::Schema.define(:version => 20120414190249) do
     t.string   "company"
     t.string   "twitter"
     t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "title"
     t.string   "middle_name"
   end
@@ -107,25 +107,28 @@ ActiveRecord::Schema.define(:version => 20120414190249) do
     t.string   "last_name"
     t.string   "email"
     t.string   "twitter"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "talks", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|
     t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
     t.string   "screen_name", :limit => 30
     t.string   "atoken"
     t.string   "asecret"
     t.boolean  "admin",                     :default => false
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
   end
 
   create_table "venues", :force => true do |t|
@@ -133,8 +136,8 @@ ActiveRecord::Schema.define(:version => 20120414190249) do
     t.string   "street_address"
     t.string   "street_address2"
     t.integer  "location_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end
