@@ -16,3 +16,4 @@ config/test.sphinx.conf
 rerun.txt
 .rvmrc
 .sass-cache/
+.env
