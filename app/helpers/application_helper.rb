@@ -105,4 +105,8 @@ module ApplicationHelper
     return true if Rails.env == 'development'
     signed_in? && current_user.admin?
   end
+
+  def signed_in?
+    !current_user.nil?
+  end
 end
