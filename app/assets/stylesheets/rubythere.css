@@ -65,8 +65,8 @@ div.secondary{margin-top: 27px; padding-top: 27px; border-top: 1px solid #ededed
 #map_canvas{margin: 20px 0;}
 
 /* text */
-#hd h1{height: 41px; background: url('../images/title.gif') top left no-repeat; text-indent:-9999px; width: 100%;}
-#hd h2{height: 76px; background: url('../images/header_subtitle.gif') top left no-repeat; text-indent:-9999px;}
+#hd h1{height: 41px; background: url('/assets/title.gif') top left no-repeat; text-indent:-9999px; width: 100%;}
+#hd h2{height: 76px; background: url('/assets/header_subtitle.gif') top left no-repeat; text-indent:-9999px;}
 h1{font-size: 167%; color: #8c0406; font-weight: normal; margin-bottom: 5px;}
 h3{color: #fff; font-size: 153.9%;}
 h4{font-weight: bold; color: #686868; margin-bottom: 8px;}
