@@ -52,8 +52,17 @@ Rubythere::Application.configure do
     :address              => "smtp.gmail.com",
     :port                 => 587,
     :domain               => 'mail.rubythere.com',
-    :user_name            => APP_CONFIG[:email_user],
-    :password             => APP_CONFIG[:email_password],
+    :user_name            => ENV[:EMAIL_USER],
+    :password             => ENV[:EMAIL_PASSWORD],
     :authentication       => 'login',
     :enable_starttls_auto => true  }
+
+  # Compress JavaScripts and CSS
+  config.assets.compress = true
+
+  # Don't fallback to assets pipeline if a precompiled asset is missed
+  config.assets.compile = false
+
+  # Generate digests for assets URLs
+  config.assets.digest = true
 end

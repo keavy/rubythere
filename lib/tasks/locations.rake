@@ -23,7 +23,7 @@ namespace :locations do
   end
 
   task :set_latlong => [:environment] do
-    geocoder = Graticule.service(:google).new APP_CONFIG[:google_map_key]
+    geocoder = Graticule.service(:google).new ENV[:GOOGLE_MAP_KEY]
 
     Location.where("lat_long IS NULL").each do |location|
       puts "location: #{location.city_state_country}"

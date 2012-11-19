@@ -1,14 +1,14 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.0.5'
+gem "rails", "~> 3.2.9"
 
 gem 'annotate'
-gem 'bundler', '>= 1.0.7'
 gem 'friendly_id', '~> 4.0.4'
-gem 'graticule', '~> 2.0.0'
+gem 'graticule', '~> 2.2.0'
 gem 'haml', '~> 3.1.4'
 gem 'inherited_resources'
 gem 'icalendar'
+gem 'jquery-rails'
 gem "mysql2", "~> 0.3.11"
 gem "omniauth-twitter", "~> 0.0.14"
 gem 'rake', '~> 0.9.2.2'
@@ -31,6 +31,13 @@ group :test do
 end
 
 group :test, :development do
+  gem 'dotenv'
   gem 'factory_girl_rails', '~> 3.1.0'
   gem 'rspec-rails', '~> 2.4'
+end
+
+group :assets do
+  gem 'coffee-rails', "~> 3.2.1"
+  gem 'sass-rails', "  ~> 3.2.3"
+  gem 'uglifier', '>= 1.0.3'
 end
