@@ -1,7 +1,6 @@
 <% def boxen?; ENV['BOXEN_HOME'] || ENV['GH_HOME']; end %>
 <%
-  socket = [ENV["BOXEN_MYSQL_SOCKET"],
-            ENV["GH_MYSQL_SOCKET"],
+  socket = [ENV["GH_MYSQL_SOCKET"],
             "/var/run/mysql5/mysqld.sock",
             "/tmp/mysql.sock"].detect { |f| File.exist? f }
 

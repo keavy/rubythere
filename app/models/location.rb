@@ -31,7 +31,7 @@ class Location < ActiveRecord::Base
 
   protected
     def geocode
-      geocoder = Graticule.service(:google).new APP_CONFIG[:google_map_key]
+      geocoder = Graticule.service(:google).new ENV[:GOOGLE_MAP_KEY]
       location = geocoder.locate self.city_state_country
       [location.latitude,location.longitude].join(",")
     rescue Graticule::AddressError

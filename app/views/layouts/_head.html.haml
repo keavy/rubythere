@@ -10,8 +10,7 @@
     = "#{@page_title}  & " if @page_title
     Ruby There
 
-  = stylesheet_link_tag 'fonts-min'
-  = stylesheet_link_tag 'reset-min'
-  = stylesheet_link_tag 'rubythere'
+  = stylesheet_link_tag :application
+  = javascript_include_tag :application
 
   = yield :head
