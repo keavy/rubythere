@@ -16,10 +16,6 @@ class Event < ActiveRecord::Base
   attr_accessible :name, :url, :description, :twitter, :happenings_attributes, :submitter_attributes
   attr_accessor :admin_submitted
 
-  define_index do
-    indexes name, description
-  end
-
   def self.approved
     where('approved = ?', true)
   end

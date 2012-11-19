@@ -14,7 +14,6 @@ gem "mysql2", "~> 0.3.11"
 gem 'rake', '~> 0.9.2.2'
 gem 'RedCloth', '>=4.0', :require => 'redcloth'
 gem 'simple_form'
-gem 'thinking-sphinx', :require => 'thinking_sphinx'
 gem 'twitter', '~> 1.2.0'
 gem 'whenever', :require => false
 gem 'will_paginate', '>=3.0.pre'
