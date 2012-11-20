@@ -70,8 +70,8 @@ Rubythere::Application.configure do
     :address              => "smtp.gmail.com",
     :port                 => 587,
     :domain               => 'mail.rubythere.com',
-    :user_name            => ENV[:EMAIL_USER],
-    :password             => ENV[:EMAIL_PASSWORD],
+    :user_name            => ENV['EMAIL_USER'],
+    :password             => ENV['EMAIL_PASSWORD'],
     :authentication       => 'login',
     :enable_starttls_auto => true  }
 end
