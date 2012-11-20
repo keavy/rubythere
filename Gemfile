@@ -11,6 +11,7 @@ gem 'icalendar'
 gem 'jquery-rails'
 gem "mysql2", "~> 0.3.11"
 gem "omniauth-twitter", "~> 0.0.14"
+gem 'pg'
 gem 'rake', '~> 0.9.2.2'
 gem 'RedCloth', '>=4.0', :require => 'redcloth'
 gem 'simple_form'
