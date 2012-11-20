@@ -6,13 +6,12 @@ module ApplicationHelper
   end
 
   def setup_event(event)
-    returning(event) do |e|
-      e.build_submitter if e.submitter.nil?
-      e.happenings.build if e.happenings.blank?
-      e.happenings.each do |h|
-        h.build_location if h.location.nil?
-      end
+    event.build_submitter if event.submitter.nil?
+    event.happenings.build if event.happenings.blank?
+    event.happenings.each do |h|
+      h.build_location if h.location.nil?
     end
+    event
   end
 
   def setup_happening(happening)
