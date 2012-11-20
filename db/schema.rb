@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121119184822) do
+ActiveRecord::Schema.define(:version => 20121120082147) do
 
   create_table "events", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20121119184822) do
     t.boolean  "approved",              :default => false
     t.integer  "submitter_id"
     t.string   "slug"
+    t.string   "image_url"
   end
 
   add_index "events", ["slug"], :name => "index_events_on_slug", :unique => true

@@ -27,7 +27,7 @@ class Event < ActiveRecord::Base
 
   accepts_nested_attributes_for :happenings, :submitter
 
-  before_save :set_formatted_fields
+  before_save :set_formatted_fields, :fetch_profile_image
 
   attr_accessible :name, :url, :description, :twitter, :happenings_attributes, :submitter_attributes
   attr_accessor :admin_submitted
@@ -41,6 +41,12 @@ class Event < ActiveRecord::Base
     if value = read_attribute(:description) then
       value = RedCloth.new(value).to_html
       write_attribute :description_formatted, value
+    end
+  end
+
+  def fetch_profile_image
+    if twitter.present?
+      self.image_url = Twitter.user(twitter).profile_image_url
     end
   end
 end
