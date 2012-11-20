@@ -57,7 +57,7 @@ class Happening < ActiveRecord::Base
   end
 
   def self.open_for_speakers
-    where("(cfp_open = 1 AND cfp_closes_at is NULL) OR (cfp_open = 1 AND cfp_closes_at > '#{Time.now.to_s(:db)}')")
+    where("(cfp_open = true AND cfp_closes_at is NULL) OR (cfp_open = true AND cfp_closes_at > '#{Time.now.to_s(:db)}')")
   end
 
   def self.summaries
