@@ -3,7 +3,7 @@
 - content_for :head do
   %script{:src => "http://maps.google.com/maps/api/js?sensor=true" }
 
-= image_tag "http://img.tweetimag.es/i/#{@event.twitter}_o", :class => 'logo' unless @event.twitter.blank?
+= image_tag @event.image_url, :class => 'logo' unless @event.image_url.blank?
 %h1= @event.name
 
 - if @latest
