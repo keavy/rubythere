@@ -50,6 +50,10 @@ class Happening < ActiveRecord::Base
     includes(:event).where('events.approved = ?', true)
   end
 
+  def self.ordered
+    order("start_at")
+  end
+
   def self.unknown
     where(:start_at => nil)
   end
