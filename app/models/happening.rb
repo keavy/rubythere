@@ -36,6 +36,8 @@ class Happening < ActiveRecord::Base
   validates :url, :presence => true
   validates_with HappeningValidator
 
+  attr_accessible :url, :description, :start_at, :end_at, :cfp_open, :cfp_url, :cfp_closes_at
+  attr_accessible :sold_out, :open_for_reg, :cost, :currency, :childcare, :accessible, :location_id
   accepts_nested_attributes_for :location, :venue
 
   before_save :set_formatted_fields
