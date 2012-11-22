@@ -1,21 +1,23 @@
 class Admin::EventsController < AdminAreaController
-  inherit_resources
+  before_filter :find_event, :only => [:edit, :update]
 
   cache_sweeper :events_sweeper, :only => [:create, :update, :destroy]
 
+  def index
+    @events = Event.ordered
+  end
+
   def edit
-    resource.admin_submitted = true
-    edit!
+    @event.admin_submitted = true
   end
 
   def new
-    resource.admin_submitted = true
-    new!
+    @event = Event.new
+    @event.admin_submitted = true
   end
 
   def create
     set_location
-    resource.admin_submitted = true
     if params[:event][:happenings_attributes]
       params[:event][:happenings_attributes].each do |h|
         unless h[1]["location_id"].blank?
@@ -35,7 +37,6 @@ class Admin::EventsController < AdminAreaController
   end
 
   def update
-    find_event
     set_location
     set_admin_approval(@event)
     if @event.update_attributes(params[:event])
@@ -44,6 +45,13 @@ class Admin::EventsController < AdminAreaController
     else
       render :action => :edit
     end
+  end
+
+  def delete_group
+    @events = Event.find(params[:event_ids])
+    @events.each {|r| r.destroy}
+    flash[:notice] = "Thanks! #{@events.size} removed"
+    redirect_to admin_events_path
   end
 
   private
@@ -91,6 +99,7 @@ class Admin::EventsController < AdminAreaController
 
   def set_admin_approval(event)
     event.approved        = params[:event][:approved]
+    params[:event] = params[:event].reject {|k,v| k == 'approved'}
     event.admin_submitted = true
   end
 end

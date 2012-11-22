@@ -2,6 +2,9 @@ Rubythere::Application.routes.draw do
   namespace :admin do |admin|
     resources :events do
       resources :happenings
+      collection do
+        delete :delete_group
+      end
     end
     resource :user_session
     resources :presentations

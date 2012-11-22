@@ -36,6 +36,10 @@ class Event < ActiveRecord::Base
     where('approved = ?', true)
   end
 
+  def self.ordered
+    order('name')
+  end
+
   protected
   def set_formatted_fields
     if value = read_attribute(:description) then

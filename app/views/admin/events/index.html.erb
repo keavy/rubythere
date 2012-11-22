@@ -1,20 +1,20 @@
-<% unless collection.blank? -%>
+<% unless @events.blank? -%>
   <h2>Events</h2>
+  <%= form_tag delete_group_admin_events_path, :method => :delete do -%>
     <table id="summary">
       <tr>
-        <th></th>
+        <th>Delete</th>
         <th>Twitter</th>
         <th>Name</th>
       </tr>
-    <% collection.each do |event| -%>
+    <% @events.each do |event| -%>
       <tr class="<%= event.approved? ? 'approved' : 'not-approved' %>">
-        <td>
-          <%= link_to "Edit", edit_admin_event_path(event.id), :class => 'secondary' %>
-          <%= link_to "Delete", admin_event_path(event.id), :class => 'secondary', :method => :delete %>
-        </td>
+        <td><%= check_box_tag "event_ids[]", event.id %></td>
         <td><%= event.twitter %></td>
-        <td><%= link_to_name(event) %></td>
+        <td><%= link_to event.name, edit_admin_event_path(event.id) %></td>
       </tr>
     <% end -%>
     </table>
+    <%= submit_tag "Delete Checked" %>
+  <% end -%>
 <% end -%>

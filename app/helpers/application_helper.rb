@@ -15,9 +15,8 @@ module ApplicationHelper
   end
 
   def setup_happening(happening)
-    returning(happening) do |h|
-      h.build_location if h.location.nil?
-    end
+    happening.build_location if happening.location.nil?
+    happening
   end
 
   def setup_presentation(presentation)
