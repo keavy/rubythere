@@ -1,9 +1,6 @@
 require 'spec_helper'
 
 shared_examples_for "rubythere.com email" do
-  it "should have a prefix on the subject" do
-    @email.subject.should =~ /\[RubyThere\]\s/
-  end
 end
 
 describe Mailer do
@@ -17,8 +14,17 @@ describe Mailer do
       @email.to.should == ["#{EMAIL_CONTACT}"]
     end
 
-    it "should be sent from the submitter's email address" do
-      @email.from.should == ["#{@event.submitter.email}"]
+    it "should be sent from the EMAIL_CONTACT address" do
+      @email.from.should == ["#{EMAIL_CONTACT}"]
+    end
+
+    it "should be reply-to the submitter's email address" do
+      p @email
+      @email.reply_to.should == ["#{@event.submitter.email}"]
+    end
+
+    it "subject should be 'New event submitted'" do
+      @email.subject.should == 'New event submitted'
     end
 
     it_should_behave_like "rubythere.com email"

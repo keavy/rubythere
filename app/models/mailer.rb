@@ -2,26 +2,18 @@ class Mailer < ActionMailer::Base
   include Rails.application.routes.url_helpers
 
   default_url_options[:host] = 'www.rubythere.com'
+  default :from => EMAIL_CONTACT
 
   def new_event_notification(event)
-    setup_email(event.submitter.email)
-
     @url     = edit_admin_event_url(event.id)
-    @subject += 'New event submitted'
     @event   = event
+
+    mail(:to => ENV['EMAIL_USER'], :reply_to => event.submitter.email, :subject => 'New event submitted')
   end
 
   def new_user_notification(user)
-    setup_email
     @user = user
-    @subject    += 'New user registered'
-  end
 
-  protected
-  def setup_email(from = nil, email = nil)
-    @recipients   = "#{email||EMAIL_CONTACT}"
-    @from         = "#{from||EMAIL_CONTACT}"
-    @subject      = "[RubyThere] "
-    @sent_on      = Time.now
+    mail(:to => EMAIL_CONTACT, :subject => 'New user registration')
   end
 end
