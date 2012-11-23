@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def events
-    Event.find(:all).find_all {|e| e.twitter == self.screen_name}
+    Event.find(:all).find_all {|e| e.twitter == self.name}
   end
 
   def editor_for?(event)
