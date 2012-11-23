@@ -21,4 +21,22 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   helper_method :current_user
+
+  def authenticate
+    if !signed_in?
+      deny_access
+    end
+  end
+
+  def authenticate_for_admin
+    deny_access unless signed_in? && current_user.admin?
+  end
+
+  def deny_access
+    redirect_to '/auth/twitter'
+  end
+
+  def signed_in?
+    !current_user.nil?
+  end
 end

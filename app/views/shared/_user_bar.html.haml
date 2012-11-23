@@ -1,1 +1,1 @@
-%p#user_bar= raw "logged in as #{link_to current_user.screen_name, account_path} | #{link_to 'logout', logout_path}"
+%p#user_bar= raw "logged in as #{link_to current_user.name, account_path} | #{link_to 'logout', signout_path}"
