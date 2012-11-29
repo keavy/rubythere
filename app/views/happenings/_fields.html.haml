@@ -49,4 +49,4 @@
         - l_f.object = h_f.object.build_location
       = l_f.input :city
       = l_f.input :state
-      = l_f.country_select :country, ['Anywhere'], {:prompt => 'Please select', :include_blank => true}, {:class => 'country'}
+      = l_f.input :country, :prompt => 'Please select', :include_blank => true, :class => 'country'
