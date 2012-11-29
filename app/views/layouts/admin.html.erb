@@ -4,9 +4,8 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title><%= (yield(:title) || "Admin & Ruby There") %></title>
-	<%= stylesheet_link_tag 'fonts-min','reset-min', 'formtastic', 'formtastic_changes', 'rubythere' %>
-	
-	<%= javascript_include_tag :all %>
+	<%= stylesheet_link_tag 'application' %>
+	<%= javascript_include_tag 'application' %>
   <%= yield :head %>
 </head>
 
