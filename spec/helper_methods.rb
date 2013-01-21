@@ -38,6 +38,15 @@ module HelperMethods
     stub_request(options[:method].to_sym, address).
              to_return(:status => options[:code], :body => body)
   end
+
+  def stub_twitter_profile
+    address=/api.twitter.com\/1.1\/users\/show.json\?screen_name=/
+    result = JSON.parse(fixture_response('twitter_user.json'))
+    response = stub_request(:get, address).
+             to_return(:status => 200, :body => result, :headers => {})
+
+    Twitter::User.new(result.symbolize_keys)
+  end
 end
 
 def stub_geocoding
