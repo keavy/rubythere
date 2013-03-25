@@ -16,6 +16,8 @@ class Location < ActiveRecord::Base
   has_many :venues
   validates_presence_of :country
 
+  attr_accessible :city, :state, :country
+
   before_save :set_lat_long, :on => :create
 
   default_scope :order => 'city, state, country'
