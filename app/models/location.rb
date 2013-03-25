@@ -18,9 +18,10 @@ class Location < ActiveRecord::Base
 
   attr_accessible :city, :state, :country
 
-  before_save :set_lat_long, :on => :create
-
   default_scope :order => 'city, state, country'
+
+  geocoded_by :city_state_country
+  after_validation :geocode
 
   def city_state_country
     output = ""
@@ -31,16 +32,7 @@ class Location < ActiveRecord::Base
     return output
   end
 
-  protected
-    def geocode
-      geocoder = Graticule.service(:google).new ENV['GOOGLE_MAP_KEY']
-      location = geocoder.locate self.city_state_country
-      [location.latitude,location.longitude].join(",")
-    rescue Graticule::AddressError
-      nil
-    end
-
-    def set_lat_long
-      write_attribute :lat_long, self.geocode
-    end
+  def lat_long
+    "#{latitude},#{longitude}"
+  end
 end

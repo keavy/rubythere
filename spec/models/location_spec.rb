@@ -32,24 +32,4 @@ describe Location do
       end
     end
   end
-
-  describe "#before_save on create" do
-    context "with good location details" do
-      describe "sets lat_long" do
-        location = FactoryGirl.build(:location, :city => 'Dublin', :country => 'Ireland')
-        location.stubs(:geocode).returns("50,50")
-        location.save
-        location.lat_long.should == "50,50"
-      end
-    end
-
-    context "with bad location details" do
-      describe "sets lat_long" do
-        location = FactoryGirl.build(:location, :city => 'Internet', :country => 'Brazil')
-        location.stubs(:geocode).returns(nil)
-        location.save
-        location.lat_long.should == nil
-      end
-    end
-  end
 end
