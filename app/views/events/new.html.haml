@@ -2,11 +2,4 @@
 
 %h1 Submit an event
 
-= simple_form_for setup_event(@event), :url => events_path do |f|
-
-  = f.error_messages
-  
-  = render :partial => 'fields', :locals => {:f => f}
-    
-  .submit
-    =image_submit_tag('btn_submit.gif', :alt => 'submit')
+%p Temporary offline
