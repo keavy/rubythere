@@ -29,7 +29,8 @@ GEM
     activesupport (3.2.11)
       i18n (~> 0.6)
       multi_json (~> 1.0)
-    addressable (2.3.2)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     annotate (2.5.0)
       rake
     arel (3.0.2)
@@ -123,6 +124,7 @@ GEM
       omniauth-oauth (~> 1.0)
     pg (0.14.1)
     polyglot (0.3.3)
+    public_suffix (5.0.0)
     rack (1.4.3)
     rack-cache (1.2)
       rack (>= 0.4)
